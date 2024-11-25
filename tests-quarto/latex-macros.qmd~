@@ -1,0 +1,43 @@
+% Created 2023-12-26 Tue 21:39
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IZ}{\mathbb{Z}}
+\newcommand{\IN}{\mathbb{N}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\jdot}[1]{\makebox[#1]{\dotfill}}
+\newcommand{\tog}{\stackrel{<}{\to}}
+\newcommand{\tod}{\stackrel{>}{\to}}
+\newcommand{\pinf}{+\infty}
+\newcommand{\minf}{-\infty}
+\newcommand{\pminf}{\pm\infty}
+\newcommand{\mpinf}{\mp\infty}
+\newcommand{\FI}{\textbf{F.I.} }
+\author{Quentin Lambotte}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Quentin Lambotte},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 29.1 (Org mode 9.6.6)},
+ pdflang={English}}
+\begin{document}
+
+\tableofcontents
+
+\end{document}

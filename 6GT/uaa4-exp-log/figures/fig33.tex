@@ -1,0 +1,32 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+  \tkzInit[xmin=-5,xmax=5,ymin=-5,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=-5:5,line width=1.5pt]{(exp(log(2.5)*\x))}
+\tkzFct[domain=0.001:10,line width=1.5pt]{(log(\x)/log(0.4))}
+\tkzFct[domain=0.001:10,line width=1.5pt]{-(log(\x)/log(0.4))}
+
+
+\end{tikzpicture}
+\end{document}

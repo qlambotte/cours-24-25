@@ -1,0 +1,67 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\usepackage{amsmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  \tkzInit[xmin=-6, xmax=6,ymin=-6,ymax=6]
+  \begin{scope}[dashed]
+    \tkzGrid
+  \end{scope}
+  \tkzDrawX[label={$x$}]
+  \tkzDrawY[label={$y$}]
+  \tkzLabelX
+  \tkzLabelY
+  \tkzFct[line width=2pt, domain=-6:0.99]{(x**2-x-2)/(x-1)}
+  \tkzFct[line width=2pt, domain=1.01:6]{(x**2-x-2)/(x-1)}
+\tkzText[draw,fill=white](4,-4){\Huge Graphique A}
+
+  \begin{scope}[xshift=13cm]
+\tkzInit[xmin=-6, xmax=6,ymin=-6,ymax=6]
+  \begin{scope}[dashed]
+    \tkzGrid
+  \end{scope}
+  \tkzDrawX[label={$x$}]
+  \tkzDrawY[label={$y$}]
+  \tkzLabelX
+  \tkzLabelY
+  \tkzFct[line width=2pt, domain=-6:0.9]{x/(x-1)**2}
+  \tkzFct[line width=2pt, domain=1.1:6]{x/(x-1)**2}
+\tkzText[draw,fill=white](4,-4){\Huge Graphique B}
+
+\end{scope}
+
+\begin{scope}[xshift=0cm,yshift=-13cm]
+\tkzInit[xmin=-6, xmax=6,ymin=-6,ymax=6]
+  \begin{scope}[dashed]
+    \tkzGrid
+  \end{scope}
+  \tkzDrawX[label={$x$}]
+  \tkzDrawY[label={$y$}]
+  \tkzLabelX
+  \tkzLabelY
+  \tkzFct[line width=2pt, domain=-6:0.99]{(3-x**2)/(x-1)}
+  \tkzFct[line width=2pt, domain=1.01:6]{(3-x**2)/(x-1)}
+\tkzText[draw,fill=white](4,-4){\Huge Graphique C}
+\end{scope}
+\begin{scope}[xshift=13cm,yshift=-13cm]
+\tkzInit[xmin=-6, xmax=6,ymin=-6,ymax=6]
+  \begin{scope}[dashed]
+    \tkzGrid
+  \end{scope}
+  \tkzDrawX[label={$x$}]
+  \tkzDrawY[label={$y$}]
+  \tkzLabelX
+  \tkzLabelY
+\tkzFct[line width=2pt, domain=-6:0.99]{(x**3-x+2)/(3*x-3)}
+\tkzFct[line width=2pt, domain=1.01:6]{(x**3-x+2)/(3*x-3)}
+\tkzText[draw,fill=white](4,-4){\Huge Graphique D}
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,24 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=3.0,ymax=3.0,xmin=-3.0 ,ymin=-3.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFct[domain=-3:3,line width=3pt]{x**4/4-x**3/3-x**2}
+   \tkzText(1.5,3.5){\Huge $f$}
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,523 @@
+# Trigonométrie des angles obtus
+## Introduction: rotations et nombres trigonométriques
+Sur le repère ci-dessous,
+
+1) place les points $O=(0;0)$, $I=(1;0)$ et $J=(0;1)$.
+
+2) dessine ensuite le point $P_1$, image du point $I$ par une rotation de centre $O$ et d'angle $+30^\circ$.
+
+3) Fais de même pour les points $P_2$ et $P_3$, images de $I$ par les rotations de centre $O$ et d'angles respectifs $+45^\circ$ et $+60^\circ$.
+
+4) Complète le tableau suivant:
+
++------------+--------------+----------------------+-------------------------------------+
+|    Angle   | Image de $I$ | Coordonnées du point | Nombres trigonométriques de l'angle |
+|            |              +-----------+----------+------------------+------------------+
+|            |              |  abscisse | ordonnée | $\cos$           | $\sin$           |
++============+==============+===========+==========+==================+==================+
+| $30^\circ$ |              |           |          |                  |                  |
++------------+--------------+-----------+----------+------------------+------------------+
+| $45^\circ$ |              |           |          |                  |                  |
++------------+--------------+-----------+----------+------------------+------------------+
+| $60^\circ$ |              |           |          |                  |                  |
++------------+--------------+-----------+----------+------------------+------------------+
+|            | $J$          |           |          |                  |                  |
++------------+--------------+-----------+----------+------------------+------------------+
+: {.stripped .bordered}
+
+![](figures/CT){width="55%" fig-align="center"} 
+
+On observe, grâce au tableau, que l'image $P$ de $I$ par une rotation de centre $O$ et d'angle $\alpha$ (compris en 0 et 90 degrés) a pour coordonnées: $P=(\jdot{2cm};\jdot{2cm})$.
+
+:::{#exr-rot}
+1) Dessine, dans le repère ci-dessous, les points $P_4$, $P_5$, $P_6$, ..., images du point $I$ par rotation de centre $O$ et d'angles $-30^\circ$, $-45^\circ$, $120^\circ$, $135^\circ$, $180^\circ$, $210^\circ$, $270^\circ$, $360^\circ$.
+
+2) En te basant sur l'observation faite à partir du tableau de la page précédente, complète le tableau suivant.
+
++-------------+--------------+----------------------+
+|    Angle    | Image de $I$ | Coordonnées du point |
+|             |              +-----------+----------+
+|             |              |  abscisse | ordonnée |
++=============+==============+===========+==========+
+| $-30^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+| $-45^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+| $120^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+| $135^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+| $180^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+| $210^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+| $270^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+| $360^\circ$ |              |           |          |
++-------------+--------------+-----------+----------+
+:::
+
+![](figures/CT2){width="75%" fig-align="center"} 
+
+## Angles orientés
+Les angles sont utiles pour discuter des mouvement circulaires. Les
+angles permettent de décrire des rotations, le mouvement d'un passager
+d'une grande roue, le mouvement de la valve d'un pneu de voiture, etc.
+
+Afin d'être le plus précis possible, il est utile d'utiliser la notion
+d'angle orienté. Cette notion permettra de distinguer, concernant la
+valve d'un pneu d'une voiture, lorsqu'elle tourne en allant de l'avant ou
+lorsqu'elle toune en allant en arrière.
+
+:::{#def-angles}
+Un _angle_ $\alpha$ est donné à l'aide de deux rayons $\overline{OA}$ et
+$\overline{OB}$. Cet angle peut représenter deux rotations: une qui
+va de $A$ vers $B$ et l'autre de $B$ vers $A$.
+
+![](figures/fig17){width="30%" fig-align="center"} 
+
+Un _angle orienté_ sera donné par deux rayons $\overline{OA}$ et
+$\overline{OB}$. L'un des rayons sera l'origine et l'autre
+l'extrémité, ce qui permettra de préciser le sens de la rotation.
+Si la rotation se fait dans le sens contraire des aiguilles d'une
+montre (*dans le sens trigonométrique*), alors $\alpha\ge0$. Dans le cas
+contraire, $\alpha<0$.
+
+![](figures/fig18){width="60%" fig-align="center"} 
+
+:::
+
+
+## Le cercle trigonométrique
+
+:::{#def-ct}
+Le cercle trigonométrique est un cercle de rayon 1 centré à l'origine d'un
+repère. Ce cercle sera utilisé pour représenter les angles orientés, en prenant
+toujours comme origine le point (1;0). De plus, ce cercle sera utilisé plus tard pour
+définir les nombres trigonométriques ($\sin$, $\cos$ et $\tan$). Pour
+représenter les tangentes, on ajoutera un axe vertical passant par $(0;1)$.
+
+![](figures/CT){width="40%" fig-align="center"} 
+
+:::
+Le cercle trigonométrique est découpé en quatre parties appelées *quadrants*.
+
+![](figures/fig19){width="100%" fig-align="center"} 
+
+
+## Sinus et cosinus dans le cercle trigonométrique
+### Définition
+
+:::{#def-sincos}
+Soit $\alpha$ un angle et $P$ le point correspondant sur le cercle
+trigonométrique. Alors:
+
+1. le _cosinus_ de $\alpha$, noté $\cos(\alpha)$, est l'abscisse du point $P$
+2. le _sinus_ de $\alpha$, noté $\sin(\alpha)$, est l'ordonnée du point $P$
+
+![](figures/fig20){width="50%" fig-align="center"} 
+:::
+
+::::::{#exm-sincos}
+::::: {layout="[0.6, 0.4]"}
+::: {#firstcol}
+![](figures/fig21){width="100%" fig-align="center"} 
+
+:::
+
+::: {#secondcol}
+1) Quand le point $P$ s'approche du point $(1;0)$, l'angle $\alpha$ s'approche de $0^\circ$. Donc 
+
+   $\cos(0)=\jdot{2cm}$
+
+   $\sin(0)=\jdot{2cm}$
+
+2) Quand le point $P$ s'approche du point $(0;1)$, l'angle $\alpha$ s'approche de $90^\circ$. Donc 
+
+   $\cos(90)=\jdot{2cm}$
+
+   $\sin(90)=\jdot{2cm}$
+:::
+:::::
+::::::
+
+
+### Représentation dans chaque quadrant
+![](figures/fig22){width="80%" fig-align="center"} 
+
+
+:::{#exr-signe-sincos}
+Complète les pointillés avec les symboles $<$ et $>$.
+![](figures/fig23){width="40%" fig-align="center"} 
+
+
+:::
+### Valeurs extrêmes et valeurs particulières
+:::{#exr-valeurs-extr}
+Sur base des dessins de la page précédente, complète les inégalités suivantes: quel que soit l'angle $\alpha\in[0^\circ;360^\circ]$
+
+$$
+\jdot{2cm}\le\cos(\alpha)\le\jdot{2cm}\text{ et } \jdot{2cm}\le\sin(\alpha)\le\jdot{2cm}
+$$
+:::
+
+Tu as rencontré en 3e des valeurs particulières de sinus et cosinus. Ces valeurs doivent être connues par coeur.
+![](figures/fig24){width="80%" fig-align="center"} 
+
+### Utilisation de la calculatrice
+On a vu au chapitre précédent que la calculatrice permet d'obtenir un angle étant donné une valeur pour le sinus ou le cosinus, via les touches \texttt{arcsin} et \texttt{arccos} (parfois notées \texttt{sin\textsuperscript{-1}} et \texttt{cos\textsuperscript{-1}})
+
+![](figures/fig25){width="100%" fig-align="center"} 
+
+{{< pagebreak >}}
+
+### Relation fondamentale
+
+:::{#thm-fml-fond}
+Quel que soit l'angle $\alpha\in[0^\circ;360^\circ]$, $\sin^2(\alpha)+\cos^2(\alpha)=1$
+:::
+
+:::{.proof}
+La démonstration de cette formule consiste à appliquer le théorème de Pythagore:
+
+![](figures/fig26){width="50%"} 
+
+:::
+{{< pagebreak >}}
+
+### Exercices
+:::{#exr-}
+Représente sur le cercle trigonométrique les angles d’amplitude 20°, -20°, 120°,
+-90°, -180°, 225° et 330° ainsi que leur sinus et leur cosinus.
+
+![](figures/fig27){width="100%" fig-align="center"} 
+
+:::
+{{< pagebreak >}}
+
+:::::: {#exr-}
+Vrai ou faux ? Justifie.
+
+::::: {layout="[0.6, 0.4]"}
+
+
+::: {#firstcol}
+1) Si $90^\circ<\alpha <180^\circ$, alors $\cos(\alpha)<0$.
+
+2) Si $270^\circ<\alpha <360^\circ$, alors $\sin(\alpha)>0$.
+
+3) Si $180^\circ<\alpha <270^\circ$, alors $\sin(\alpha)$ est négatif.
+:::
+::: {#secondcol}
+![](figures/fig28){width="60%" fig-align="center"} 
+
+:::
+:::::
+::::::
+
+:::::::{#exr-quad}
+Dans quel quadrant se trouve $\alpha$ sachant que:
+
+::::: {layout="[0.6, 0.4]"}
+:::{#firstcol}
+1) $\sin(\alpha)<0$ et $\cos(\alpha)<0$?
+
+2) $\sin(\alpha)<0$ et $\cos(\alpha)>0$?
+
+3) $\sin(\alpha)>0$ et $\cos(\alpha)>0$?
+:::
+:::{#secondcol}
+
+![](figures/fig28){width="100%" fig-align="center"} 
+
+:::
+
+:::::
+
+:::::::
+
+::::::{#exr-}
+Complète par $=$ ou $\neq$.
+
+::::: {layout="[0.7, 0.3]"}
+::: {#firstcol}
+
+1) $\sin(20)\jdot{2cm}\sin(120)$
+
+2) $\cos(60)\jdot{2cm}\sin(30)$
+
+3) $\cos(160)\jdot{2cm}-\cos(20)$
+
+:::
+::: {#secondcol}
+![](figures/fig28){width="60%" fig-align="center"} 
+
+:::
+:::::
+::::::
+{{< pagebreak >}}
+
+:::{#exr-}
+Représente sur les cercles trigonométriques ci-dessous les angles correspondants aux informations données.
+
+![](figures/fig29){width="100%" fig-align="center"} 
+
+:::
+{{< pagebreak >}}
+
+:::{#exr-}
+Détermine l’amplitude des angles (entre 0° et 360°) dont les nombres
+trigonométriques sont donnés ci-dessous après avoir visualisé la situation sur
+le cercle trigonométrique. Arrondis au dixième près si nécessaire.
+
+![](figures/fig30){width="100%" fig-align="center"} 
+
+:::
+{{< pagebreak >}}
+
+::::::{#exr-}
+Sachant que $\cos(60^\circ) = \dfrac{1}{2}$ , complète les égalités suivantes (commence par représenter tous les angles dans le cercle trigonométrique).
+
+::::: {layout="[0.6, 0.4]"}
+
+
+::: {#firstcol}
+1) $\cos(-60)=\jdot{2cm}$
+
+2) $\cos(120)=\jdot{2cm}$
+
+4) $\cos(300)=\jdot{2cm}$
+
+5) $\cos(240)=\jdot{2cm}$
+:::
+::: {#secondcol}
+![](figures/fig28){width="100%" fig-align="center"} 
+
+:::
+:::::
+::::::
+
+::::::{#exr-}
+Sachant que $\sin(45^\circ) = \dfrac{\sqrt{2}}{2}$ , complète les égalités suivantes (commence par représenter tous les angles dans le cercle trigonométrique).
+
+::::: {layout="[0.6, 0.4]"}
+
+
+::: {#firstcol}
+1) $\sin(-45)=\jdot{2cm}$
+
+2) $\sin(135)=\jdot{2cm}$
+
+3) $\sin(225)=\jdot{2cm}$
+
+4) $\sin(315)=\jdot{2cm}$
+
+:::
+::: {#secondcol}
+![](figures/fig28){width="100%" fig-align="center"} 
+
+:::
+:::::
+::::::
+
+
+
+:::{#exr-}
+Sachant que $\alpha\in\text{QII}$ et que $\sin(\alpha) = \dfrac{4}{5}$, calcule la valeur exacte de $\cos(\alpha)$ en
+utilisant la formule fondamentale de trigonométrie.
+:::
+
+:::{#exr-}
+Sachant que $\alpha\in\text{QIII}$ et que $\cos(\alpha) = \dfrac{-2}{3}$, calcule la valeur exacte de $\sin(\alpha)$ en
+utilisant la formule fondamentale de trigonométrie.
+:::
+
+{{< pagebreak >}}
+
+## Tangente dans le cercle trigonométrique
+### Introduction: la tangente dans le premier quadrant
+Tu as vu en 3e une définition de la tangente d'un angle dans un triangle rectangle.
+
+![](figures/fig3){width="50%" fig-align="center"} 
+
+Le but de ce chapitre est de définir la tangente d'un angle, au delà des angles aigus. Nous allons d'abord analyser la situation des angles aigus dans le cercle trigonométrique, puis généraliser pour les angles obtus.
+
+![](figures/fig36){width="50%" fig-align="center"} 
+
+Sur cette figure, on observe deux triangles rectangles: le triangle $OPA$, rectangle en $A$ et $OTB$, rectangle en $B$. On peut donc calculer la tangente de $\alpha$ dans ces deux triangles:
+
+1) dans $OPA$, $\tan(\alpha)=$
+
+2) dans $OTB$, $\tan(\alpha)=$
+
+Ainsi, pour calculer la tangente, il suffit de calculer \dotfill.
+
+En effet, le calcul de la tangente d'un angle de dépend pas du triangle rectangle dans lequel on trouve l'angle $\alpha$.
+
+De plus, on ré-observe un lien fort entre la tangente, le sinus et le cosinus: $\tan(\alpha)=\dfrac{\sin(\alpha)}{\cos(\alpha)}$. Donc pour calculer la tangente, on peut utiliser les autres nombres trigonométriques!
+
+### Définition
+:::{#def-tan}
+Soit $\alpha$ un angle et $P$ le point correspondant sur le cercle trigonométrique. Soit $T$ le point d'intersection entre la droite $OP$ et l'axe des tangentes (la droite verticale passant par le point $(1;0)$). Alors, $\tan(\alpha)$ est l'ordonnée du point $T$.
+![](figures/fig32){width="40%" fig-align="center"} 
+
+:::
+
+:::{.callout-important}
+## Condition d'existence
+La tangente d'un angle n'existe pas toujours. En effet pour les angles $90^\circ$ et $270^\circ$, il n'est pas possible de construire une intersection avec l'axe des tangentes.
+![](figures/CTT){width="40%" fig-align="center"} 
+
+Ainsi, la tangente doit satisfaire une condition d'existence: $\tan(\alpha)$ existe à condition que $\alpha\neq 90$ et $\alpha\neq 270$.
+:::
+
+La relation suivante donne un lien entre les différents nombres trigonométriques.
+
+:::{#thm-tan}
+Quel que soit $\alpha\in[0;360]$, si $\alpha\neq 90$ et $\alpha\neq 270$, alors
+
+$$
+\tan(\alpha)=\dfrac{\sin(\alpha)}{\cos(\alpha)}.
+$$
+:::
+
+### Représentation dans chaque quadrant
+![](figures/fig34){width="65%" fig-align="center"} 
+
+:::{#exr-signe-sincos}
+Complète les pointillés avec les symboles $<$ et $>$.
+![](figures/fig33){width="40%" fig-align="center"} 
+:::
+
+### Valeurs extrêmes et valeurs particulières
+On a vu que le sinus et le consinus d'un angle est toujours compris entre -1 et 1. Qu'en est-il pour la tangente?
+
+::::::{#exr-valtan}
+A l'aide de la calculatrice, calcule les tangentes suivantes:
+
+::::: {layout="[0.33, 0.33, 0.34]"}
+
+
+::: {#firstcol}
+1) $\tan(89)=$ \dotfill
+
+2) $\tan(89,9)=$ \dotfill
+
+3) $\tan(89,99)=$ \dotfill
+
+4) $\tan(89,9999)=$ \dotfill
+
+5) $\tan(90)=$ \dotfill
+:::
+::: {#secondcol}
+6) $\tan(90,0001)=$ \dotfill
+
+2) $\tan(90,001)=$ \dotfill
+
+3) $\tan(90,01)=$ \dotfill
+
+4) $\tan(270,01)=$ \dotfill
+
+5) $\tan(270,001)=$ \dotfill
+
+:::
+
+::: {#thirdcol}
+11) $\tan(270,0001)=$ \dotfill
+
+2) $\tan(269,9)=$ \dotfill
+
+3) $\tan(269,99)=$ \dotfill
+
+4) $\tan(269,999)=$ \dotfill
+
+5) $\tan(269,9999)=$ \dotfill
+
+:::
+:::::
+
+
+::::::
+
+En conclusion, la $\tan(\alpha)$ peut prendre \dotfill
+
+
+Aux valeurs particulières des sinus et cosinus s'ajoutent les valeurs particulières des tangentes. Elles doivent aussi être connues par coeur.
+
+![](figures/fig35){width="100%" fig-align="center"} 
+
+### Exercices
+
+:::{#exr-}
+Représente sur le cercle trigonométrique les angles d’amplitude $25^\circ$, $130^\circ$,
+$225^\circ$ et $330^\circ$ ainsi que leur tangente.
+
+![](figures/fig31){width="100%" fig-align="center"} 
+
+:::
+
+::::::{#exr-}
+Complète par $>$, $<$ ou $=$.
+
+::::: {layout="[0.6, 0.4]"}
+
+
+::: {#firstcol}
+1) $\tan(-45)\jdot{2cm}0$
+
+2) $\tan(35)\jdot{2cm}0$
+
+3) $\tan(150)\jdot{2cm}0$
+
+:::
+::: {#secondcol}
+1) $\tan(250)\jdot{2cm}0$
+
+2) $\tan(180)\jdot{2cm}0$
+
+3) $\tan(-20)\jdot{2cm}0$
+:::
+:::::
+::::::
+
+
+:::{#exr-}
+Sans passer par le calcul de l’angle, représente dans le cercle trigonométrique
+les angles pour lesquels $\tan(\alpha) = 0,9$.
+
+![](figures/CTT){width="50%" fig-align="center"} 
+
+:::
+
+::::::{#exr-}
+Sachant que $\tan(40) \simeq 0,4$, détermine la valeur approximative des tangentes
+suivantes.
+
+::::: {layout="[0.6, 0.4]"}
+
+
+::: {#firstcol}
+1) $\tan(140)\simeq\jdot{2cm}$
+
+2) $\tan(220)\simeq\jdot{2cm}$
+
+3) $\tan(320)\simeq\jdot{2cm}$
+
+:::
+::: {#secondcol}
+![](figures/CTT){width="50%" fig-align="center"} 
+
+:::
+:::::
+::::::
+
+:::{#exr-}
+A l’aide de la calculatrice, détermine l’amplitude des angles (entre 0° et 360°) dont
+la tangente vaut 0,5. Arrondis au dixième près si nécessaire. 
+:::
+
+
+:::{#exr-}
+Sachant que $\alpha\in\text{QIII}$ et que $\sin(\alpha) = \dfrac{-4}{5}$, calcule la valeur exacte de $\cos(\alpha)$ en
+utilisant la formule fondamentale de trigonométrie. Calcule ensuite $\tan(\alpha)$.
+:::

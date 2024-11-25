@@ -1,0 +1,29 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(9,0){B}
+    \tkzDefPoint(9,5){C}
+    \tkzDefPoint(1.01,2.93){D}
+    \tkzDrawSegment(A,B)
+    \tkzDrawPoints(A,B,C,D)
+    \tkzLabelPoints[below left](A)
+    \tkzLabelPoints[below right](B)
+    \tkzDrawSegments(B,C C,D A,D)
+    \tkzLabelPoints[above right](C)
+    \tkzLabelPoints[above left](D)
+    \tkzMarkRightAngle[size=1,draw](A,B,C)
+    \tkzLabelSegment[right](C,B){$5$m}
+    \tkzLabelSegment[below](B,A){$9$m}
+    \tkzLabelSegment[above](D,C){$8,25$m}
+    \tkzLabelSegment[above left](A,D){$3,1$m}
+\end{tikzpicture}
+\end{document}

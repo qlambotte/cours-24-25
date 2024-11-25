@@ -1,0 +1,20 @@
+% Driver to create a pdf which shows in each verso page
+% a "notes" page (taken from \notelayout), and in 
+% each recto page a different page (taken from \maindocument)
+\documentclass[a4paper]{report}
+\usepackage{graphicx}
+\usepackage{pdfpages}
+\usepackage{pgffor}
+
+\newcommand{\notelayout}{quad.pdf}
+\newcommand{\maindocument}{4UAA3--Trigonométrie.pdf}
+
+\begin{document}
+
+% Main loop
+\foreach \pag in {1,...,14}
+{
+  \includepdf[pages=\pag]{\maindocument}
+  \includepdf[pages=1]{\notelayout}
+} 
+\end{document}

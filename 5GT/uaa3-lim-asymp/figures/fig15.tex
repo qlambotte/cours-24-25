@@ -1,0 +1,47 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=4.0,ymax=3.0,xmin=-4.0 ,ymin=-3.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFctPar[line width=2pt,samples=400,domain=0:1]{((9007199254740995*t**3 - 19297242039702675*t**2 + 32808040921814160*t - 18014398509481984)/4503599627370496)}{(-(1353331688024834*t**3 - 6089992596111753*t**2 + 8119990128149004*t - 2257429313219461)/1125899906842624)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((225179981368526*t**3 - 337769972052789*t**2 + 675539944105575*t + 2251799813685248)/2251799813685248)}{((1801439850948199*t**3 + 2702159776422297*t**2 - 9007199254740992)/9007199254740992)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((450359962737049*t**3 + 135107988821115*t**2 + 540431955284460*t + 5629499534213120)/4503599627370496)}{((t - 1)*(1801439850948199*t**2 + 180143985094816*t + 4503599627370496)/9007199254740992)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((2251799813685248*t**3 + 675539944105575*t**2 + 2702159776422297*t + 3377699720527872)/2251799813685248)}{(t*(3242591731706759*t**2 - 5944751508129057*t + 10808639105689191)/9007199254740992)}
+
+   
+                \tkzDefPoint(-4.0,1.0){A}
+
+                \tkzDefPoint(4.0,1.0){B}
+
+                \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+
+                
+                \tkzDefPoint(-4.0,2.0){A}
+
+                \tkzDefPoint(1.0,-3.0){B}
+
+                \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+
+                
+   
+
+   \tkzText(2,2){\Huge$f$}
+
+\end{tikzpicture}
+\end{document}
+
+    

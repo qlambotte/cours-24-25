@@ -1,0 +1,75 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+\tkzInit[xmin=-10,xmax=10,ymin=-10,ymax=10]
+\tkzDrawX[noticks]
+\tkzDrawY[noticks]
+   \tkzSetUpPoint[size=5]
+   \tkzFct[domain=-2.30258509299:10,line width=1.5pt]{(1/exp(x))}
+   \tkzDefPointByFct[draw](0)
+   \tkzLabelPoint[below left](tkzPointResult){$(0;1)$}
+   \tkzDefPointByFct[draw](1)
+   \tkzLabelPoint[above right](tkzPointResult){$(1;a)$}
+   \tkzDefPointByFct[draw](-1)
+   \tkzLabelPoint[left](tkzPointResult){$\left(-1;\dfrac{1}{a}\right)$}
+   \tkzFct[domain=0.00004539992:10,line width=1.5pt]{(-log(x))}
+
+   \tkzDefPointByFct[draw](0.36787944117)
+   \tkzLabelPoint[above right](tkzPointResult){$\left(\dfrac{1}{a};-1\right)$}
+   \tkzDefPointByFct[draw](1)
+   \tkzLabelPoint[below left](tkzPointResult){$(1;0)$}
+   \tkzDefPointByFct[draw](2.71828182846)
+   \tkzLabelPoint[below](tkzPointResult){$(a;1)$}
+
+   \tkzFct[domain=-10:10,line width=1.5pt, dashed]{(x)}
+   \tkzText[above ](-1.4,8.3){$y=a^{x}$}
+   \tkzText[above left](8,8.3){$y=x$}
+   \tkzText[above left](9,-1.8){$y=\log_{a}(x)$}
+   \tkzText[draw,fill=white](-5,-5){\Huge$0<a<1$}
+   \tkzText[draw,text width=6cm](-6,6){%\
+     Propriétés de $f(x)=a^{x}$:\\\ $\bullet$
+     $\text{Dom}(f)=\mathbb{R}$\\\
+     $\bullet$ $ \text{Im}(f)=\mathbb{R}^{>0}$\\\
+     $\bullet$ pas de racine\\\
+     $\bullet$ o.à.o $=1$\\\
+     $\bullet$ strictement décroissante\\\
+     $\bullet$ $\lim\limits_{x\to+\infty} a^{x}=0$\\\
+     $\bullet$ $\lim\limits_{x\to-\infty} a^{x}=+\infty$\\\
+     $\bullet$ $AH_{+\infty}\equiv y=0$\\\
+     $\bullet$ pas d'asymptote verticale\\\
+     $\bullet$ pas d'asymptote oblique \\\
+     $\bullet$ dérivable sur $\mathbb{R}$: $(a^{x})'=\ln(a)a^{x}$\\\
+      $\bullet$ concavité vers le haut
+    }
+    \tkzText[draw,text width=7cm](6,-6){%\
+     Propriétés de $g(x)=\log_{a}(x)$:\\\ $\bullet$
+     $\text{Dom}(f)=\mathbb{R}^{{>0}}$\\\
+     $\bullet$ $ \text{Im}(f)=\mathbb{R}$\\\
+     $\bullet$ une racine: $1$\\\
+     $\bullet$ pas d'o.à.o \\\
+     $\bullet$ strictement décroissante\\\
+     $\bullet$ $\lim\limits_{x\to+\infty} \log_{a}(x)=-\infty$\\\
+     $\bullet$ $\lim\limits_{x\to 0}\log_{a}(x)=+\infty$\\\
+     $\bullet$ $AV\equiv x=0$\\\
+     $\bullet$ pas d'asymptote horizontale\\\
+     $\bullet$ pas d'asymptote oblique \\\
+     $\bullet$ dérivable sur $\mathbb{R}^{>0}$: $(\log_{a}(x))'=\dfrac{1}{\ln(a)x}$\\\
+      $\bullet$ concavité vers le haut
+   }
+
+\end{tikzpicture}
+\end{document}

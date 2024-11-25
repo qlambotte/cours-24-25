@@ -1,0 +1,29 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+  \tkzInit[xmin=-2,xmax=11,ymin=-5,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+
+
+\end{tikzpicture}
+\end{document}

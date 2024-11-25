@@ -1,0 +1,16 @@
+---
+title: "examen"
+format:
+  pdf:
+    keep-tex: true
+filters:
+  - latex-environment
+environments: question
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+![](figures/fig2){width="45%" fig-align="center"}
+

@@ -1,0 +1,15 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}
+  \tkzTabInit[lgt=3,espcl=6]{$x$ /1 , signe de $\ldots$ /1, var. de $f$/1}{$-\infty$, ,$+\infty$}
+
+\end{tikzpicture}
+\end{document}

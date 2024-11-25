@@ -1,0 +1,24 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\usepackage{amsmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=5.0,ymax=9.0,xmin=-5.0 ,ymin=-2.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFct[line width=2pt,domain=-5:5]{(x**2-1)}
+   \tkzFct[line width=2pt,domain=-1:5]{(sqrt(x+1))}
+\end{tikzpicture}
+\end{document}

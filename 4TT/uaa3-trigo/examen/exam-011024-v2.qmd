@@ -1,0 +1,108 @@
+---
+lang: fr
+format: 
+  html: 
+    code-fold: true
+    html-math-method: katex
+    default-image-extension: svg
+  pdf: 
+    template: exam-template.tex
+    default-image-extension: pdf
+    papersize: a4
+    include-in-header:
+        - text: |
+           \usepackage{exam-conf}
+           \renewcommand{\arraystretch}{1.2}
+           \period{{1 -- 2} -- {3 -- 4} -- \Circled{5} -- 6 -- {7 -- 8}}
+           \materiel{calculatrice}
+           \testsection{4TTi}
+           \testdate{1er octobre 2024}
+           \testlastname{}
+           \testfirstname{}
+  docx: 
+    default-image-extension: svg
+jupyter: python3
+filters:
+  - latex-environment
+environments: question
+---
+
+::: {.content-hidden}
+$$
+{{< include latex-macros.tex >}}
+$$
+:::
+
+
+::: {.question mark=4}
+
+Soit $ABC$ le triangle représenté ci-dessous. 
+
+![](figures/fig2.pdf){width="45%" fig-align="center"}
+
+Coche les formules qui sont correctes pour le triangle $ABC$. **ATTENTION!** Une mauvaise réponse te fera perdre 0,5 point.
+
+```{=latex}
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+$\square$ & $\dfrac{\sin(c)}{\gamma}=\dfrac{\sin(a)}{\alpha}=\dfrac{\sin(b)}{\beta}$\\ \hline
+$\square$ & $b^2=a^2+c^2$ \\ \hline
+$\square$ & $a\sin(\beta)=b\sin(\alpha)$ \\ \hline
+
+$\square$ & $b^2=c^2+a^2+2ac\cos(\beta)$ \\ \hline
+$\square$ & $\dfrac{c}{\sin(\gamma)}=\dfrac{a}{\sin(\alpha)}=\dfrac{b}{\sin(\beta)}$ \\ \hline
+$\square$ & $180^\circ -(\alpha+\beta)=\gamma$ \\ \hline
+
+$\square$ & $a\sin(\gamma)=c\sin(\alpha)$ \\ \hline
+$\square$ & $2ab\cos(\gamma)=c^2-a^2-b^2$ \\ \hline
+
+\end{tabular}
+\end{center}
+```
+
+:::
+
+::: {.question mark=2}
+Soit $ABC$ un triangle tel que $c=30$, $b=40$ et $\alpha=30^\circ$. Calcule l'aire de ce triangle. Arrondis ta réponse finale au centième.
+:::
+{{< pagebreak >}}
+
+:::{.question mark=3}
+Dans le triangle $ABC$ suivant, tu connais les côtés $a$, $b$  et $c$. Explique comment trouver les données manquantes.
+![](figures/fig9.pdf){width="45%" fig-align="center"}
+
+1) Pour trouver l'angle $\alpha$:
+\vspace{4cm}
+
+2) Pour trouver l'angle $\beta$:
+\vspace{4cm}
+
+3) Pour trouver l'angle $\gamma$:
+\vspace{4cm}
+
+:::
+{{< pagebreak >}}
+
+::: {.question mark=4}
+Soit $ABC$ le triangle représenté ci-dessous. 
+![](figures/fig6-1.pdf){width="45%" fig-align="center"}
+
+Un élève affirme que $\alpha=81.79^\circ$ (en arrondissant au centième). Vérifie sa réponse à l'aide de la loi des sinus. **Donne tous les détails de ton calcul.** Structure ta réponse et arrondis ta réponse finale au centième.
+\vspace{10cm}
+
+:::
+
+{{< pagebreak >}}
+
+::: {.question mark=7}
+Soit $ABC$ un triangle tel que $a=5$ cm, $b=8$ cm et $\gamma=60^\circ$.
+
+1) Réprésente ce triangle à l'échelle. Nomme correctement les différents éléments du triangle.
+\vspace{8cm}
+
+2) En utilisant la loi des cosinus, calcule le côté $c$. **Donne tous les détails de ton calcul.** Structure ta réponse et arrondis ta réponse finale au centième.
+\vspace{10cm}
+
+:::
+

@@ -1,0 +1,36 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=5.0,ymax=5.0,xmin=-5.0 ,ymin=-5.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFctPar[line width=2pt,samples=400,domain=0:1]{(2*(t - 2))}{(-2*(t - 1))}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((t - 1)*(1801439850948199*t**2 - 643371375338642*t + 4503599627370496)/2251799813685248)}{(-t*(1801439850948199*t**2 - 8106479329266894*t + 10808639105689191)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{(t*(3602879701896398*t**2 - 5404319552844597*t + 10808639105689191)/4503599627370496)}{((t - 1)*(1801439850948199*t**2 + 4503599627370496*t + 4503599627370496)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{(t + 2)}{(2*t)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((900719925474098*t**3 - 1351079888211147*t**2 + 2702159776422297*t + 6755399441055744)/2251799813685248)}{((900719925474101*t**3 - 2702159776422300*t**2 + 4053239664633447*t + 4503599627370496)/2251799813685248)}
+
+   
+   \tkzDrawPoint[size=10,color=black,fill=black](-4.0,2.0)
+\tkzDrawPoint[size=10,color=black,fill=black](4.0,3.0)
+
+
+   \tkzText(3,4){\Huge$f$}
+
+\end{tikzpicture}
+\end{document}
+
+    

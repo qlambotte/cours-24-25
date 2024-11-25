@@ -1,0 +1,77 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{numprint}
+\usepackage{amsmath}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+
+\begin{document}
+\begin{tikzpicture}[yscale=1, xscale=1]
+  \tkzInit[xmin=-3,xmax=3,ymin=0,ymax=4, ystep=1, xstep=1]
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+
+   \tkzFct[domain=-3:3,line width=1.5pt]{(exp(log(2.5)*x))}
+ \begin{scope}[xshift=8cm]
+   \tkzInit[xmin=-3,xmax=3,ymin=0,ymax=4, ystep=1, xstep=1]
+      \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+
+   \tkzFct[domain=-3:3,line width=1.5pt]{(exp(-log(2.5)*x))}
+ \end{scope}
+  \begin{scope}[xshift=7cm, yshift=-6cm]
+    \tkzInit[xmin=-2,xmax=4,ymin=0,ymax=4, ystep=1, xstep=1]
+       \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+
+   \tkzFct[domain=-2:4,line width=1.5pt]{(exp(log(1.2)*x))}
+ \end{scope}
+   \begin{scope}[ yshift=-2cm]
+    \tkzInit[xmin=-3,xmax=3,ymin=-8,ymax=0, ystep=2, xstep=1]
+       \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+   \tkzFct[domain=-3:1.3,line width=1.5pt]{(-2*exp(log(3)*x))}
+ \end{scope}
+\begin{scope}[ yshift=-15cm]
+    \tkzInit[xmin=-3,xmax=3,ymin=0,ymax=7, ystep=1, xstep=1]
+       \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+   \tkzFct[domain=-3:1.3,line width=1.5pt]{(3*exp(log(2)*x))}
+ \end{scope}
+ \begin{scope}[xshift=8cm, yshift=-15cm]
+    \tkzInit[xmin=-3,xmax=3,ymin=0,ymax=7, ystep=1, xstep=1]
+       \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+   \tkzFct[domain=-0.8:3,line width=1.5pt]{(4*exp(log(0.5)*x))}
+\end{scope}
+\end{tikzpicture}
+\end{document}

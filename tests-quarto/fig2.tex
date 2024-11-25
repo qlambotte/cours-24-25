@@ -1,0 +1,13 @@
+
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=10.0,ymax=100.0,xmin=0.0 ,ymin=0.0, ystep=10]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFct[line width=2pt,domain=0:10]{(\x)**2}
+
+\end{tikzpicture}

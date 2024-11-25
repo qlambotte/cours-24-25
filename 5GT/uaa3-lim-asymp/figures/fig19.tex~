@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\usepackage{amsmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  \tkzInit[xmin=-7, xmax=7,ymin=-7,ymax=7]
+  \begin{scope}[dashed]
+    \tkzGrid
+  \end{scope}
+  \tkzDrawX[label={$x$}]
+  \tkzDrawY[label={$y$}]
+  \tkzLabelX
+  \tkzLabelY
+  \tkzFct[domain:-7:-0.55]{2.5+1/(x+0.5)}
+  \tkzFct[domain:-0.55:7]{2.5+1/(x+0.5)}
+\end{tikzpicture}
+\end{document}

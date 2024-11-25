@@ -1,0 +1,41 @@
+\documentclass{standalone}
+\usepackage[french]{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\usepackage{amsmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  \tkzInit[xmin=0, xmax=1100,ymin=-100,ymax=600,xstep=50,ystep=50]
+
+  \tkzDrawX[noticks,label={$x$}]
+  \tkzDrawY[noticks,label={$y$}]
+  \tkzHTick[mark=|]{1000}
+   \tkzText(1000,-30){\Huge 1000}
+ \tkzText[draw, fill=white](500,400){\Huge Graphique de $f$}
+\tkzDefPoint(0,-1){A}
+  \tkzDefPoint(1100,549){B}
+  \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+  \tkzFct[line width=2pt,domain=0.:299]{\x/2-1+5000*\x/((\x+1)*(\x-300))}
+  \tkzFct[line width=2pt,domain=300.99:1100]{\x/2-1+5000*\x/((\x+1)*(\x-300))}
+  \begin{scope}[xshift=-25cm]
+      \tkzInit[xmin=0, xmax=1100,ymin=-100,ymax=600,xstep=50,ystep=50]
+
+  \tkzDrawX[noticks,label={$x$}]
+  \tkzDrawY[noticks,label={$y$}]
+  \tkzHTick[mark=|]{1000}
+   \tkzText(1000,-30){\Huge 1000}
+ \tkzText[draw, fill=white](400,400){\Huge Graphique de $g$}
+\tkzDefPoint(0,-1){A}
+  \tkzDefPoint(1100,549){B}
+  \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+  \tkzFct[line width=2pt,domain=0.:299]{\x/2-1+50000*\x / (\x**2 + 1)}
+  \tkzFct[line width=2pt,domain=300.99:1100]{\x/2-1+50000*\x / (\x**2 + 1)}
+
+  \end{scope}
+\end{tikzpicture}
+\end{document}

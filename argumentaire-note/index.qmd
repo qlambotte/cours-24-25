@@ -1,0 +1,22 @@
+---
+title: L'évaluation sans notes ni moyennes
+authors:
+  - name: Q. Lambotte
+    affiliation: The University
+    roles: writing
+    corresponding: true
+bibliography: references.bib
+---
+
+## Introduction
+
+- xp perso
+- ce qu'est ce texte
+- problematique
+- pisteslkj
+
+## Pourquoi les notes ne sont pas des nombres
+
+## Pourquoi prendre la moyenne de notes n'a pas de sens
+
+## Quelles sont les alternatives?

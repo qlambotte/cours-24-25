@@ -1,0 +1,20 @@
+\documentclass[tikz,border=5mm]{standalone}
+\begin{document}
+
+\begin{tikzpicture}
+    % Définition des tailles des carrés
+    \def\sizeA{2}
+    \def\sizeB{1}
+    \def\sizeC{0.5}
+    \def\sizeD{0.25}
+    \def\sizeE{0.125}
+
+    % Dessin des carrés sur y = x
+    \draw (0,0) rectangle ++(\sizeA,\sizeA); % Carré 1
+    \draw (\sizeA,\sizeA) rectangle ++(\sizeB,\sizeB); % Carré 2
+    \draw (\sizeA+\sizeB,\sizeA+\sizeB) rectangle ++(\sizeC,\sizeC); % Carré 3
+    \draw (\sizeA+\sizeB+\sizeC,\sizeA+\sizeB+\sizeC) rectangle ++(\sizeD,\sizeD); % Carré 4
+    \draw (\sizeA+\sizeB+\sizeC+\sizeD,\sizeA+\sizeB+\sizeC+\sizeD) rectangle ++(\sizeE,\sizeE); % Carré 5
+\end{tikzpicture}
+
+\end{document}

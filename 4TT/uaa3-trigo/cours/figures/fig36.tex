@@ -1,0 +1,56 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=2]
+   \tkzInit[xmax=1.,ymax=1.,xmin=-0.2 ,ymin=-0.2,xstep=0.2,ystep=0.2]
+   \tkzDrawY[label=$\sin(\alpha)$, above, font=\Large]
+   \tkzLabelY[node font=\Large]
+   \tkzLabelX[node font=\Large]
+   \tkzDrawX[label=$\cos(\alpha)$, right=8pt, font=\Large,right space=1]
+   \tkzDefPoints{1/1.4/A,1/-.2/B}
+   \tkzDrawSegment[<-](A,B)
+\tkzLabelSegment[line width=2pt, above, pos=0](A,B){\Large$\tan(\alpha)$}
+
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDefPoints{0/0/O,1/0/A, 1/1/M,0/1/N}
+   
+   \tkzDefPointBy[rotation= center O angle 50](A)
+   \tkzGetPoint{P}
+   \tkzDrawSegment(O,A)
+   \tkzDrawSegment(O,P)
+   \tkzDrawArc[color=black,line width=1pt](O,A)(P)
+   \tkzDrawPoints(A,P,O)
+   \tkzDrawPoint[size=8](P)
+   \tkzLabelPoint[above](P){\Huge$P$}
+   %\tkzPicAngle["\Huge$\alpha$",draw=black,
+%->,angle eccentricity=1.2,
+%angle radius=2cm](A,O,P)
+   \tkzMarkAngle[line width=2pt,arrows=->](A,O,P)
+   \tkzLabelAngle[pos=1.25](A,O,P){\Huge$\alpha$}
+\tkzInterLL(O,P)(A,M)
+\tkzGetPoint{Q}
+\tkzDefPointBy[projection= onto O--A](P)
+\tkzGetPoint{PX}
+\tkzDefPointBy[projection= onto O--N](P)
+\tkzGetPoint{PY}
+\tkzDrawSegments[dashed, line width=2pt](P,PX P,PY)
+\tkzDrawPoint[size=8](Q)
+\tkzLabelPoint[above left](Q){\Huge$T$}
+\tkzDrawLine[line width=1.5pt, add = 0 and .2, dotted](O,Q)
+\tkzDefPointBy[projection= onto O--A](P)
+\tkzGetPoint{PX}
+\tkzDefPointBy[projection= onto O--N](P)
+\tkzGetPoint{PY}
+\tkzClip
+\tkzDrawCircle[color=black](O,A)
+%\tkzDrawSegment[line width=3pt,dim={\Huge$\tan(\alpha)$,-24pt,right=6pt}](A,Q)
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1]
+ 
+\begin{scope}
+    \tkzDefPoints[draw]{0/0/A,6/0/B}
+    \tkzDefTriangle[school](A,B)
+    \tkzGetPoint{C}
+    \tkzLabelPoint[below right](B){$A$}
+    \tkzLabelPoint[below left](A){$B$}
+    \tkzLabelPoint[above](C){$C$}
+    \tkzMarkRightAngles[size=.7](C,B,A)
+    \tkzLabelSegment[sloped](A,B){$c$}
+    \tkzLabelSegment[right](B,C){$b$}
+    \tkzLabelSegment[above,sloped](A,C){$a$}
+    \tkzMarkAngle[size=1.2](B,A,C)
+    \tkzLabelAngle[pos=0.8](B,A,C){ $\beta$}
+    \tkzMarkAngle[size=1.2](A,C,B)
+    \tkzLabelAngle[pos=0.8](A,C,B){ $\gamma$}
+    \tkzDrawSegments(A,B B,C C,A)
+
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

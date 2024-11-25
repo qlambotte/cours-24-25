@@ -1,0 +1,42 @@
+project:
+  type: book
+
+book:
+  title: "4UAA3: Trigonométrie"
+  author: "Quentin Lambotte"
+  date: ""
+  chapters:
+    - index.qmd
+    - triangle-qcq.qmd
+    - nombres-trigo.qmd
+lang: fr
+format:
+  html:
+    default-image-extension: svg
+    theme: 
+      light: 
+        - lumen
+        - static/css/style.scss
+      dark: 
+        - darkly
+        - static/css/style.scss
+  pdf:
+    documentclass: scrreprt
+    pdf-engine: latexmk
+    toc: false
+    default-image-extension: pdf
+    classoption: [oneside]
+    papersize: a4
+    include-in-header:
+      - text: |
+          \usepackage{my-conf-quarto}
+          \subtitle{\vspace{3cm}\includegraphics[width=\linewidth]{figures/fig1.pdf}\vspace{3cm}}
+
+    pdf-engine-opts:
+      - '-shell-escape'
+    keep-tex: true
+
+filters:
+   - latex-environment
+environments: [titlepage, center]
+

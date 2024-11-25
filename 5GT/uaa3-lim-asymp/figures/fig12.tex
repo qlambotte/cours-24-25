@@ -1,0 +1,55 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=16.0,ymax=5.0,xmin=-15.0 ,ymin=-5.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFctPar[line width=2pt,samples=400,domain=0:1]{((4884153795883304*t**3 - 21972451344881205*t**2 + 29298682038706158*t - 16888498602639360)/1125899906842624)}{(-3*(11949551011289725*t**3 + 16123270298172852*t**2 + 1801056218761713*t - 2852279764001314)/9007199254740992)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((1661828262499715*t**3 + 2479672409215359*t**2 + 13069984534209*t - 8658170283619779)/2251799813685248)}{(-3*(t - 1)*(3602879701896397*t**2 - 9290779093152448*t + 9007199254740992)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((5125096375947625*t**3 - 23047090116223584*t**2 + 30734734680145020*t - 9007199254740992)/4503599627370496)}{(-3*t*(1351079888211149*t**2 - 534608057695362*t + 2561227890012085)/1125899906842624)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((2422936599525328*t**3 + 3616390500778506*t**2 + 18014398509483*t + 5201657569612923)/4503599627370496)}{((6305039478318695*t**3 - 28372677652434999*t**2 + 37830236869913040*t - 20266198323167232)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((1211468299762663*t**3 - 5442600149677242*t**2 + 7259802599321238*t + 5629499534213120)/2251799813685248)}{(-(3152519739159349*t**3 + 4728779608739019*t**2 + 2251799813685248)/1125899906842624)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((5334513758620350*t**3 + 7993687948232997*t**2 + 8082689697534*t + 4678114112931103)/1125899906842624)}{(-(3136757140463551*t**3 - 29242161018942435*t**2 + 33947296729637760*t - 13510798882111488)/1125899906842624)}
+
+
+                \tkzDefPoint(-15.0,1.0){A}
+
+                \tkzDefPoint(16.0,1.0){B}
+
+                \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+
+                \tkzVLine[style=dashed,line width = 1.5pt]{-4.0}
+\tkzVLine[style=dashed,line width = 1.5pt]{-4.0}
+\tkzVLine[style=dashed,line width = 1.5pt]{1.0}
+\tkzVLine[style=dashed,line width = 1.5pt]{1.0}
+\tkzVLine[style=dashed,line width = 1.5pt]{4.0}
+
+                \tkzDefPoint(-4.0,-5.0){A}
+
+                \tkzDefPoint(16.0,5.0){B}
+
+                \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+
+                \tkzVLine[style=dashed,line width = 1.5pt]{4.0}
+
+   \tkzDrawPoint[size=10,color=black,fill=white](-10.499999999999998,0.5761971563937442)
+\tkzDrawPoint[size=10,color=black,fill=white](1.5,-3.0651015366573606)
+
+
+   \tkzText(9,4){\Huge$f$}
+
+\end{tikzpicture}
+\end{document}

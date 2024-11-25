@@ -1,0 +1,22 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(5,0){C}
+    \tkzDefTriangle[two angles = 50 and 30](A,C)
+    \tkzGetPoint{B}
+    \tkzDrawSegment[line width=2pt](A,B)
+    \tkzDrawPoints(A,B)
+    \tkzDrawSegment[line width=2pt](A,C) 
+    \tkzDrawSegment[line width=2pt](B,C)
+    \tkzDrawPoints(C)
+\end{tikzpicture}
+\end{document}

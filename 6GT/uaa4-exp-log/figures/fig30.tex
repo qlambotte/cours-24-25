@@ -1,0 +1,47 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+  \tkzInit[xmin=-5,xmax=5,ymin=-3,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=-10:2.30258509299,line width=1.5pt, dashed]{(exp(\x))}
+\tkzFct[domain=0.001:10,line width=1.5pt]{(log(\x))}
+
+
+\begin{scope}[xshift=13cm]
+  \tkzInit[xmin=-5,xmax=5,ymin=-3,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=-10:2.30258509299,line width=1.5pt, dashed]{(exp(\x))}
+
+\tkzFct[domain=-5:5,line width=1.5pt]{(exp(-x))}
+
+
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

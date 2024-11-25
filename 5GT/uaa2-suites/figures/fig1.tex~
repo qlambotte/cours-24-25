@@ -1,0 +1,20 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+
+\begin{document}
+\begin{tikzpicture}
+\tkzInit[xmin=0,xmax=11,ymin=0,ymax=160, ystep=20]
+\tkzAxeXY
+\foreach \n in {0,...,10}{%
+  \tkzDrawPoint(\n,{5*(1+0.05*\n)})
+}
+
+
+\end{tikzpicture}
+\end{document}

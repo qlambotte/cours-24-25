@@ -1,0 +1,63 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{numprint}
+
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+
+\begin{document}
+\begin{tikzpicture}
+\tkzInit[xmin=0,xmax=10,ymin=0,ymax=1, ystep=0.2]
+\tkzAxeXY
+   \begin{scope}[dashed]
+     \tkzGrid[color=black]
+   \end{scope}
+\tkzSetUpPoint[size = 4]
+\global\edef\tkzFctLast{(1/(x+1))}
+\foreach \va in {0,...,10}{%
+  \tkzDefPointByFct[draw](\va)
+}
+\begin{scope}[xshift=12cm]
+  \tkzInit[xmin=0,xmax=10,ymin=0,ymax=11, ystep=2]
+\tkzAxeXY
+   \begin{scope}[dashed]
+     \tkzGrid[color=black]
+   \end{scope}
+\tkzSetUpPoint[size = 4]
+\global\edef\tkzFctLast{((x+1))}
+\foreach \va in {0,...,10}{%
+  \tkzDefPointByFct[draw](\va)
+}
+\end{scope}
+
+\begin{scope}[xshift=12cm, yshift=-2cm]
+  \tkzInit[xmin=0,xmax=10,ymin=-10,ymax=0, ystep=2]
+\tkzAxeXY
+   \begin{scope}[dashed]
+     \tkzGrid[color=black]
+   \end{scope}
+\tkzSetUpPoint[size = 4]
+\global\edef\tkzFctLast{(-1/100*2^x)}
+\foreach \va in {0,...,10}{%
+  \tkzDefPointByFct[draw](\va)
+}
+\end{scope}
+\begin{scope}[yshift=-4cm]
+  \tkzInit[xmin=0,xmax=10,ymin=-2,ymax=2, ystep=1]
+\tkzAxeXY
+   \begin{scope}[dashed]
+     \tkzGrid[color=black]
+   \end{scope}
+\tkzSetUpPoint[size = 4]
+\global\edef\tkzFctLast{(2*(-1)^x)}
+\foreach \va in {0,...,10}{%
+  \tkzDefPointByFct[draw](\va)
+}
+\end{scope}
+\end{tikzpicture}
+\end{document}

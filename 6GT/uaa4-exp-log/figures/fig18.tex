@@ -1,0 +1,38 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+\tkzInit[xmin=-10,xmax=10,ymin=0,ymax=10]
+\tkzDrawX[noticks]
+\tkzDrawY[noticks]
+\tkzSetUpPoint[size=5]
+\tkzSetUpStyle[postaction=decorate,
+decoration={markings,
+mark=at position 1 with {\arrow[thick]{#1}}
+}]{myarrow}
+\tkzDefPoint(-5,5.4){A}
+\tkzDefPoint(-2,7.389){B}
+\tkzDrawSegments[myarrow=stealth](A,B)
+\tkzDefPoint(5,5.4){A}
+\tkzDefPoint(2,7.389){B}
+\tkzDrawSegments[myarrow=stealth](A,B)
+\tkzText[draw,fill=white](-5,5){\Huge$0<a<1$}
+\tkzFct[domain=-10:2.30258509299,line width=1.5pt]{(exp(x))}
+\tkzText[draw,fill=white](5,5){\Huge$a>1$}
+\tkzFct[domain=-2.30258509299:10,line width=1.5pt]{(exp(-x))}
+
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,2217 @@
+% Created 2024-11-10 Sun 17:06
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper,12pt,singlepage]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{my-conf}
+\renewcommand{\arraystretch}{1.2}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IZ}{\mathbb{Z}}
+\newcommand{\IQ}{\mathbb{Q}}
+
+\newcommand{\IN}{\mathbb{N}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\jdot}[1]{ \makebox[#1]{\dotfill}}
+\newcommand{\tog}{\stackrel[<]{}{\to}}
+\newcommand{\tod}{\stackrel[>]{}{\to}}
+\newcommand{\pinf}{+\infty}
+\newcommand{\minf}{-\infty}
+\newcommand{\pminf}{\pm\infty}
+\newcommand{\mpinf}{\mp\infty}
+\newcommand{\FI}{\textbf{F.I.}}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\rad}{\text{rad}}
+\author{Quentin Lambotte}
+\date{2024-11-10}
+\title{Fonctions exponentielles et logarithmes\\\medskip
+\large 6UAA4}
+\hypersetup{
+ pdfauthor={Quentin Lambotte},
+ pdftitle={Fonctions exponentielles et logarithmes},
+ pdfkeywords={},
+ pdfsubject={notes de cours de l'uaa2, 5GTT, math 4p},
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdflang={French}}
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace{2cm}
+\Huge
+\textbf{6UAA4: Fonctions exponentielles et logarithmes}
+\vspace{2cm}
+
+\begin{center}
+\includestandalone[width=1\linewidth]{figures/fig6}
+\end{center}
+\end{center}
+\end{titlepage}
+
+
+
+\singlespacing
+\small
+
+\uline{\textbf{Remarque:}} voici une autre version de l'image de la première page. Vous aurez
+l'occasion d'utiliser ces deux figures comme une synthèse. \textbf{Attention!}
+certaines informations sur les figures sont redondantes; à vous de trouver les
+points communs aux figures au fur et à mesure des deux premiers chapitres de
+cette UAA.
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig7}
+\end{center}
+
+\uline{Compétences à développer dans ce chapitre :}
+\begin{itemize}
+\item Connaître
+\begin{itemize}
+\item Démontrer des propriétés des fonctions logarithmes.
+\item Comparer les croissances des fonctions exponentielles, logarithmes et
+puissances sur \(\IR^{>0}\)
+\end{itemize}
+\item Appliquer
+\begin{itemize}
+\item Résoudre une équation exponentielle simple.
+\item Résoudre une équation logarithmique simple.
+\item Calculer des limites, des dérivées et des primitives de fonctions
+exponentielles et logarithmes.
+\item Extraire des informations d’un graphique en coordonnées logarithmique ou
+semi-logarithmique.
+\end{itemize}
+\item Transférer
+\begin{itemize}
+\item Choisir une échelle adéquate pour représenter les données d’un problème.
+\item Utiliser une fonction logarithme ou exponentielle pour résoudre un problème.
+\item Modéliser un nuage de points par une fonction exponentielle.
+\item Reconnaitre, parmi tous ceux déjà rencontrés, le modèle adéquat à la
+situation proposée.
+\end{itemize}
+\end{itemize}
+\onehalfspacing
+\chapter{Fonctions exponentielles}
+\label{sec:orgeb3fa81}
+\section{Croissance exponentielle}
+\label{sec:org8bf92f9}
+\subsection{Propagation d'un secret}
+\label{sec:orge85e96c}
+Imaginons deux élèves des Ursulines, Laura et Diego. Ils partagent un secret au
+jour 1. Le lendemain, Diego raconte ce secret à deux nouvelles personnes. Le
+surlendemain, ces deux personnes racontent le secret à deux autres \uline{nouvelles}
+personnes, chacune. Et ainsi de suite.
+
+De cette situation, on peut se poser quelques questions:
+\begin{itemize}
+\item dans combien de temps les élèves de l'école seront au courant du secret?
+\item dans combien de temps l'ensemble des montois sera au courant du secret?
+\item on peut se poser la même question pour le Hainaut, la Belgique, et le monde.
+\end{itemize}
+
+Le fait surprenant est qu'il faut un peu plus d'un mois pour que la planète
+entière soit au courant du secret\ldots{} Essayons de modéliser la situation pour
+comprendre cette curieuse propriété.
+
+La première étape, toujours utile, est d'essayer de représenter la situation
+avec un dessin:
+
+\vspace{10cm}
+
+Maintenant, on va introduire des notations pour formaliser le dessin. Pour
+chaque jour \(n\), on va noter \(u_n\) le nombre de personnes qui connaît le
+secret.
+
+Faisons quelques calculs:
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+\begin{itemize}
+\item \(u_0=\dotfill\)
+\item \(u_{1}=\dotfill\)
+\item \(u_{2}=\dotfill\)
+\item \(u_{3}=\dotfill\)
+\item \(u_{4}=\dotfill\)
+\item \(u_{5}=\dotfill\)
+\item \(u_{6}=\dotfill\)
+\item \(u_{7}=\dotfill\)
+\item \(u_{8}=\dotfill\)
+\end{itemize}
+
+
+\end{multicols}\end{minipage}
+
+Vous pouvez observer une relation entre les différentes valeur de \(u_{n}\). Cette
+relation est
+\[
+u_{n}=\jdot{4cm}
+\]
+
+Cette relation peut être transformée comme ceci:
+\[
+u_{n}=\jdot{4cm}
+\]
+
+Revenons à nos questions:
+
+\begin{itemize}
+\item Il y a environ 1800 élèves aux Ursulines. Après combien de jours toute l'école
+sera au courant du secret?\dotfill
+\item Il y a environ 96 000 habitants à Mons. Après combien de jours tout Mons
+sera au courant du secret?\dotfill
+\item Il y a environ 1 340 000 habitants dans le Hainaut. Après combien de jours
+tout le Hainaut sera au courant du secret?\dotfill
+\item Il y a environ 11 600 000 Belges. Après combien de jours toute la Belgique
+sera au courant du secret?\dotfill
+\item Il y a environ 8 000 000 000 Terriens. Après combien de jours toute la Terre
+sera au courant du secret?\dotfill
+\end{itemize}
+
+Remplacez dans la situation \emph{secret} par \emph{virus COVID-19} et vous comprendrez
+qu'un confinement permet d'éviter des scénarios catastrophe\ldots{}
+
+Vous avez ici un premier exemple d'un phénomène de \emph{croissance exponentielle}:
+la progression du nombre \(u_{n}\) de personnes connaissant le secret croit de plus
+en plus vite.
+\subsection{Placements à intérêts simples et composés}
+\label{sec:org94464f8}
+
+Vous avez peut-être un compte d'épargne. Savez-vous comment ce compte
+fonctionne? Nous allons voir dans les deux exemples suivants le méchanisme qui
+permet de modéliser comment votre argent grandit sur un compte d'épargne.
+
+Il existe deux manières de faire croître de l'argent: par intérêts simples et
+par intérêts composés.
+
+Dans les intérêts simples, la somme gagnée après chaque période dépend
+uniquement du montant déposé initialement. Dans les intérêts composés, le somme
+gagnée après une période dépend de la somme obtenue à la période précédente;
+autrement dit, dans les intérêts composés, l'intérêt est réévalué à chaque
+période.
+
+Supposons que vous déposez 1000\texteuro{} sur un compte d'épargne avec un taux \textbf{annuel}
+de \(10\%\). Nous allons déterminer l'évolution de ce montant sur dix ans, lorsque
+l'intérêt est simple et lorsque l'intérêt est composé.
+
+\begin{enumerate}
+\item Placement à intérêt simple.
+\label{sec:org5ed7ffd}
+
+Pour rappel l'intérêt simple consiste à calculer une fois l'intérêt puis de
+l'ajouter de période en période.
+
+Ici l'intérêt est de \(I=100\). On ajoute donc \(100\) \texteuro{} chaque année.
+
+\begin{center}
+\begin{tabular}{|l|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|p{1cm}|}
+\hline
+années & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\[0pt]
+\hline
+montant & 1000 & 1100 & 1200 & 1300 & 1400 & 1500 & 1600 & 1700 & 1800 & 1900 & 2000\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+Voici une représentation graphique de la situation.
+
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig1}
+\end{center}
+
+\item Placement à intérêt composés.
+\label{sec:org081701f}
+
+Ici l'intérêt est recalculé à chaque période.
+
+\begin{center}
+\begin{tabular}{|l|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{0.8cm}|p{1cm}|p{1.1cm}|p{1.1cm}|p{1.1cm}|p{1.1cm}|p{1.1cm}|p{1.1cm}|}
+\hline
+années & 0 & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\\[0pt]
+\hline
+montant & 1000 & 1100 & 1210 & 1331 & 1464,1 & 1610,51 & 1771,56 & 1948,72 & 2143,59 & 2357,95 & 2593,74\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+
+Voici une représentation graphique de la situation.
+
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig8}
+\end{center}
+
+\item Comparaison des deux placements
+\label{sec:orgab8a7b4}
+
+Il est utile de comparer les deux placements. Voici un graphique reprenant les
+deux situations.
+
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig9}
+\end{center}
+
+Que constates-tu? \dotfill
+
+\dotfill
+
+\dotfill
+
+
+Faisons des observations plus profondes en modélisant comme pour le premier
+exemple.
+
+On note \(C_n\) le capital à la période \(n\). Alors:
+\begin{itemize}
+\item À intérêts simples: \(C_n=\dotfill\)
+\item À intérêts composés: \(C_n=\dotfill\)
+\end{itemize}
+
+\item Exercice
+\label{sec:org21c9c99}
+
+Traduis chacune des augmentations (ou diminutions) en pourcentage suivantes à
+l'aide d'un coefficient multiplicateur:
+
+\begin{itemize}
+\item Une augmentation de \(20\%\) correspond à une multiplication par\dotfill
+\item Une augmentation de \(5\%\) correspond à une multiplication par\dotfill
+\item Une diminution de \(15\%\) correspond à une multiplication par\dotfill
+\item Une diminution de \(3\%\) correspond à une multiplication par\dotfill
+\end{itemize}
+\end{enumerate}
+
+
+\subsection{Définition de la croissance exponentielle.}
+\label{sec:orgf444d87}
+
+\begin{definition}
+Etant donnée une fonction \(f\), on dira qu'elle a une croissance exponentielle
+si le taux de croissance est constant pour des intervalles de longueur
+constante. Autrement dit:
+
+lorsque des valeur de \(x\) sont les termes d'une \textbf{suite arithmétique}, les valeurs de
+\(f(x)\) sont les termes d'une \textbf{suite géométrique}.
+\end{definition}
+
+Nous allons comprendre cette définition à l'aide de la construction de la
+fonction \(f(x)=2^x\).
+\section{Construction et définition de la fonction exponentielle}
+\label{sec:org6d50c06}
+\subsection{Construction de \(f(x)=2^{x}\)}
+\label{sec:org173859f}
+
+Pour construire la fonction \(f(x)=2^x\), on sa se placer dans une situation
+concrète. La situation est la suivante: vous placez \(1\) euro sur un compte
+d'épargne où le taux \textbf{annuel} est de 100\(\%\). On a vu dans un des exemples
+introductifs que l'évolution de capital par année est une suite géométrique, de
+raison \(1+100\%=1+1=2\). Donc si on s'intéresse à l'évolution de votre euros sur
+les 20 prochaines années, on sait qu'il sera calculé grâce à la formule
+\[
+C_n=1\cdot 2^n=2^n.
+\]
+
+Voici une représentation de cette évolution.
+
+\begin{center}
+\includestandalone[width=0.6\linewidth]{figures/fig10}
+\end{center}
+
+Ce graphique montre une forte croissance: après 20 ans, on devient millionnaire!
+
+On va se concentrer sur le début du graphique, disons les 4 premières années.
+
+
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\includestandalone{figures/fig11}
+
+\columnbreak
+
+Notre objectif va être de combler les trous sur le graphique, de sorte à ce
+que chaque valeur de \(x\) puisse avoir une image.
+
+Pour y arriver on va faire un raisonnement financier: plutôt que d'envisager
+l'évolution de l'argent par années, on va l'envisager par demi-années.
+
+On se base sur la formule \(C_n=2^n\). Ici \(n\) représente le nombre
+d'années. Replaçons \(n\) par \(n/2\) dans la formule. On crée ainsi une nouvelle
+suite qui va modéliser l'évolution de l'argent par demi année.
+
+Le graphique de cette suite est à la page suivante.
+
+
+
+
+\end{multicols}\end{minipage}
+\begin{center}
+\includestandalone{figures/fig12}
+\end{center}
+
+On peut même poursuivre le raisonnement en divisant les années en plus petites
+parties plus petites (en tiers, quart, etc). Voici ce que cela donne avec des
+quarts, des 8e etc.:
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\includestandalone[width=0.8\linewidth]{figures/fig13}
+
+\includestandalone[width=0.8\linewidth]{figures/fig15}
+\columnbreak
+
+\includestandalone[width=0.8\linewidth]{figures/fig14}
+
+\includestandalone[width=0.8\linewidth]{figures/fig16}
+
+
+\end{multicols}\end{minipage}
+
+Vous constatez que plus on subdivise une année, plus les trous cont comblés; si
+bien que sur le dernier graphique, on ne discerne plus de trous entre chaque
+point et on observe une courbe.
+
+C'est ainsi que la fonction \(f(x)=2^x\) peut être construite à partir
+d'opérations que vous connaissez: les exposants fractionnaires.
+
+La fonction \(f(x)=2^x\) est bien une fonction à croissance
+exponentielle. Reprenons les graphiques de la construction:
+\begin{center}
+\includestandalone[width=\linewidth]{figures/fig12-2}
+\end{center}
+
+\newpage
+\subsection{Définition}
+\label{sec:org64a06f6}
+\begin{definition}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). La fonction \emph{exponentielle de base \(a\)} est
+l'unique fonction \(f\) qui satisfait les deux conditions suivantes:
+\begin{itemize}
+\item \(f\) prolonge les exposant rationnels de base \(a\);
+\item \(f\) est dérivable en \(0\).
+\end{itemize}
+
+L'expression analytique de \(f\) sera notée \(f(x)=a^x\).
+\end{definition}
+
+Pourquoi demande-t-on que la base soit dans \(\IR^{>0}\backslash\{1\}\)?
+
+\dotfill
+
+\dotfill
+
+\dotfill
+
+\dotfill
+
+\dotfill
+
+\dotfill
+
+\begin{exercice}
+Entoure les fonctions qui sont exponentielles.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{5}
+
+\(f(x)=2^x\)
+
+\columnbreak
+
+\(f(x)=\left(\dfrac{1}{2}\right)^x\)
+
+\columnbreak
+
+\(f(x)=(-3)^x\)
+
+\columnbreak
+
+\(f(x)=3,25^x\)
+
+\columnbreak
+
+\(f(x)=x^3\)
+
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+La définition de la fonction exponentielle de base \(a\) dit qu'elle prolonge les
+exposants rationnels de base \(a\). En conséquence, on a la propriété importante
+suivante:
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Alors quels que soient \(m,p\in\IR\):
+\begin{itemize}
+\item \(a^0=1\)
+\item \(a^{m+p}=a^ma^p\)
+\item \((a^m)^p=a^{mp}\)
+\item \(\dfrac{a^m}{a^p}=a^{m-p}\) (autrement dit: l'exponentielle a une croissance
+exponentielle)
+\end{itemize}
+\end{propriete}
+\newpage
+\section{Propriétés et caractéristiques graphiques}
+\label{sec:orga6d32f9}
+\begin{exercice}
+Trace les graphiques des fonctions exponentielles suivantes.
+
+\begin{center}
+\begin{tabular}{|l|p{2cm}|p{2cm}|p{3cm}|p{3cm}|}
+\hline
+\(x\) & \(f_1(x)=2^x\) & \(f_2(x)=3^x\) & \(f_3(x)=\left(\dfrac{1}{2}\right)^x\) & \(f_4(x)=\left(\dfrac{1}{3}\right)^x\)\\[0pt]
+\hline
+\(-3\) &  &  &  & \\[0pt]
+\hline
+\(-2\) &  &  &  & \\[0pt]
+\hline
+\(-1\) &  &  &  & \\[0pt]
+\hline
+\(0\) &  &  &  & \\[0pt]
+\hline
+\(1\) &  &  &  & \\[0pt]
+\hline
+\(2\) &  &  &  & \\[0pt]
+\hline
+\(3\) &  &  &  & \\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig17}
+\end{center}
+
+\begin{observation}
+Sur base des graphiques, réponds aux questions suivantes.
+
+Que vaut \(a^0\)?\dotfill
+
+Que vaut \(a^1\)?\dotfill
+
+Nous remarquons que des points particuliers des fonctions exponentielles sont:
+\dotfill
+\end{observation}
+\end{exercice}
+\newpage
+Voici les allures graphiques que peuvent prendre les exponentielles.
+\begin{center}
+\includestandalone[width=\linewidth]{figures/fig18}
+\end{center}
+
+On peut extraire de ces graphiques les propriétés suivantes.
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). On note \(f\) l'exponentielle de
+base \(a\). Alors,
+
+\par \setlength{\columnseprule}{2 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{itemize}
+\item \(\dom{f}=\dotfill\)
+\item \(\im{f}=\dotfill\)
+\item Racines=\dotfill
+\item o.à.o=\dotfill
+\item \(G_f\cap x=\dotfill\)
+\item \(G_f\cap y=\dotfill\)
+\item AV\dotfill
+\item AO\dotfill
+\item Points particuliers:\dotfill
+\item Concavité \dotfill
+\end{itemize}
+
+
+\end{multicols}\end{minipage}
+
+De plus,
+\par \setlength{\columnseprule}{2 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\uline{\textbf{si \(a>1\)}}
+\begin{itemize}
+\item \(f\) est \dotfill
+\item \(\lim\limits_{x\to\infty}f(x)=\dotfill\)
+\item \(\lim\limits_{x\to-x\infty}f(x)=\dotfill\)
+\item \(AH_{-\infty}\equiv\dotfill\)
+\end{itemize}
+
+\columnbreak
+ \uline{\textbf{si \(0<a<1\)}}
+\begin{itemize}
+\item \(f\) est \dotfill
+\item \(\lim\limits_{x\to\infty}f(x)=\dotfill\)
+\item \(\lim\limits_{x\to-\infty}f(x)=\dotfill\)
+\item \(AH_{+\infty}\equiv\dotfill\)
+\end{itemize}
+
+
+\end{multicols}\end{minipage}
+\end{propriete}
+
+Vous avez de plus remarqué une symétrie des graphiques ci-dessus.
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Alors le graphique de
+\(f(x)=\dfrac{1}{a^x}\) est obtenu à partir du graphique de \(g(x)=a^x\)
+par une symétrie d'axe \(y\).
+\end{propriete}
+\section{Multiple d'une fonction exponentielle}
+\label{sec:orgcaebea3}
+Généralement, dans les problèmes de modélisation, ce sont des multiples des
+fonctions exponentielles qui sont le plus fréquemment rencontrés.
+\begin{definition}
+Un multiple d'une fonction exponentielle est une fonction dont
+l'expression analytique est de la forme \(ka^x\), où
+\(a\in\IR^{>0}\backslash\{1\}\) et \(k\in\IR_0\).
+\end{definition}
+Voici quelques exemples.
+\vspace{1cm}
+
+\includestandalone[width=\linewidth]{figures/fig19}
+\vspace{1cm}
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\(f(0)=\dotfill\)
+
+\(f(1)=\dotfill\)
+
+\(f\) est \dotfill
+
+\(f(0)=\dotfill\)
+
+\(f(1)=\dotfill\)
+
+\(f\) est \dotfill
+
+
+\end{multicols}\end{minipage}
+
+\vspace{1cm}
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig20}
+\end{center}
+\vspace{1cm}
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\(f(0)=\dotfill\)
+
+\(f(1)=\dotfill\)
+
+\(f\) est \dotfill
+
+\(f(0)=\dotfill\)
+
+\(f(1)=\dotfill\)
+
+\(f\) est \dotfill
+
+
+\end{multicols}\end{minipage}
+
+\section{Exercices}
+\label{sec:org563f14c}
+\begin{exercice}
+Compare graphiquement les fonctions \(2^x\) et \(x^2\).
+\end{exercice}
+
+\begin{exercice}
+Détermine l’expression analytique des fonctions exponentielles ci-dessous.
+
+\includestandalone{figures/fig21}
+\end{exercice}
+
+\begin{exercice}
+Parmi les fonctions suivantes, quelles sont celles qui sont des fonctions
+exponentielles ou multiples de fonctions exponentielles ?
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{5}
+
+\(f(x)=1^x\)
+
+\columnbreak
+
+\(f(x)=-\left(\dfrac{1}{3}\right)^x\)
+
+\columnbreak
+
+\(f(x)=(5^{-1})^x\)
+
+\columnbreak
+
+\(f(x)=2\cdot x^{\frac{5}{3}}\)
+
+\columnbreak
+
+\(f(x)=4\left(-\dfrac{1}{3}\right)^x\)
+
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Pour chaque tableau, précise s’il représente une situation de croissance
+exponentielle. Explique tes choix.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\(x\) & \(y\)\\[0pt]
+\hline
+0 & 10\\[0pt]
+\hline
+2 & 100\\[0pt]
+\hline
+4 & 1000\\[0pt]
+\hline
+5 & 10000\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\(x\) & \(y\)\\[0pt]
+\hline
+-3 & 25\\[0pt]
+\hline
+0 & 5\\[0pt]
+\hline
+3 & 1\\[0pt]
+\hline
+6 & 0,2\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{|c|c|}
+\hline
+\(x\) & \(y\)\\[0pt]
+\hline
+-3 & 3\\[0pt]
+\hline
+-2 & 9\\[0pt]
+\hline
+-1 & 81\\[0pt]
+\hline
+9 & 561\\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+En 1850, Bourgville comptait 100 habitants. Depuis lors, la population de cette
+localité n'a cessé d'augmenter ; elle double tous les dix ans.
+\begin{itemize}
+\item Modélise l'évolution de cette population en donnant l’expression analytique
+de la fonction qui représente le nombre d’habitants à Bourgville \(x\) années
+après l’année 1850.
+\item Trouve combien Bourgville comptait d'habitants en 1900, en 1950, en 2000
+et en 2003
+\end{itemize}
+\end{exercice}
+
+\begin{exercice}
+A l’occasion du salon de l’automobile en janvier 2017, Jules achète une nouvelle
+voiture full options au prix de 29850 euros.
+\begin{itemize}
+\item Sachant qu’une voiture se déprécie annuellement d’environ 15\(\%\)
+pendant les 6 premières années, modélise l’évolution du prix du
+véhicule par une fonction qui permet de calculer la valeur de la
+voiture \(x\) années après l’achat.
+\item Si la dépréciation continue au même taux, quelle sera la valeur de
+la voiture 10 ans après l’achat.
+\item Trace le graphique de cette fonction exponentielle. Peut-on parler
+de « bon placement » lors de l’achat d’une voiture ?
+\end{itemize}
+\end{exercice}
+
+\begin{exercice}
+Dans une famille de lapins particulièrement prolifique, le nombre
+d'individus double tous les sept jours. Supposons que cette famille comprenne
+actuellement 100 lapins.
+\begin{itemize}
+\item Donne l’expression analytique de la fonction qui modélise
+l’évolution de cette population de lapins en fonction du temps
+exprimé en jours.
+\item Combien y aura-t-il de lapins dans un mois (30 jours), dans deux
+mois et dans trois mois ?
+\end{itemize}
+\end{exercice}
+
+\begin{exercice}
+Dans un certain pays en pleine crise économique, la monnaie se déprécie
+annuellement de 8,5 \(\%\). L'unité monétaire de ce pays étant le sou,
+quelle sera la "valeur réelle" d'un billet de 1000 sous
+\begin{itemize}
+\item dans 5 ans et dans 10 ans ?
+\item Donne l’expression analytique de la fonction qui représente le
+décroissement de la valeur d’un billet de 1000 sous en fonction du temps.
+\end{itemize}
+\end{exercice}
+\newpage
+\section{Similitude des graphiques des fonctions exponentielles}
+\label{sec:orgcdb179c}
+Les graphes des courbes exponentielles sont semblables.
+
+Voici dix fonctions exponentielles:
+
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig22}
+\end{center}
+
+Cette similitudes des graphique ammène à penser que les graphiques des fonctions
+exponentielles sont des transformés les uns des autres.
+
+Par exemple, il est possible de produire le graphique de n'importe quelle
+fonction exponentielle en tranformant le graphique de \(2^x\).
+
+\begin{propriete}
+Soit \(a\in \IR^{>0}\backslash\{1\}\). Alors il existe \(k\in\IR\) tel que pour tout
+\(x\in\IR\),
+\[
+a^x=2^{kx}.
+\]
+De plus on peut remplacer dans l'affirmation précédente \(2\) par n'importe quel
+autre nombre dans \(\IR^{>0}\backslash\{1\}\).
+\end{propriete}
+
+Ainsi, il serait intéressant de \textbf{choisir} un représentant des fonctions
+exponentielles pour les étudier.
+
+On pourrait par exemple choisir \(2^x\) pour le reste de l'étude des fonctions
+exponentielles.
+
+Mais bien qu'il s'agisse d'un choix raisonnable, nous allons choisir un autre
+représentant des fonctions exponentielle dont la base a une propriété
+remarquable. Nous nommerons \(e\) ce nombre, une constante qui porte l'initiale du
+nom du mathématicien Leonard Euler. Ce nombre est omniprésent en mathématique.
+
+\section{Le nombre \(e\) et l'exponentielle népérienne}
+\label{sec:org50b8b1b}
+\subsection{Dérivabilité des exponentielles}
+\label{sec:orgf5c40c3}
+
+Dans la définition des fonctions exponentielle, on fait \textbf{l'hypothèse} que la
+fonction exponentielle est dérivable en \(0\). C'est-à-dire, que pour une
+fonctions exponentielle \(f\), de base \(a\), le nombre \(f'(0)\) existe. Pour rappel, ce nombre
+est définicomme la limite suivante:
+
+\[
+f'(0)=\lim_{h\to 0} \frac{f(0+h)-f(0)}{h}=\lim_{h\to 0} \frac{a^{h}-1}{h}.
+\]
+
+Ce nombre représente la pente de la tangente en graphe de \(f\) au point \((0,1)\).
+
+Nous allons voir que l'existence de \(f'(0)\) aura une conséquence remarquable:
+non seulement les exponentielles sont dérivables en 0, mais elles le sont aussi
+partout sur leur domaine.
+
+Pour rappel, être dérivable en un point \(x\) signifie que la limite suivante
+existe:
+\[
+f'(x)=\lim_{h\to 0} \frac{f(x+h)-f(x)}{h}.
+\]
+
+\begin{propriete}
+Soit \(a\in \IR^{>0}\backslash\{1\}\). Alors la fonction \(f(x)=a^x\) est dérivable
+sur \(\IR\). De plus,
+\[
+f'(x)=f'(0)\cdot a^x.
+\]
+Autrement dit, la dérivée de l'exponentielle n'est rien d'autre qu'un multiple
+de l'exponentielle elle-même!
+\end{propriete}
+
+\begin{proof}
+On se fixe \(a\in \IR^{>0}\backslash\{1\}\) et on note \(f\) l'exponentielle de base
+\(a\). Alors, quels que soient \(x,h\in\IR\):
+
+\begin{alignat*}{3}
+\frac{f(x+h)-f(x)}{h}&= \frac{a^{x+h}-a^x}{h}&\hspace{0.5cm}&\text{(définition de $f$)}\\
+&=\frac{a^xa^h-a^x}{h}&&\text{(propriété de l'exponentielle)}\\
+&=a^x\frac{a^h-1}{h}&&\text{(mise en évidence)}
+\end{alignat*}
+
+Donc
+
+\begin{alignat*}{3}
+f'(x)&=\lim_{h\to 0} \frac{f(x+h)-f(x)}{h}&\hspace{0.5cm}&\\
+&=\lim_{h\to 0} a^x\frac{a^h-1}{h}&&\text{(par les calculs précédents)}\\
+&=a^x\lim_{h\to 0} \frac{a^h-1}{h} &&\text{($a^x$ est indépendant de $h$)}\\
+&=a^x f'(0)&&\text{(par définition de l'exponentielle,$\lim_{h\to 0} \frac{a^h-1}{h}$ existe.)}
+\end{alignat*}
+
+Donc l'exponentielle est bien dérivable partout sur son domaine.
+\end{proof}
+
+Nous donnerons dans un autre chapitre un moyen de calculer \(f'(0)\).
+
+Cette propriété de dérivabilité de l'exponentielle est importante. Nous allons
+choisir un représentant des exponentielles à l'aide de cette propriété en
+cherchant une base \(a\) telle que pour \(f(x)=a^x\), on ait \(f'(0)=1\). On aura
+ainsi trouvé une fonction égale à sa dérivée!
+
+\subsection{Définition du nombre \(e\)}
+\label{sec:org83963b9}
+
+Nous cherchons une base \(a\) telle que pour \(f(x)=a^x\), on ait \(f'(0)=1\). On sait
+que
+\[
+f'(0)=\lim_{h\to 0} \frac{a^{h}-1}{h}=1.
+\]
+
+Ceci veut dire que la fraction \(\dfrac{a^{h}-1}{h}\) est proche de \(1\) lorsque
+\(h\) est proche de \(0\):
+\begin{alignat*}{3}
+&\dfrac{a^{h}-1}{h}\approx 1\\
+\Leftrightarrow& a^h-1\approx h\\
+\Leftrightarrow&a^h\approx 1+h\\
+\Leftrightarrow&a\approx (1+h)^{1/h}
+\end{alignat*}
+Nous avons donc un moyen d'estimer le nombre recherché en prenant des valeur de
+\(h\) petites:
+\begin{center}
+\begin{tabular}{|p{3cm}|p{3cm}|}
+\hline
+\(h\) & \((1+h)^{1/h}\)\\[0pt]
+\hline
+0,1 & \\[0pt]
+\hline
+0,01 & \\[0pt]
+\hline
+0,001 & \\[0pt]
+\hline
+0,0001 & \\[0pt]
+\hline
+0,0000001 & \\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+\begin{definition}
+Le nombre d'Euler, noté \(e\), est défini par l'égalité suivante:
+\[
+e=\lim_{h\to 0}(1+h)^{1/h}=2,718281828459\ldots.
+\]
+\end{definition}
+
+C'est une constante très importante. Ce n'est pas un nombre rationnel; on dit
+qu'il est irrationnel. Il a même une propriété forte: c'est un nombre
+transcendant. Vous pouvez consulter Wikipedia pour en apprendre plus.
+
+
+\subsection{Définition de l'exponentielle népérienne}
+\label{sec:org9189d34}
+\begin{definition}
+L'exponentielle Népérienne est l'exponentielle de base \(e\).
+\end{definition}
+
+Cette exponentielle Népérienne est en général choisie comme représentante de
+toutes les fonctions exponentielles. Une des propriété remarquable est que cette
+fonction est égale à sa dérivée:
+\[
+(e^x)'=e^x.
+\]
+
+Son graphique vous est donné sur la page de couverture. Voici un exercice.
+\begin{exercice}
+Trace le graphique de la fonction \(g(x)= \dfrac{1}{e^x}\) à partir du graphique
+de l'exponentielle népérienne.
+
+\begin{center}
+\includestandalone[width=0.8\linewidth]{figures/fig23}
+\end{center}
+\end{exercice}
+
+\newpage
+\section{Équations exponentielles simples}
+\label{sec:org09a1769}
+Une équation exponentielle est une équation où l’inconnue se trouve dans un (ou
+plusieurs) exposant(s).
+
+Pour résoudre ces équations, on veillera toujours à exprimer les exponentielles
+dans la même base.
+\subsection{Résolution des équations de la forme \(a^{f(x)}=a^{g(x)}\)}
+\label{sec:org054e06a}
+La résolution des équations de la forme  \(a^{f(x)}=a^{g(x)}\) se fait en trois
+étapes.
+
+\begin{enumerate}
+\item On rémène l'équation sous la forme \(a^{f(x)}=a^{g(x)}\), si cela est
+nécessaire.
+\item On résout ensuite \(f(x)=g(x)\).
+\item On écrit l'ensemble des solutions.
+\end{enumerate}
+
+Voici deux exemples:
+\par \setlength{\columnseprule}{2 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+L'équation de départ est
+\[
+e^{3x+1}-\dfrac{1}{e^2}=0
+\]
+
+\begin{enumerate}
+\item on la récrit sous la forme
+
+\[
+   e^{3x+1}=e^{-2}
+   \]
+
+\item on résout l'équation \(3x+1=-2\):
+
+on a \(x=-1\).
+
+\item l'ensemble des solutions est \(S=\{-1\}\).
+\end{enumerate}
+L'équation de départ est
+\[
+\left(\dfrac{5}{3}\right)^{2x-2}=\dfrac{3}{5}
+\]
+
+\begin{enumerate}
+\item on la récrit sous la forme
+
+\[
+   \left(\dfrac{5}{3}\right)^{2x-2}=\left(\dfrac{5}{3}\right)^{-1}
+   \]
+
+\item on résout l'équation \(2x-2=-1\):
+
+on a \(x=\dfrac{1}{2}\).
+
+\item l'ensemble des solutions est \(S=\left\{\dfrac{1}{2}\right\}\).
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+
+\vspace{0.5cm}
+
+Pourquoi peut-on passer de la 1re à la 2e étape? Le passage est autorisé par le
+fait que les fonctions exponentielles sont \dotfill
+
+
+\subsection{Exercices}
+\label{sec:org77164a8}
+\begin{exercice}
+Résous les équations suivantes.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+
+\begin{enumerate}
+\item \(5^x=1\)
+\item \(3^{x-3}=9\)
+\item \(10^{x+2}=0,0001\)
+\item \(2^x=\sqrt[3]{4}\)
+\item \(\left(\dfrac{2}{3}\right)^x=\dfrac{3}{2}\)
+\item \(e^{2x}=e\)
+\item \(e^{2x^2}\cdot e^{-3x}=1\)
+\item \(e^{4x^2}=\dfrac{1}{e^3}\)
+\item \(3^{2x-3}=\dfrac{1}{\sqrt{3}}\)
+\item \(\sqrt[5]{3}=\dfrac{1}{3^{2x+1}}\)
+\end{enumerate}
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Résous l'équation suivante: \(12\cdot e^{x}+5=41\). Que constates-tu?
+\end{exercice}
+
+\chapter{Fonctions logarithmiques}
+\label{sec:org8bb23e6}
+\section{Introduction}
+\label{sec:org27046aa}
+En clôturant le chapitre précédent, tu as constaté que tu manquais d'outils pour
+résoudre l'équation \(12\cdot e^{x}+5=41\). En effet, en manipulant cette
+équation, tu as été bloqué pour résoudre
+\[
+e^x=3.
+\]
+
+Un des objectifs de ce chapitre est de développer un outil pour résoudre cette
+équation.
+
+Commençons par essayer de la résoudre graphiquement, sur base du graphique de
+\(e^x\).
+
+
+\begin{center}
+\includestandalone[width=0.6\linewidth]{figures/fig23}
+\end{center}
+
+Tu observes graphiquement que la solution de l'équation \(e^x=3\) vaut
+approximativement \(x\simeq\jdot{2cm}\).
+
+Nous allons résoudre graphiquement d'autres équations, du type \(e^x=a\), où \(a\)
+est un paramètre qui prendra différentes valeurs. Complète le tableau suivant:
+
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{5cm}|}
+\hline
+\(a\) & solution de l'équation \(e^x=a\)\\[0pt]
+\hline
+-2 & \\[0pt]
+\hline
+-1 & \\[0pt]
+\hline
+0 & \\[0pt]
+\hline
+\(0,1\) & \\[0pt]
+\hline
+\(0,5\) & \\[0pt]
+\hline
+\(0,8\) & \\[0pt]
+\hline
+1 & \\[0pt]
+\hline
+2 & \\[0pt]
+\hline
+3 & \\[0pt]
+\hline
+4 & \\[0pt]
+\hline
+5 & \\[0pt]
+\hline
+6 & \\[0pt]
+\hline
+7 & \\[0pt]
+\hline
+8 & \\[0pt]
+\hline
+9 & \\[0pt]
+\hline
+10 & \\[0pt]
+\hline
+\end{tabular}
+\end{center}
+
+Maintenant, représente graphiquement les solutions de l'équation en fonction du
+paramêtre \(a\). Relie ensuite les points par une courbe.
+
+\begin{center}
+\includestandalone[width=0.9\linewidth]{figures/fig24}
+\end{center}
+
+Tu viens de construire ta première fonction logarithmique! Cette nouvelle
+fonction est notée \(\ln(x)\).
+
+Voici le graphique complet de \(\ln(x)\) ainsi que celui de \(e^x\).
+
+\begin{center}
+\includestandalone[width=0.9\linewidth]{figures/fig25}
+\end{center}
+
+Tu constates que ces deux graphiques sont symétriques par rapport à la
+bissectrice du repère: ces deux fonctions sont \textbf{réciproques} l'une de l'autre,
+tout comme
+
+\begin{enumerate}
+\item \(x^2\) et \(\sqrt{x}\) sont réciproques l'une de l'autre et
+
+\item \(x^3\) et \(\sqrt[3]{x}\) sont réciproques l'une de l'autre
+\end{enumerate}
+
+Nous allons exploiter cette réciprocité pour étudier les fonctions logarithmiques.
+
+À l'aide de la calculatrice, complète les égalités suivantes:
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\(\ln(e^5)=\jdot{2cm}\)
+
+\(\ln(e^{-10})=\jdot{2cm}\)
+
+\(\ln(e^{0,8})=\jdot{2cm}\)
+
+\(\ln(e^{0})=\jdot{2cm}\)
+
+\(e^{\ln(10)}=\jdot{2cm}\)
+
+\(e^{\ln(0.01)}=\jdot{2cm}\)
+
+\(e^{\ln(999)}=\jdot{2cm}\)
+
+\(e^{\ln(-4)}=\jdot{2cm}\)
+
+
+\end{multicols}\end{minipage}
+
+
+Ainsi, la fonction \(\ln\) peut être définie de la manière suivante, en faisant
+une traduction entre \(\ln(x)\) et \(e^x\): \(\ln(x)=y\) si et seulement si \(e^y=x\).
+
+
+Tu viens d'observer que cette traduction est correcte en complétant les égalité
+précédentes.
+
+Le logarithme népérien, \(\ln\), peut nous aider à résoudre l'équation \(e^x=3\):
+
+\vspace{3cm}
+
+\section{Définition du logarithme de base \(a\)}
+\label{sec:org8a260f8}
+
+\begin{definition}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Le logarithme de base \(a\), noté \(\log_a\),
+est la fonction définie par la relation
+\[
+\log_a(x)=y \text{ si et seulement si } a^y=x.
+\]
+Le domaine de la fonction \(\log_a\) est \(\IR^{>0}\).
+\end{definition}
+
+\begin{exemple}
+Sans utiliser la calculatrice, complète les égalités suivantes.
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+
+\(a=2\)
+
+\(\log_2(4)=\jdot{2cm}\) car \(2^{\ldots}=\ldots\)
+
+\(\log_2(\sqrt{2})=\jdot{2cm}\) car \(2^{\ldots}=\ldots\)
+
+\(\log_2(1/2)=\jdot{2cm}\) car \(2^{\ldots}=\ldots\)
+
+\(\log_2(2)=\jdot{2cm}\) car \(2^{\ldots}=\ldots\)
+
+\(\log_2(-2)=\jdot{2cm}\) car \(2^{\ldots}=\ldots\)
+
+\(\log_2(0)=\jdot{2cm}\) car \(2^{\ldots}=\ldots\)
+
+\(a=5\)
+
+\(\log_5(25)=\jdot{2cm}\) car \(5^{\ldots}=\ldots\)
+
+\(\log_5(0,2)=\jdot{2cm}\) car \(5^{\ldots}=\ldots\)
+
+\(\log_5(125)=\jdot{2cm}\) car \(5^{\ldots}=\ldots\)
+
+\(\log_5(-125)=\jdot{2cm}\) car \(5^{\ldots}=\ldots\)
+
+\(\log_5(\sqrt[3]{5})=\jdot{2cm}\) car \(5^{\ldots}=\ldots\)
+
+\(\log_5(1)=\jdot{2cm}\) car \(5^{\ldots}=\ldots\)
+
+
+
+\end{multicols}\end{minipage}
+\end{exemple}
+
+On peut expliciter la relation de réciprocité entre \(\log_a\) et \(a^x\) de la
+manière suivante:
+
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Alors
+\begin{enumerate}
+\item quel que soit \(x\in\IR\), \(\log_a(a^x)=x\);
+\item quel que soit \(x\in\IR^{>0}\), \(a^{\log_a(x)}=x\).
+\end{enumerate}
+\end{propriete}
+
+C'est grâce à cette réécriture de la définition qu'on va être capables de
+démontrer les propriétés algébriques des logarithmes à partir des propriétés
+algébriques des exponentielles.
+
+\begin{exemple}
+Utilise les touches \texttt{ln} et \texttt{log} de ta calculatrice pour calculer
+les expressions suivantes:
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+
+\(\ln(e^4)=\jdot{2cm}\)
+
+\(\ln(e^{-2})=\jdot{2cm}\)
+
+\(\ln(e^{0,5})=\jdot{2cm}\)
+
+\(\ln(e^{0})=\jdot{2cm}\)
+
+\(e^{\ln(10)}=\jdot{2cm}\)
+
+\(e^{\ln(0)}=\jdot{2cm}\)
+
+\(e^{\ln(-1)}=\jdot{2cm}\)
+
+\(\log(10^4)=\jdot{2cm}\)
+
+\(\log(10^{-2})=\jdot{2cm}\)
+
+\(\log(10^{0,5})=\jdot{2cm}\)
+
+\(\log(10^{0})=\jdot{2cm}\)
+
+\(10^{\log(10)}=\jdot{2cm}\)
+
+\(10^{\log(\pi)}=\jdot{2cm}\)
+
+\(10^{\log(1)}=\jdot{2cm}\)
+
+
+\end{multicols}\end{minipage}
+\end{exemple}
+\subsection{Deux logarithmes particuliers: \(\ln\) et \(\log_{10}\)}
+\label{sec:org1b21906}
+
+Tu as vu que ta calculatrice a deux touches particulières: \texttt{ln} et
+\texttt{log}. Ce sont respectivement les touches pour les logarithmes de base
+\(e\) et \(10\): \(\ln=\log_e\) et \(\log=\log_{10}\).
+
+Voici les graphiques de ces deux fonctions, et les exponentielles associées.
+
+
+\begin{center}
+\includestandalone[width=0.9\linewidth]{figures/fig26}
+\end{center}
+
+\subsection{Exercices}
+\label{sec:org98bb4aa}
+
+\begin{exercice}
+Sans utiliser la calculatrice, complète les égalités suivantes en faisant une
+\textbf{traduction} vers les fonctions exponentielles.
+
+Voici un exemple: \(\log_2(64)=6\) car \(2^6=64\).
+
+\begin{enumerate}
+\item \(\log_{2}(1/8)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\log_{0,5}(2^5)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\log_{3}(0)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\log(\sqrt{10^3})=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\log_{9}(3)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\log(0,0001)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\ln(1/e^3)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\ln(e)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\log(-0,01)=\jdot{2cm}\) car \(\jdot{3cm}\)
+
+\item \(\log(\sqrt{0,001})=\jdot{2cm}\) car \(\jdot{3cm}\)
+\end{enumerate}
+\end{exercice}
+
+\begin{exercice}
+En utilisant la calculatrice, calcule les expressions suivantes à \(10^{-4}\) près.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{enumerate}
+\item \(\ln(2)=\jdot{3cm}\)
+
+\item \(\ln(10)=\jdot{3cm}\)
+
+\item \(\log(e)=\jdot{3cm}\)
+
+\item \(\log(11)=\jdot{3cm}\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+
+\section{Propriétés graphiques}
+\label{sec:orgff3480e}
+Voici deux graphiques représentatifs des fonctions logarithmiques.
+\begin{center}
+\includestandalone[width=\linewidth]{figures/fig27}
+\end{center}
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). On note \(f\) le logarithme de
+base \(a\). Alors,
+
+\par \setlength{\columnseprule}{2 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{itemize}
+\item \(\dom{f}=\dotfill\)
+\item \(\im{f}=\dotfill\)
+\item Racines=\dotfill
+\item o.à.o=\dotfill
+\item \(G_f\cap x=\dotfill\)
+\item \(G_f\cap y=\dotfill\)
+\item AV\dotfill
+\item AO\dotfill
+\item AH\dotfill
+\item Points particuliers:\dotfill
+\end{itemize}
+
+
+
+\end{multicols}\end{minipage}
+
+De plus,
+\par \setlength{\columnseprule}{2 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\uline{\textbf{si \(a>1\)}}
+\begin{itemize}
+\item Concavité \dotfill
+\item \(f\) est \dotfill
+\item \(\lim\limits_{x\to 0}f(x)=\dotfill\)
+\item \(\lim\limits_{x\to\infty}f(x)=\dotfill\)
+\end{itemize}
+\columnbreak
+ \uline{\textbf{si \(0<a<1\)}}
+\begin{itemize}
+\item Concavité \dotfill
+\item \(f\) est \dotfill
+\item \(\lim\limits_{x\to 0}f(x)=\dotfill\)
+\item \(\lim\limits_{x\to\infty}f(x)=\dotfill\)
+\end{itemize}
+
+
+\end{multicols}\end{minipage}
+\end{propriete}
+Vous pouvez de plus remarqué une symétrie des graphiques ci-dessus.
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Alors le graphique de
+\(f(x)=\log_{1/a}(x)\) est obtenu à partir du graphique de \(g(x)=\log_a(x)\)
+par une symétrie d'axe \(x\).
+\end{propriete}
+\newpage
+\subsection{Exercices}
+\label{sec:org4b81a98}
+\begin{exercice}
+Donne l'expression analytiques des fonctions logarithmiques représentées
+ci-dessous.
+\begin{center}
+\includestandalone[width=\linewidth]{figures/fig28}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Associe chaque expression analytique au graphique correspondant.
+\begin{center}
+\begin{tabular}{|l|l|}
+\hline
+Expression analytique & Graphique \\ \hline
+$\log(x)$             &           \\ \hline
+$4^x$                 &           \\ \hline
+$1/e^x$               &           \\ \hline
+$\log_5(x)$           &           \\ \hline
+$\log_{0,5}(x)$       &           \\ \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+\includestandalone[width=0.95\linewidth]{figures/fig29}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Relie chaque élément de la colonne de gauche
+à l'information correspondante dans la colonne de droite.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+
+\begin{itemize}
+\item Les graphiques de \(a^x\) et \(\dfrac{1}{a^x}\)
+
+\item Les graphiques de \(a^x\) et \(\log_a(x)\)
+
+\item Les graphiques de \(\dfrac{1}{a^x}\) et \(\log_{\frac{1}{a}}(x)\)
+
+\item Les graphiques de \(\log_a(x)\) et \(\log_{\frac{1}{a}}(x)\)
+\end{itemize}
+
+\columnbreak
+
+\begin{itemize}
+\item sont symétriques par rapport à l'axe \(x\)
+
+\item sont symétriques par rapport à la droite \(y=x\)
+
+\item sont symétriques par rapport à l'axe \(y\)
+\end{itemize}
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+Sur base de l'exercice précédent, résous les exercices suivants.
+
+\begin{exercice}
+À partir du graphique de \(f(x)=e^x\) (représentée en pointillés), donne
+l'expression analytique des autres fonctions.
+
+\begin{center}
+\includestandalone[width=\linewidth]{figures/fig30}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+À partir du graphique de \(f(x)=\log_4(x)\) (représentée en pointillés), donne l'expression analytique des autres fonctions.
+\begin{center}
+\includestandalone[width=\linewidth]{figures/fig31}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+À partir du graphique de \(f(x)=\left(\dfrac{4}{5}\right)^x\)(représentée en pointillés) , donne l'expression
+analytique de la fonction \(g(x)\) (représentée avec le trait le plus gras). Ensuite, donne l'expression analytique de la
+fonction \(h(x)\) à partir de la fonction \(g(x)\).
+
+\begin{center}
+\includestandalone[width=\linewidth]{figures/fig32}
+\end{center}
+\end{exercice}
+
+\begin{exercice}
+Parmi les trois graphiques ci-dessous, trouve celui de la fonction
+\(f(x)=\log_{0,4}(x)\). Donne ensuite l'expression analytique des autres
+fonctions.
+\begin{center}
+\includestandalone[width=0.7\linewidth]{figures/fig33}
+\end{center}
+\end{exercice}
+\section{Propriétés algébriques}
+\label{sec:org3a26d3e}
+
+Les propriétés algébriques des logarithmes seront déduites des propriétés
+algébriques des exponentielles grâce à la relation de réciprocité entre ces deux
+fonctions.
+
+La stratégie des démonstrations des propriétés sera donc toujours la même:
+
+\begin{boite}
+traduire la propriété algébrique du logarithme en une propriété algébrique de
+l'exponentielle correspondante, grâce à la définition:
+\(\log_a(x)=y\Leftrightarrow x=a^y\).
+\end{boite}
+
+Voici, pour rappel, les propriétés élémentaires déjà rencontrées:
+
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Alors:
+\begin{enumerate}
+\item \(\log_a(a^x)=x\) (\(x\in\IR\)) et \(a^{\log_a(x)=x}\) (\(x\in\IR^{>0}\))
+\item \(\log_a(1)=0\)  (traduction: \(a^0=1\))
+\item \(\log_a(a)=1\)  (traduction: \(a^1=a\))
+\end{enumerate}
+\end{propriete}
+
+\subsection{Logarithme d'un produit}
+\label{sec:orga3bcfb6}
+
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Soit \(x,y\in\IR^{>0}\). Alors
+\[
+\log_a(xy)=\log_a(x)+\log_a(y).
+\]
+\end{propriete}
+Ainsi le logarithme transforme un produit en une somme. La traduction
+correspondante pour les exponentielle est qu'une exponentielle transforme une
+somme en un produit!
+
+\begin{proof}
+On commence par traduire la propriété:
+\[
+\log_a(xy)=\log_a(x)+\log_a(y)\text{ devient }
+xy=a^{\log_a(x)+\log_a(y)}.
+\]
+
+Puisque l'exponentielle transforme une somme en un produit:
+\begin{align*}
+a^{\log_a(x)+\log_a(y)} &=\jdot{5cm}\\
+&=\jdot{5cm}
+\end{align*}
+
+Donc l'égalité \(xy=a^{\log_a(x)+\log_a(y)}\) est vraie, et par
+conséquent  \(\log_a(xy)=\log_a(x)+\log_a(y)\).
+\end{proof}
+
+\begin{exemple}
+Voici quelques exemples:
+
+\begin{enumerate}
+\item \(\log(1000\cdot 0,001)\)
+\vspace{2cm}
+\item \(\log_2\left(8\cdot\dfrac{1}{4}\right)\)
+\vspace{2cm}
+\end{enumerate}
+\end{exemple}
+\subsection{Logarithme d'un quotient}
+\label{sec:org8024308}
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Soit \(x,y\in\IR^{>0}\). Alors
+\[
+\log_a\left(\dfrac{x}{y}\right)=\log_a(x)-\log_a(y).
+\]
+\end{propriete}
+Ainsi le logarithme transforme un quotient en une différence. La traduction
+correspondante pour les exponentielle est qu'une exponentielle transforme une
+différence en un quotient!
+
+\begin{proof}
+On commence par traduire la propriété:
+\[
+\log_a\left(\dfrac{x}{y}\right)=\log_a(x)-\log_a(y)\text{ devient }
+\jdot{5cm}
+\]
+Puisque l'exponentielle transforme une différence en un quotient:
+\begin{align*}
+a^{\jdot{5cm}} &=\jdot{5cm}\\
+&=\jdot{5cm}
+\end{align*}
+
+Donc l'égalité \(\jdot{10cm}\) est vraie, et par
+conséquent  \(\log_a\left(\dfrac{x}{y}\right)=\log_a(x)-\log_a(y)\).
+\end{proof}
+
+\begin{exemple}
+Voici quelques exemples:
+
+\begin{enumerate}
+\item \(\log_5\left(\dfrac{125}{5}\right)\)
+\vspace{2cm}
+\item \(\log_2\left(\dfrac{16}{4}\right)\)
+\vspace{2cm}
+\end{enumerate}
+\end{exemple}
+\subsection{Logarithme d'une puissance}
+\label{sec:org8b88e1f}
+\begin{propriete}
+Soit \(a\in\IR^{>0}\backslash\{1\}\). Soit \(x\in\IR^{>0}\) et \(p\in\IR\). Alors
+\[
+\log_a(x^p)=p\log_a(x).
+\]
+\end{propriete}
+
+\begin{proof}
+On commence par traduire la propriété:
+\[
+\log_a(x^p)=p\log_a(x)\text{ devient }
+\jdot{5cm}
+\]
+Puisque la puissance d'une exponentielle est l'exponentielle d'un produit (
+   \(\left(a^{m}\right)^p=\jdot{2cm}\) ):
+\begin{align*}
+a^{\jdot{5cm}} &=\jdot{5cm}\\
+&=\jdot{5cm}
+\end{align*}
+
+Donc l'égalité \(\jdot{10cm}\) est vraie, et par
+conséquent  \(\log_a(x^p)=p\log_a(x)\).
+\end{proof}
+
+\begin{exemple}
+Voici quelques exemples:
+
+\begin{enumerate}
+\item \(\log_5\left(125\right)\)
+\vspace{2cm}
+\item \(\log_2\left(16\right)\)
+\vspace{2cm}
+\end{enumerate}
+\end{exemple}
+\subsection{Changement de base}
+\label{sec:org56df2ac}
+Une calculatrice dispose en général de deux touche logarithmiques: \texttt{ln}
+et \texttt{log}. Comment peut-on alors utiliser la calculatrice pour calculer
+des logarithmes dans d'autres bases? On utilise une formule qui permet de
+traduire un logarithme dans une autre base.
+\begin{propriete}
+Soit \(a,b\in\IR^{>0}\backslash\{1\}\). Soit \(x\in\IR^{>0}\). Alors
+\[
+\log_a(x)=\dfrac{\log_b(x)}{\log_b(a)}.
+\]
+En particulier, tout logarithme se traduit en un logarithme de base \(e\) ou \(10\)
+de la manière suivante:
+\[
+\log_a(x)=\dfrac{\ln(x)}{\ln(a)}\text{ ou }\log_a(x)=\dfrac{\log(x)}{\log(a)}.
+\]
+\end{propriete}
+
+C'est cette propriété qui permet d'utiliser la calculatrice pour calculer des
+logarithmes dans des bases différentes de \(e\) et \(10\).
+
+\begin{exemple}
+Calcule à l'aide de la calculatrice les logarithmes suivants:
+\begin{enumerate}
+\item \(\log_3(2)\)
+\vspace{2cm}
+
+\item \(\log_2(125)\)
+\vspace{2cm}
+
+\item \(\log_{0,5}(54)\)
+\vspace{2cm}
+\end{enumerate}
+\end{exemple}
+\subsection{Exercices}
+\label{sec:org9f72c6b}
+\begin{boite}
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+
+\(\log_a(1)=0\) et \(\log_a(a)=1\)
+
+\(a^{\log_a(x)}=x\) et \(\log_a(a^x)=x\)
+
+\(\log_a(xy)=\log_a(x)+\log_a(y)\)
+
+\(\log_a\left(\dfrac{x}{y}\right)=\log_a(x)-\log_a(y)\)
+
+\(\log_a(x^p)=p\log_a(x)\)
+
+\(\log_a(x)=\dfrac{\log_b(x)}{\log_b(a)}\)
+
+
+\end{multicols}\end{minipage}
+\end{boite}
+
+\begin{exercice}
+Calcule sans calculatrice en utilisant les propriétés élémentaires :
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+\begin{enumerate}
+\item \(\log_2(3)\)
+\item \(\log(10^7)\)
+\item \(\log_8(1)\)
+\item \(\log_3(3)\)
+\item \(\ln(1)\)
+\item \(\log_5(5^3)\)
+\item \(\ln(e^5)\)
+\item \(\log(10^{-5})\)
+\item \(\log\left(\dfrac{1}{10^3}\right)\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Utilise les propriétés et transforme les expressions en les développant en
+somme (et/ou différence) de multiples de \(\ln(a)\), \(\ln(b)\), \(\ln(c)\),
+\(\log(x)\), \(\log(y)\) et \(\log(z)\):
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+\begin{enumerate}
+\item \(\ln(ab^2c)\)
+\item \(\ln\left(\dfrac{ab}{c}\right)\)
+\item \(\ln(\sqrt{ab^2})\)
+\item \(\log(10xy)\)
+\item \(\log(x^2y^3)\)
+\item \(\log(\sqrt[3]{10x})\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Ecris les expressions sous la forme d’un seul logarithme:
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{enumerate}
+\item \(\log(3b)+\log(5a)\)
+
+\item \(\ln(6c)-\ln(b)\)
+
+\item \(\log(3x)+\log(y)-\log(2x)\)
+
+\item \(\log(a)-2\log(b)+3\log(c)\)
+
+\item \(\ln(3x)+2\ln(x)-\dfrac{1}{2}\ln(y)\)
+
+\item \(\log(4x)+\log(x+1)-\log(y-6)\)
+\end{enumerate}
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Écris le plus simplement possible les expressions suivantes:
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{enumerate}
+\item \(\log(\sqrt{10^3})\)
+\item \(\ln\left(\dfrac{1}{e^3}\right)\)
+\item \(\ln(\sqrt{e})\)
+\item \(\ln(e^2)-\ln(e^{-2})\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Utilise la formule de changement de base pour calculer les logarithmes suivants.
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{enumerate}
+\item \(\log_9(100)\)
+
+\item \(\log_5(e)\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Sachant que \(\log(x)=2,4\), calcule:
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{enumerate}
+\item \(\log(x^2)\)
+\item \(\log\left(\dfrac{1}{x}\right)\)
+\item \(\log(1000x)\)
+\item \(\log(\sqrt{10x})\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\section{Équations logarithmiques}
+\label{sec:org15f7913}
+
+Une équation logarithmique est une équation pour laquelle l'inconnue est un
+argument d'une fonction logarithme.
+
+Nous allons développer une technique pour résoudre les équations logarithmiques.
+
+La démarche est assez similaire à la résolution d'équations exponentielles. La
+différence majeure est que pour les équations logarithmiques, il \textbf{faut poser des
+conditions d'existence}, étant donné que le domaine d'une fonction logarithmique
+est \(\IR^{>0}\).
+
+Voyons comment résoudre l'équation \(\log(2)+\log(x)=\log(x-2)\).
+
+\begin{enumerate}
+\item On pose les conditions d'existence:
+\vspace{3cm}
+\item On résout l'équation en utilisant les propriétés des logarithmes.
+\vspace{4cm}
+
+L'astuce principale pour résoudre les équations logarithmiques est donc:
+\vspace{2cm}
+\item On confronte les solutions de la 2e étape aux conditions d'existence de la
+première étape.
+\vspace{2cm}
+\item On conclut:
+\end{enumerate}
+
+\subsection{Exercices}
+\label{sec:org7f82d04}
+\begin{exercice}
+Résous les équations suivantes.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{enumerate}
+\item \(\log(x-2)=4\)
+\item \(\log(x+3)=\log(x)-\log(12)\)
+\item \(\log(4x-3)-\log(2x-4)=\log(25)\)
+\item \(\log(4x-3)+\log(4)=\log(2x-4)\)
+\item \(2\log(x)=\log(x+2)\)
+\item \(2\ln(3x+1)=0\)
+\item \(\log(3x-2)+\log(8x)=\log(8)\)
+\item \(\log(4x)=-2\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+\section{Résolution d'équations exponentielles de la forme \(a^{f(x)}=b\)}
+\label{sec:orga04e9a6}
+
+Nous avons vu au chapitre précédent qu'il était impossible de résoudre
+l'équation \(e^x=3\) sans un nouvel outil. Nous allons voir comment les
+logarithmes permettent de résoudre ce genre d'équations.
+
+Nous allons nous concentrer sur les équations qui se ramènent par manipulations
+algébriques à des équations du type
+
+\[
+a^{f(x)}=b, \text{ où } a\in\IR^{>0}\backslash\{1\} \text{ et } b\in\IR^{>0}.
+\]
+
+Lorsque vous arrivez à une équation du type \(a^{f(x)}=b\), vous pouvez appliquer
+le logarithme de base \(a\) à chacun des membres de l'équations:
+
+\[
+a^{f(x)}=b\text{ si et seulement si } \log_a(a^{f(x)})=\log_a(b).
+\]
+Ainsi, grâce à la relation de réciprocité, on obtient
+
+\[
+\log_a(a^{f(x)})=\log_a(b) \text{ si et seulement si } f(x)=\log_a(b).
+\]
+
+Il suffit ensuite de résoudre l'équation \(f(x)=\log_a(b)\).
+
+Voici quatre exemples
+
+\begin{exemple}
+Résous les équations suivantes.
+
+a. \(e^{1-3x}=3\)
+
+\vspace{3cm}
+
+b. \(2\cdot 10^{5x}=12\)
+
+\vspace{3cm}
+
+c. \(5=2^{x+5}\)
+
+\vspace{3cm}
+
+d. \(2^{x-1}=-8\)
+   \vspace{2cm}
+\end{exemple}
+
+\begin{exercice}
+Résous les équations suivantes.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+
+\begin{enumerate}
+\item \(3^{2x}=7\)
+
+\item \(\dfrac{1}{3} 2^{x+2}=7\)
+
+\item \(e^{\dfrac{x}{8}}=3^2\)
+
+\item \(2^{x+1}=3\)
+
+\item \(6e^{2x}-1=0\)
+
+\item \(5^{3x-9}=8\)
+\end{enumerate}
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+\section{Modélisations à l'aide de fonctions logarithmiques}
+\label{sec:orge0ec71f}
+\begin{exercice}
+(Population mondiale) Selon une estimation de l’ONU (Organisation des Nations Unies), la population
+mondiale était en 2005 de 6,5 milliards d’habitants et est depuis en progression de
+1,2 \% par an.
+Détermine l’année où la population sera doublée, si cette progression se déroule
+toujours à ce rythme.
+\end{exercice}
+
+\begin{exercice}
+(Placement) Une personne effectue un placement de 4000 euros à intérêts
+composés, au taux annuel de 5 \%. Cela signifie que la somme
+d’argent va augmenter de 5\% tous les ans.
+Au bout de combien d’années son capital sera-t-il égal à 8000\texteuro{} ?
+\end{exercice}
+
+\begin{exercice}
+(Médicament) On injecte à une personne 250 mg d’un médicament dans le sang.
+La dose de médicament contenue dans le sang en fonction du temps est modélisé par
+la fonction :
+
+\[
+d(t)=d_0\cdot 10^{-0,075t}
+\]
+où \(d_0\) est la dose introduite dans le sang et \(t\) est le temps est mesuré en heure.
+Si la dose de médicament contenue dans le sang est inférieure à 100 mg, on estime
+que celui-ci n’a plus d’effet. Il est temps de réinjecter une dose. Après combien de
+temps faudra-t-il le faire?
+\end{exercice}
+
+\section{Question de dépassement}
+\label{sec:org533a9a1}
+
+\begin{question}
+Pourquoi n'avons-nous pas parlé de multiples de fonctions logarithmiques?
+\end{question}
+\chapter{Dérivées et limites des fonctions exponentielles et logarithmes}
+\label{sec:org3b19d65}
+\uline{Attention!} Ce chapitre se fera en partie par prise de notes pour la théorie!
+
+\section{Calculs de dérivées}
+\label{sec:org761211b}
+
+\begin{exercice}
+Calcule les dérivées suivantes.
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{5}
+a) \(3^x\)
+
+b) \(10^x\)
+
+c) \(e^{-x}\)
+
+d) \(\dfrac{1}{e^{4x}}\)
+
+e) \(e^{x^2}\)
+
+f) \(e^{2x-2}\)
+
+g) \(e^{1/x}\)
+
+h) \(3^{4x-3}\)
+
+i) \(2^{1/x}\)
+
+j) \(4^{x/3}\)
+
+k) \(2e^x\)
+
+l) \(\dfrac{1}{e^{x}}+e^{x}\)
+
+m) \(\dfrac{1}{e^{3x}}+e^{4x}\)
+
+n) \(xe^x\)
+
+o) \(x^2e^{4x}\)
+
+p) \(\dfrac{e^x}{x}\)
+
+q) \(\dfrac{e^x}{x^3}\)
+
+r) \(\dfrac{2}{e^{2x}}\)
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Calcule les dérivées suivantes.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{5}
+
+a) \(\log_2(x)\)
+
+b) \(\ln(3x)\)
+
+c) \(\ln(x^3)\)
+
+d) \(\ln(1/x)\)
+
+e) \(\ln(\sqrt{x})\)
+
+f) \(\ln(3x-5)\)
+
+g) \(\ln(x)-x\)
+
+h) \(x^2\ln(x)\)
+
+i) \(x\ln(x)-x\)
+
+j) \(\dfrac{\ln(x)}{x}\)
+
+k) \(x^4\ln(x^2-1)\)
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Calcule le domaine et la dérivée des fonctions suivantes.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\(f(x)=\dfrac{x}{\ln(x)}\)
+
+\(g(x)=\ln(x^2-5x+6)\)
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\section{Limites de base}
+\label{sec:org63e91e4}
+\begin{exercice}
+Calcule les limites suivantes après avoir esquissé rapidement le graphique de la
+fonction.
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+
+a) \(\lim_{\limits{x\to \pinf }} 4^x =\)
+
+b) \(\lim_{\limits{x\to \minf}}\left(\dfrac{1}{3}\right)^{2x} =\)
+
+c) \(\lim_{\limits{x\to \pinf}} 2^{-x} =\)
+
+d) \(\lim_{\limits{x\to \minf }}0,3^{x} =\)
+
+e) \(\lim_{\limits{x\to\minf }}0,3^{x-1} =\)
+
+f) \(\lim_{\limits{x\to \pinf}}\ln(x+1) =\)
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+En utilisant les règles de calcul de limites, calcule les limites suivantes.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+
+a) \(\lim_{\limits{x\to \pinf }} x4^x =\)
+
+b) \(\lim_{\limits{x\to 2}}x3^x =\)
+
+c) \(\lim_{\limits{x\to 0}} \dfrac{0,5^x-1}{0,5^x+1} =\)
+
+d) \(\lim_{\limits{x\to 2 }}\dfrac{x}{3^x} =\)
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+
+\begin{exercice}
+Calcule les limites suivantes.
+
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{3}
+
+a) \(\lim_{\limits{x\to \pinf }} \dfrac{0,5^x-1}{0,5^x+1} =\)
+
+b) \(\lim_{\limits{x\to \minf}}\dfrac{2^x-1}{2^x+1} =\)
+
+c) \(\lim_{\limits{x\to \minf}} \dfrac{e^x-1}{e^x+1} =\)
+
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+\section{Théorème de l'Hospital}
+\label{sec:org7d10cb5}
+Nous n'avons pas d'outils pour calculer les limites suivantes:
+
+$$
+\lim_{\limits{x\to \pinf}}\dfrac{e^x}{2x}\text{ et }\lim_{\limits{x\to
+1}}\dfrac{\ln(x)}{x-1}
+$$
+
+On ne peut pas calculer ces limites avec les techniques de base car elles
+correspondent à deux cas d'indétermination. Le théorème suivant va nous
+permettre de les calculer.
+\begin{theoreme}
+Soit \(f\) et \(g\) deux fonctions dérivables et \(a\in\IR\cup\{\pm\infty\}\). Supposons que:
+\begin{enumerate}
+\item \(\lim_{\limits{x\to a}}f(x)=0=\lim_{\limits{x\to a}}g(x)\) ou
+\(\lim_{\limits{x\to a}}g(x)=\pm\infty\)
+\item \(g'\) n'a qu'un nombre fini de racines au voisinage de \(a\)
+\item \(\lim_{\limits{x\to a}}\dfrac{f'(x)}{g'(x)}\) existe.
+\end{enumerate}
+
+Alors
+$$
+\lim_{\limits{x\to a}}\dfrac{f(x)}{g(x)}=\lim_{\limits{x\to a}}\dfrac{f'(x)}{g'(x)}
+$$
+\end{theoreme}
+\begin{remarque}
+\begin{enumerate}
+\item Toutes les hypothèses du théorèmes sont importantes. Cependant, pour les
+exercices du cours, on supposera qu'elles sont vérifées.
+\item Dans certains calculs de limites, il sera parfois nécessaire d'appliquer
+plusieurs fois le théorème de l'Hospital.
+\end{enumerate}
+\end{remarque}
+\begin{exemple}
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\(\lim_{\limits{x\to \pinf}}\dfrac{e^x}{2x}\)
+
+\(\lim_{\limits{x\to 1}}\dfrac{\ln(x)}{x-1}\)
+
+
+
+\end{multicols}\end{minipage}
+\vspace{4cm}
+\end{exemple}
+\begin{exercice}
+Calcule les limites suivantes.
+\par \setlength{\columnseprule}{0 pt}
+          \begin{minipage}[t]{\linewidth}
+          \begin{multicols}{2}
+\begin{enumerate}
+\item \(\lim_{\limits{x\to \minf}}\dfrac{e^{-3x}}{x}\)
+\item \(\lim_{\limits{x\to 0}}\dfrac{e^{3^x}-3^{-x}}{3x}\)
+\item \(\lim_{\limits{x\to \pinf}}\dfrac{3x}{e^x}\)
+\item \(\lim_{\limits{x\to 2}}\dfrac{x-2}{\ln((x-2)^2+1)}\)
+\end{enumerate}
+
+
+\end{multicols}\end{minipage}
+\end{exercice}
+\chapter{Échelles logarithmiques}
+\label{sec:org6c91c7c}
+\end{document}

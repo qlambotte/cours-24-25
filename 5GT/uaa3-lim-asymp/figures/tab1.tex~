@@ -1,0 +1,45 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{amsmath}
+\usepackage{tkz-tab}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}
+\tkzTabInit
+{$x$
+/1,
+signe de $\ldots$
+/1}
+{$-2$,$-1$,$0.5$,$3$}
+\tkzTabLine{$+$,$+$, $0$,$-$,$0$, $+$,$+$}
+\begin{scope}[yshift=-3cm]
+  \tkzTabInit
+{$x$
+/1,
+signe de $\ldots$
+/1}
+{$-2$,$0$,$3$}
+\tkzTabLine{$+$,$+$,$0$,$+$,$0$}
+\end{scope}
+\begin{scope}[yshift=-6cm]
+  \tkzTabInit
+{$x$
+/1,
+signe de $\ldots$
+/1}
+{$-2$,$0$,$3$}
+\tkzTabLine{$+$,$+$,$0$,$-$,$0$}
+\end{scope}
+\end{tikzpicture}
+
+\end{document}
+ % Local Variables:
+ % TeX-command-extra-options: "-shell-escape"
+ % End:

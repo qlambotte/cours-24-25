@@ -1,0 +1,48 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+  \tkzInit[xmin=-10,xmax=10,ymin=-10,ymax=10, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=-10:10,line width=1.5pt, dashed]{(exp(log(4/5.)*\x))}
+\tkzFct[domain=0.001:10,line width=3.5pt]{(log(\x)/log(4/5.))}
+
+
+\begin{scope}[xshift=13cm]
+  \tkzInit[xmin=0,xmax=10,ymin=-10,ymax=10, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=0.001:10,line width=3.5pt]{(log(\x)/log(4/5.))}
+\tkzFct[domain=0.001:10,line width=1.5pt]{-(log(\x)/log(4/5.))}
+
+
+
+
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

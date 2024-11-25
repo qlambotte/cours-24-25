@@ -1,0 +1,46 @@
+\message{ !name(fig22.tex)}
+\message{ !name(fig22.tex) !offset(-2) }
+
+    \documentclass{standalone}
+    \usepackage{tkz-fct}
+    \usepackage{tikz}
+\usetikzlibrary{shapes.callouts}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+   \node[ellipse callout,draw,callout absolute pointer={(5,4.15)}] at
+  (3.5,4.5) {1}; %
+  \node[ellipse callout,draw,callout absolute pointer={(-4.6,-5)}] at
+   (-4.5,-3.5) {2}; %
+   \tkzInit[xmax=5.0,ymax=5.0,xmin=-5.0 ,ymin=-5.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFctPar[line width=2pt,samples=400,domain=0:1]{((4953959590107545*t**3 - 16212958658533785*t**2 + 23643898043695104*t - 14636698788954112)/2251799813685248)}{((3152519739159349*t**3 - 14186338826217066*t**2 + 18915118434956085*t - 14636698788954112)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((900719925474098*t**3 - 1351079888211147*t**2 + 2702159776422297*t - 4503599627370496)/4503599627370496)}{(-(450359962737049*t**3 + 675539944105575*t**2 + 6755399441055744)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((t - 1)*(3602879701896398*t**2 - 1801439850948199*t + 9007199254740992)/18014398509481984)}{(-(450359962737049*t**3 - 2026619832316722*t**2 + 2702159776422297*t + 7881299347898368)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{(3*t*(450359962737050*t**2 - 675539944105575*t + 1351079888211149)/4503599627370496)}{((1801439850948199*t**3 + 2702159776422297*t**2 - 9007199254740992)/2251799813685248)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{(3*(225179981368525*t**3 - 181876138797655*t**2 + 519646110850442*t + 562949953421312)/2251799813685248)}{((t - 1)*(3602879701896398*t**2 - 7621476292473151*t + 9007199254740992)/4503599627370496)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((4953959590107548*t**3 + 4728779608739007*t**2 + 2702159776422309*t + 3377699720527872)/2251799813685248)}{(t*(23418718062326599*t**2 + 24319437987800610*t + 10808639105689239)/9007199254740992)}
+
+
+                \tkzDefPoint(-5.0,-5.0){A}
+
+                \tkzDefPoint(5.0,5.0){B}
+
+                \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+
+
+\end{tikzpicture}
+\end{document}
+
+\message{ !name(fig22.tex) !offset(-46) }

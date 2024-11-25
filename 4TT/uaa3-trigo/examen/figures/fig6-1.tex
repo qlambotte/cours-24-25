@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(7,0){C}
+    \tkzDefTriangle[two angles = 81.787 and 38.213](A,C)
+    \tkzGetPoint{B}
+    \tkzDrawSegment(A,B)
+    \tkzDrawPoints(A,B)
+    \tkzLabelPoints[below left](A)
+    \tkzLabelPoints[above](B)
+    \tkzDrawSegments(A,C B,C)
+    \tkzDrawPoints(C)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelAngle[pos=0.8, right](C,A,B){\Large$\alpha$}
+    \tkzLabelAngle[pos=1.2](A,B,C){\Large$\beta=60^\circ$}
+    \tkzLabelAngle[pos=0.8](B,C,A){\Large$\gamma$}
+    \tkzMarkAngle[size=0.5](C,A,B)
+    \tkzMarkAngle[size=0.5](A,B,C)
+    \tkzMarkAngle[size=0.5](B,C,A)
+    \tkzLabelSegment[above right](C,B){\Large$a=8$}
+    \tkzLabelSegment[above left](B,A){\Large$c$}
+    \tkzLabelSegment[below](A,C){\Large$b=7$}
+\end{tikzpicture}
+\end{document}

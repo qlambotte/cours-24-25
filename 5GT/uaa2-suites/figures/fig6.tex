@@ -1,0 +1,18 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+
+\begin{document}
+\begin{tikzpicture}
+\tkzInit[xmin=0,xmax=12,ymin=0,ymax=100, ystep=10]
+\tkzAxeXY
+   \begin{scope}
+     \tkzGrid[color=black, sub, subxstep=1, subystep=2]
+   \end{scope}
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,388 @@
+# Les triangles quelconques
+
+::: content-hidden
+$$
+{{< include latex-macros.tex >}}
+$$
+:::
+
+## Rappels: trigonométrie dans le triangle rectangle
+
+Dans cette UAA, nous prendrons l'habitude d'annoter les triangles de la manière suivante:
+
+![](figures/fig2){width="45%" fig-align="center"}
+
+-   chaque côté porte la lettre minuscule du sommet opposé
+-   l'angle d'un sommet porte la lettre grècque correspondante.
+
+Voici l'essentiel de la trigonométrie du triangle rectangle.
+
+![](figures/fig3){width="80%" fig-align="center"}
+
+::: {#thm-pytagore}
+Dans un triangle $ABC$ rectangle en $A$, $a^2=b^2+c^2$.
+
+![](figures/fig5){width="45%" fig-align="center"}
+:::
+
+De plus, tu as vu dans le cours de 3e quelques valeurs particulières de nombres trigonométriques
+
+| Mesure de l'angle $\alpha$ | $0^\circ$ | $30^\circ$ | $45^\circ$ | $60^\circ$ | $90^\circ$ |
+|------------|------------|------------|------------|------------|------------|
+| $\sin(\alpha)$ | 0 | $\dfrac{1}{2}$ | $\dfrac{\sqrt{2}}{2}$ | $\dfrac{\sqrt{3}}{2}$ | $1$ |
+| $\cos(\alpha)$ | 1 | $\dfrac{\sqrt{3}}{2}$ | $\dfrac{\sqrt{2}}{2}$ | $\dfrac{1}{2}$ | 0 |
+| $\tan(\alpha)$ | 0 | $\dfrac{\sqrt{3}}{3}$ | 1 | $\sqrt{3}$ | n'existe pas |
+
+:::::: {#exr-trig}
+Voici un triangle rectangle. Complète les égalités demandées.
+
+![](figures/fig4){width="45%" fig-align="center"}
+
+::::: {layout="[0.5, 0.5]"}
+::: {#firstcol}
+i)  $\sin(\alpha)=$\dotfill
+
+ii) $\cos(\alpha)=$\dotfill
+
+iii) $\tan(\alpha)=$\dotfill
+:::
+
+::: {#secondcol}
+i)  $\sin(\beta)=$\dotfill
+
+ii) $\cos(\beta)=$\dotfill
+
+iii) $\tan(\beta)=$\dotfill
+:::
+:::::
+::::::
+
+::: {#exr-hauteur}
+Soit $ABC$ un triangle rectangle en $C$. On sait que l'hypothénuse mesure $11$ cm et que l'angle $\alpha$ mesure $35^\circ$.
+
+![](figures/fig4){width="45%" fig-align="center"}
+
+-   complète l'égalité suivante: $\sin(\alpha)=$\dotfill.
+-   calcule à l'aide de la formule précédente la longueur du côté $a$.
+:::
+
+::: {#exr-calculs}
+Soit $ABC$ un triangle rectangle en $A$. On suppose que $\overline{AB}=4$cm et $\overline{AC}=7$.
+
+![](figures/fig5){width="45%" fig-align="center"}
+
+-   calcule la longeur du côté $\overline{BC}$.
+-   calcule l'angle $\beta$.
+:::
+
+## Aire d'un triangle quelconque
+
+En te basant sur la trigonométrie du triangle rectangle, tu vas essayer de découvrir une nouvelle formule pour calculer l'aire d'un triangle quelconque.
+
+::: {#exr-1}
+Soit $ABC$ le triangle dont le côté $b$ mesure 5cm, le côté $a$ mesure 6cm et tel $\gamma=45^\circ$.
+
+1.  Trace le triangle $ABC$ avec précision.
+2.  À l'aide du dessin, estime l'aire du triangle $ABC$.
+3.  Calcule l'aire du triangle $ABC$.
+:::
+
+::: {#exr-2}
+Fais le même exercice pour le triangle $ABC$ dont le côté $c$ mesure 8cm, le côté $b$ mesure 8cm et tel que $\alpha=30^\circ$.
+:::
+
+::: {#thm-aire}
+Étant donné un triangle $ABC$, on peut calculer l'aire de ce triangle grâce à la formule: $\text{Aire}(ABC)=$\dotfill
+:::
+
+:::: {#nte-idee .callout-note appearance="minimal" title="Remarque"}
+Quelle est l'idée qui a permis de construire la formule du calcul d'aire? \vspace{4cm}
+
+::: {.content-visible when-format="html"}
+TBD
+:::
+::::
+
+\newpage
+
+## Lois des sinus et cosinus
+
+1) Soit $ABC$ un triangle tel que $\alpha=80^\circ$, $\gamma=60^\circ$ et $b=$ 3cm.
+Nous allons essayer de compléter le tableau suivant:
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ | Aire |
+|-----|-----|-----|----------|---------|----------|------|
+|     |   3 |     |   $80^\circ$     |         |     $60^\circ$     |      |
+
+
+:::{#exr-loi-sin-1}
+1. Trace le triangle demandé à l'échelle.
+2. Complète le tableau suivant estimant les valeurs manquantes:
+
+|             | $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ | Aire |
+|-------------|-----|-----|-----|----------|---------|----------|------|
+| Estimations |     |  3   |     |    $80^\circ$       |         |   $60^\circ$         |      |
+:::
+
+:::{#exr-loi-sin}
+
+1. Quelle est la mesure de l'angle $\beta$?
+1. Écris les formules de l'aire pour $ABC$.
+2. A partir de ces formules, trouve la mesure du côté $a$.
+3. Trouve ensuite la mesure du côté $c$.
+:::
+
+::: {#thm-aire}
+
+## Loi des sinus
+
+Étant donné un triangle $ABC$, 
+\vspace{2cm}
+:::
+
+2) Soit $ABC$ un triangle tel que $\alpha=60^\circ$, $c=5$ cm et $b=$ 4cm.
+Nous allons essayer de compléter le tableau suivant:
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ |
+|-----|-----|-----|----------|---------|----------|
+|   [\phantom{zùerokzùemrlk}]{.content-visible when-format="pdf"}  |   4 |  5   |   $60^\circ$     |         |          |
+
+
+:::{#exr-loi-sin-1}
+1. Trace le triangle demandé à l'échelle. Fais en sorte que le côté $b$ soit horizontal et que l'angle $\alpha$ soit à l'extrémité gauche de $b$.
+2. Complète le tableau suivant estimant les valeurs manquantes:
+
+|             | $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ |
+|-------------|-----|-----|-----|----------|---------|----------|
+| Estimations |     |  4   |  5   |    $60^\circ$       |         |            |
+:::
+
+:::{#exr-loi-sin}
+
+1. Trace la hauteur $h$ passant par $B$.
+1. Note $H$ le point d'intersection entre la hauteur $h$ et le côté $b$.
+1. Note $b'$ le segment $[AH]$ et $b''$ le segment $HC$.
+2. Tu obtiens deux triangles rectangles: $ABH$ et $CBH$. Écris pour ceux deux triangles le théorème de Pythagore.
+3. Utilises ces deux formules et le fait que $b=b'+b''$ pour trouver la mesure du côté $a$.
+:::
+
+::: {#thm-aire}
+
+## Loi des cosinus ou théorème de Pythagore généralisé
+
+Étant donné un triangle $ABC$, 
+\vspace{2cm}
+:::
+
+\newpage
+
+### Construction de la loi des consinus par généralisation algébrique
+
++-------------------------------------------------------+-----------------------------------------------------------+
+| Exemple algébrique                                    | Généralisation                                            |
++=======================================================+===========================================================+
+|![](figures/fig6){width="25%" fig-align="center"}      | ![](figures/triangle){width="30%" fig-align="center"}     |
++:======================================================+==========================================================:+
+| :::{.center}                                                                                                      |
+| Étape 1: [Tracé de la hauteur $h$ passant par $B$]{.underline}                                                    |
+| :::                                                                                                               |
++=======================================================+===========================================================+
+|                                                       |                                                           |
++-------------------------------------------------------+-----------------------------------------------------------+
+| - $H$ est l'intersection de $h$ avec $b$                                                                          |
+| - $b'$ est le segment $[AH]$ et $b''$ le segment $[HC]$                                                           |
+| - les triangles $ABH$ et $HBC$ sont rectangles                                                                    |
++=======================================================+===========================================================+
+|                                                       |                                                           |
++=======================================================+===========================================================+
+| :::{.center}                                                                                                      |
+| Étape 2: [On applique le théorème de Pythagore aux deux triangles rectangles $ABH$ et $HBC$.]{.underline}         |
+| :::                                                                                                               |
++=======================================================+===========================================================+
+|                                                       |                                                           |
++=======================================================+===========================================================+
+| * pour $ABH$ : $5^2=h^2+b'^2$                         | * pour $ABH$ : $c^2=h^2+b'^2$                             |
+| * pour $HBC$ : $a^2=h^2+b''^2$                        | * pour $HBC$ : $a^2=h^2+b''^2$                            |
++=======================================================+===========================================================+
+|                                                                                                                   |
++-------------------------------------------------------+-----------------------------------------------------------+
+| :::{.center}                                                                                                      |
+| Étape 3: [On utilise les deux formules et le fait que $b=b'+b''$ pour trouver $a$.]{.underline}                   |
+| :::                                                                                                               |
++=======================================================+===========================================================+
+|                                                       |                                                           |
++=======================================================+===========================================================+
+| * $h^2= 25-b'^2$                                      | * puisque $c^2=h^2+b'^2$, on a que $h^2=\jdot{2cm}$       |
+| * $b''=4-b'$                                          | * puisque $b=b'+b''$, on a que $b''=\jdot{2cm}$           |
+|                                                       |                                                           |
++-------------------------------------------------------+-----------------------------------------------------------+
+| Donc                                                  | Donc:                                                     |
+|                                                       |                                                           |
+|  $$                                                   | $$                                                        |
+|  \begin{aligned}                                      | \begin{aligned}                                           |
+| a^2&=h^2+b''^2\\                                      | a^2&=h^2+b''^2\\                                          |
+| &=25-b'^2+(4-b')^2\\                                  | &=c^2-b'^2+(b-b')^2\\                                     |
+| &=25-b'^2+4^2-2\cdot 4b'+b'^2\\                       | &=c^2-b'^2+b^2-2bb'+b'^2\\                                |
+| &=25+16-2\cdot 4b'                                    | &=c^2+b^2-2bb'                                            |
+| \end{aligned}                                         | \end{aligned}                                             |
+| $$                                                    | $$                                                        |
+|                                                       |                                                           |
+| Or, $\cos(\alpha)=\dfrac{b'}{5}$.                     | Or,  $\cos(\alpha)=\jdot{3cm}$.                           |
+|                                                       |                                                           |
+| Donc $b'=5\cos(60)=5\dfrac{\sqrt{3}}{2}$              | Donc $b'=\jdot{3cm}$.                                     |
+|                                                       |                                                           |
+| Et donc                                               |  Et donc                                                  |
+|                                                       | $$                                                        |
+| $a^2=41-8\cdot 5\dfrac{1}{2}=41-20$.                  | a^2=c^2+b^2-2bc\cos(\alpha).                              |
+|                                                       | $$                                                        |
+| Donc $a=\sqrt{21}$.                                   |                                                           |
++-------------------------------------------------------+-----------------------------------------------------------+
+
+
+## Exercices
+Pour les exercices suivants, on travaille avec des triangles respectant les notations suivantes:
+
+![](figures/triangle){width="45%" fig-align="center"} 
+
+::::{#exr-calcul-aire}
+À l'aide de la loi des aires, calcule l'aire des triangles suivants à partir des données fournies (arrondis à $10^{-3}$ près).
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ | Aire  du triangle|
+|-----|-----|-----|----------|---------|----------|------------------|
+| 6   | 15  |     |          |         | 46       |                  |
+|     | 50  | 12  | 10       |         |          |      [\phantom{zùerokzùemrlk}]{.content-visible when-format="pdf"}            |
+| 3   |     | 7,5 |          | 26      |          |                  |
+
+
+::::
+
+
+:::{#exr-applic-sinus}
+À l'aide de la loi des sinus, calcule l'élément demandé à partir des mesures données dans le tableau (arrondis à $10^{-3}$ près).
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ | Élément à calculer |
+|-----|-----|-----|----------|---------|----------|---------------------|
+| 6   |     |     | 50       | 60      |          | $b$                 |
+|     | 50  |     | 10       | 30      |          | $a$                 |
+| 3   |     | 7,5 | 15       |         |          | $\gamma$            |
+:::
+
+:::{#exr-applic-cos}
+À l'aide de la loi des cosinus, calcule l'élément demandé à partir des mesures données dans le tableau (arrondis à $10^{-3}$ près).
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ | Élément à calculer |
+|-----|-----|-----|----------|---------|----------|---------------------|
+| 7   | 8   | 10  |          |         |          | $\gamma$            |
+|     | 50  | 55  | 60       |         |          | $a$                 |
+| 3   |     | 7,5 |          | 15      |          | $b$                 |
+:::
+
+Pour les exercices suivants, c'est à toi de déterminer quelle(s) formule(s) à utiliser pour trouver toutes les mesures manquantes.
+
+:::{#exr-resol-triangles}
+Soit $ABC$ un triangle. Pour chacun des cas suivants, construis la situation à l'aide de tes instruments, estime les mesures manquantes puis détermine par calcul ces mesures (arrondis ta réponse finale au centième). 
+
+1. Premier cas: on connaît deux angles et un côté.
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ |
+|-----|-----|-----|----------|---------|----------|
+|     | 4   |     | 85       |  [\phantom{zùerokzùemrlk}]{.content-visible when-format="pdf"}       | 55       |
+
+2. Deuxième cas: on connaît deux côtés et l'angle compris entre eux.
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ |
+|-----|-----|-----|----------|---------|----------|
+| 2   |     | 5   |     [\phantom{zùerokzùemrlk}]{.content-visible when-format="pdf"}     | 48      |          |
+
+3. Troisième cas: on connaît trois côtés.
+
+| $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ |
+|-----|-----|-----|----------|---------|----------|
+| 3   | 5   | 7   |  [\phantom{zùerokzùemrlk}]{.content-visible when-format="pdf"}        |         |          |
+
+4. Quatrième cas: on connaît deux côtés et l'angle adjacent à l'un d'eux.
+
+|    [\phantom{zùerokzùemrlk}]{.content-visible when-format="pdf"}       | $a$ | $b$ | $c$ | $\alpha$ | $\beta$ | $\gamma$ |
+|-----------|-----|-----|-----|----------|---------|----------|
+| Triangle 1 | 1   | 3   |     | 30       |         |          |
+| Triangle 2 | 10  | 8   |     | 30       |         |          |
+| Triangle 3 | 8   | 10  |     | 30       |         |          |
+:::
+\newpage
+## Résolution de triangles: synthèse
+:::{#exr-synthèse}
+Complète le tableau suivant en indiquant quelle(s) formule(s) est (sont) adéquate(s) pour trouver les éléments manquants.
+
++---------------------------------------------+---------------------------------------------------------+--------------------+
+| Si on connait...                            |                                                         | ... on utilise ... |
++=============================================+=========================================================+===================:+
+| Deux angles et un côté                      | ![](figures/fig7){width="35%" fig-align="center"}       |                    |
++---------------------------------------------+---------------------------------------------------------+--------------------+
+|                                             |                                                         |                    |
++---------------------------------------------+---------------------------------------------------------+--------------------+
+| Deux côtés et l'angle entre eux             | ![](figures/fig8){width="35%" fig-align="center"}       |                    |
++---------------------------------------------+---------------------------------------------------------+--------------------+
+|                                             |                                                         |                    |
++---------------------------------------------+---------------------------------------------------------+--------------------+
+| Trois côtés                                 | ![](figures/fig9){width="35%" fig-align="center"}       |                    |
++---------------------------------------------+---------------------------------------------------------+--------------------+
+|                                             |                                                         |                    |
++---------------------------------------------+---------------------------------------------------------+--------------------+
+| Deux côtés et l'angle adjacent à l'un d'eux | ![](figures/fig10){width="35%" fig-align="center"}      |                    |
++---------------------------------------------+---------------------------------------------------------+--------------------+
+  
+: {tbl-colwidths="[25,25,50]"}
+
+:::
+\newpage
+
+## Calculs de distances
+
+:::{#exr-}
+Dans une nouvelle station de ski, on a installé un téléphérique. Le câble fait un
+angle de $35,4^\circ$ avec le sol supposé horizontal et il est arrimé à 2 km du pied de la
+montagne. Quelle est la longueur du câble, calculée au cm près, si l’on sait que la
+montagne forme avec le sol un angle de $60^\circ$ ?
+
+![](figures/fig11){width="65%" fig-align="center"} 
+:::
+
+:::{#exr-}
+
+L’angle de la pente d’une rue est égal à $12^\circ$. Sachant que le soleil se trouve à $68^\circ$
+au-dessus de l’horizontale, calcule la longueur de l’ombre d’un poteau de 2,5 m de
+hauteur.
+
+![](figures/fig12){width="65%" fig-align="center"} 
+
+:::
+
+:::{#exr-}
+Une échelle est appuyée contre un mur vertical construit sur un sol en pente faisant
+un angle de $10^\circ$ par rapport à l’horizontale. L’échelle fait un angle de 60° par rapport
+au sol. La distance entre le bas de l’échelle et le bas du mur est de 2 m (mesurés
+le long du sol). Quelle est la longueur de l’échelle et quel angle fait-elle par rapport
+au mur ?
+
+![](figures/fig13){width="40%" fig-align="center"} 
+
+:::
+
+:::{#exr-}
+Ce schéma représente le parking d’un supermarché. Calcule son aire.
+
+![](figures/fig16){width="40%" fig-align="center"} 
+
+:::
+
+:::{#exr-}
+Un géomètre désire mesurer la distance horizontale entre deux arbres A et B séparés
+par une rivière se trouvant en plaine. Le géomètre choisit de se placer en un troisième
+point C (situé sur la même berge que A) d’où il peut observer les deux arbres. A partir
+de ce point, il voit les deux arbres sous un angle de $154^\circ$. Il se place ensuite en A et
+voit les points B et C sous un angle de $17^\circ$. La distance séparant les points A et C vaut
+28 m. Quelle est la distance entre les deux arbres ?
+
+![](figures/fig15){width="65%" fig-align="center"} 
+
+:::

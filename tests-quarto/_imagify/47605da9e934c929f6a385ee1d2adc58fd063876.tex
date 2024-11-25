@@ -1,0 +1,85 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  dvisvgm,
+  tikz]{standalone}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{tkz-fct}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{tkz-tab}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=2]
+   \tkzInit[xmax=1.,ymax=1.,xmin=-1. ,ymin=-1,xstep=0.2,ystep=0.2]
+   \tkzDrawY[label=$\sin(\alpha)$, above, font=\Large]
+   \tkzLabelY[node font=\Large]
+   \tkzLabelX[node font=\Large]
+   \tkzDrawX[label=$\cos(\alpha)$, right=8pt, font=\Large]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDefPoints{0/0/O,1/0/A}
+   \tkzDrawCircle[color=black](O,A)
+   \tkzDefPoints{1/1.1/A,1/-1.1/B}
+   \tkzDrawSegment[<-](A,B)
+\tkzLabelSegment[line width=2pt, above, pos=0](A,B){\Large$\tan(\alpha)$}
+\tkzText(2,0.8){
+  \Huge
+  $\sin\left(\dfrac{5\pi}{6}\right)=$}
+  \tkzText(2,0.5){\Huge$\cos\left(\dfrac{5\pi}{6}\right)=$}
+  \tkzText(2,0.2){\Huge$\tan\left(\dfrac{5\pi}{6}\right)=$}
+\end{tikzpicture}
+
+\end{document}

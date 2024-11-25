@@ -1,0 +1,1778 @@
+#+TITLE:     Les suites
+#+SUBTITLE:  5UAA2
+#+AUTHOR:    Quentin Lambotte
+#+EMAIL:     quentin.lambotte@ursulines-mons.be
+#+DATE:      {{{time(%Y-%m-%d)}}}
+#+latex_class: cours
+#+latex_class_options: [a4paper,12pt]
+#+LATEX_HEADER: \usepackage{my-conf}
+#+LATEX_HEADER: \renewcommand{\arraystretch}{1.2}
+#+DESCRIPTION: notes de cours de l'uaa2, 5GTT, math 4p
+#+LANGUAGE:  fr
+#+INCLUDE: "~/texmf/macros/latex-macros.org"
+#+OPTIONS: title:nil toc:nil
+
+
+#+begin_titlepage
+\begin{center}
+\vspace{2cm}
+\Huge
+\textbf{5UAA3: Limites et asymptotes}
+\vspace{2cm}
+
+\end{center}
+
+\vspace{1cm}
+\singlespacing
+\small
+_Compétences à développer dans ce chapitre :_
+- Connaître
+  - Identifier dans l’expression analytique d’une fonction donnée les
+    fonctions usuelles, les opérations et leur hiérarchie.
+  - Donner un exemple de limite de fonction illustrant un cas d'indétermination.
+- Appliquer
+  - Déterminer, à partir de l’expression analytique d’une fonction,
+    son domaine et les limites qui apportent des informations sur son
+    graphique.
+  - Calculer des limites et les interpréter graphiquement.
+  - Apparier des graphiques et des informations sur les limites et les
+    asymptotes d’une fonction.
+  - Traduire en termes de limites les comportements asymptotiques
+    d’une fonction, à partir de son graphique.
+  - Rechercher les équations des asymptotes au graphique d’une
+    fonction.
+  - Utiliser le comportement asymptotique d’une fonction pour
+    approcher sa valeur en un point.
+- Transférer
+  - Esquisser le graphique d’une fonction vérifiant certaines
+    conditions sur les limites et les asymptotes.
+  - Rechercher l’expression analytique d’une fonction répondant à
+    certaines conditions relatives à ses limites et à ses asymptotes.
+#+end_titlepage
+\onehalfspacing
+* Généralités sur les fonctions
+** Rappels
+Voir feuille a3 en annexe.
+** Asymptotes
+Lors de votre analyse des fonctions de référence en 4e, vous avez rencontré la
+fonction $f(x)=\dfrac{1}{x}$. Cette fonction présente une particularité:
+#+begin_center
+\includestandalone[width=0.6\linewidth]{figures/fig00}
+#+end_center
+
+La particularité est que cette fonction admet deux asymptotes: l'une est
+horizontale et l'autre est verticale.
+
+Intuitivement, une asymptote au graphique d'une fonction est une droite qui
+semble se rapprocher de plus en plus du graphique de cette fonction.
+
+Un des objectifs de cette uaa est de fournir des outils qui nous permettrons de
+détecter ces asymptotes.
+
+Il existe trois type d'asymptotes: verticales, horizontale et oblique.
+
+Voici quelques exemples:
+#+begin_center
+\includestandalone[width=\linewidth]{figures/fig35}
+#+end_center
+
+#+begin_exercice
+Pour les fonctions représentées ci-dessus,
+
+1. donne la nature de chaque asymptote: verticale, horizontale ou oblique;
+2. donne ensuite une équation cartésienne de chaque asymptote.
+#+end_exercice
+
+#+begin_exercice
+Dans le repère ci-dessous, invente une fonction qui a une asymptote verticale
+d'équation $x=4$.
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig18}
+#+end_center
+#+end_exercice
+
+#+begin_exercice
+Dans le repère ci-dessous, invente une fonction qui a une asymptote horizontale
+d'équation $y=-2$.
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig18}
+#+end_center
+#+end_exercice
+
+#+begin_exercice
+Dans le repère ci-dessous, invente une fonction qui a une asymptote oblique
+d'équation $y=\dfrac{x}{2}-1$.
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig18}
+#+end_center
+#+end_exercice
+\newpage
+
+** Recherche algébrique du domaine d'une fonction
+Jusqu'à présent, nous nous sommes contentés d’observer le domaine d'une fonction
+à partir de son graphique. Nous allons dorénavant déterminer celui-ci à partir de son
+expression analytique.
+Pour ce faire, on commence par poser des conditions d'existence. Dans ce cours,
+nous rencontrerons les conditions d'existence suivantes:
+\begin{center}
+  \renewcommand{\arraystretch}{3}
+  \begin{tabular}{|l|l|}\hline
+    Expression& Condition d'existence\\\hline
+    $\dfrac{1}{a}$&a\neq 0\\\hline
+    $\sqrt{a}$&$a\ge 0$\\\hline
+    $\dfrac{1}{\sqrt{a}}$&$a>0$\\\hline
+  \end{tabular}
+\end{center}
+#+begin_exercice
+Pour les expressions suivantes, indiques quel est le type de condition d'existence adéquat:
+
+1. $f(x)=\dfrac{1}{x-4}$
+   #+begin_center
+   \square $a\neq 0$ \hspace{1cm}\square $a\ge 0$ \hspace{1cm}\square $a>0$
+   \hspace{1cm} \square aucune
+   #+end_center
+
+2. $f(x)=\dfrac{x}{\sqrt{1+x}}$
+   #+begin_center
+   \square $a\neq 0$ \hspace{1cm}\square $a\ge 0$ \hspace{1cm}\square $a>0$
+   \hspace{1cm} \square aucune
+   #+end_center
+3. $f(x)=\sqrt{x+1}$
+    #+begin_center
+   \square $a\neq 0$ \hspace{1cm}\square $a\ge 0$ \hspace{1cm}\square $a>0$
+   \hspace{1cm} \square aucune
+   #+end_center
+4. $f(x)=x-5$
+    #+begin_center
+   \square $a\neq 0$ \hspace{1cm}\square $a\ge 0$ \hspace{1cm}\square $a>0$
+   \hspace{1cm} \square aucune
+   #+end_center
+#+end_exercice
+#+begin_exercice
+Voici l'expression analytique de huit fonctions. Calcule le domaine de
+définition de chacune de ces fonctions.
+#+begin_parallel 3
+
+1. $f(x)=2x^2-x^4$
+
+2. $g(x)=\dfrac{x^2-2}{x-2}$
+
+3. $h(x)=\sqrt{x-2}$
+
+4. $i(x)=\dfrac{x+1}{x-2}$
+
+5. $j(x)=\dfrac{1}{\sqrt{x-2}}$
+
+6. $k(x)=\dfrac{\sqrt{x+2}}{x^2-1}$
+
+7. $l(x)=\dfrac{x^3+2}{x^2-4}$
+
+8. $m(x)=\dfrac{x^3+2}{(x-2)^2}$
+#+end_parallel
+#+end_exercice
+* Opérations sur les fonctions
+** Somme, différence, produit et quotient
+Les opérations usuelles sur les nombres peuvent être prolongées en des
+opérations sur les fonctions.
+#+begin_definition
+Soit $f$ et $g$ deux fonctions. Alors:
+
+- la fonction $f+g$ est définie par l'équation $(f+g)(x)=f(x)+g(x)$
+
+- la fonction $f-g$ est définie par l'équation $(f-g)(x)=f(x)-g(x)$
+
+- la fonction $fg$ est définie par l'équation $(fg)(x)=f(x)\cdot g(x)$
+
+- la fonction $\dfrac{f}{g}$ est définie par l'équation $\left(\dfrac{f}{g}\right)(x)=\dfrac{f(x)}{g(x)}$
+
+#+end_definition
+Ainsi, pour calculer l'image d'un nombre pour la somme de deux fonctions, il
+faut calculer la somme des images.
+
+#+begin_exemple
+Considérons la fonctions $f(x)=x$ et la fonction $g(x)=\dfrac{1}{x}$. Voici le
+graphique de ces deux fonctions.
+   #+begin_center
+   \includestandalone[width=0.55\linewidth]{figures/fig02}
+   #+end_center
+1) Complète le tableau suivant
+   #+begin_center
+   \begin{tabular}{|l|l|l|l|l|l|l|l|}
+   \hline
+   $x$             & $f(x)$          & $g(x)$ & $f(x)+g(x)$ & $f(x)+g(x)$ & $f(x)-g(x)$ & $f(x)g(x)$ & $\dfrac{f(x)}{g(x)}$ \\ \hline
+   -4              & -4              &        &             &             &             &            &                      \\ \hline
+   -3              & -3              &        &             &             &             &            &                      \\ \hline
+   -1              & -1              &        &             &             &             &            &                      \\ \hline
+   $-\dfrac{1}{4}$ & $-\dfrac{1}{4}$ &        &             &             &             &            &                      \\ \hline
+   $-\dfrac{1}{2}$ & $-\dfrac{1}{2}$ &        &             &             &             &            &                      \\ \hline
+   0               & 0               &        &             &             &             &            &                      \\ \hline
+   $\dfrac{1}{2}$  & $\dfrac{1}{2}$  &        &             &             &             &            &                      \\ \hline
+   $\dfrac{1}{4}$  & $\dfrac{1}{4}$  &        &             &             &             &            &                      \\ \hline
+   1               & 1               &        &             &             &             &            &                      \\ \hline
+   2               & 2               &        &             &             &             &            &                      \\ \hline
+   3               & 3               &        &             &             &             &            &                      \\ \hline
+   4               & 4               &        &             &             &             &            &                      \\ \hline
+   \end{tabular}
+   #+end_center
+
+2) Donne le domaine de chacune des fonctions $f+g$, $f-g$, $fg$ et
+   $\dfrac{f}{g}$.
+   \vspace{2cm}
+
+3) Trace le graphique de $f+g$ dans le repère précédent.
+
+4) Que constates-tu?
+   \vspace{2cm}
+#+end_exemple
+
+#+begin_exercice
+Soit $f$ et $g$ deux fonctions. Donne le domaine de définition des fonctions $f+g$, $f-g$, $fg$ et
+   $\dfrac{f}{g}$.
+#+end_exercice
+\newpage
+#+begin_exercice
+Soit les fonctions $h(x)=x^2-1$ et $t(x)=\sqrt{x+1}$. Complète les égalités
+suivantes:
+#+begin_parallel
+
+\includestandalone[width=\linewidth]{figures/fig01}
+
+1) $\dom(h)=$ \dotfill
+1) $\dom(t)=$ \dotfill
+1) $\dom(h+t)=$ \dotfill
+1) $\dom(h-t)=$ \dotfill
+1) $\dom(ht)=$ \dotfill
+1) $\dom(h/t)=$ \dotfill
+1) $ht(x)=$ \dotfill
+1) $ht(0)=$ \dotfill
+1) $ht(-4)=$ \dotfill
+1) $ht(-1)=$ \dotfill
+1) $(h-t)(0)=$ \dotfill
+1) $(h-t)(-4)=$ \dotfill
+1) $(h-t)(-1)=$ \dotfill
+#+end_parallel
+#+end_exercice
+
+** Composition
+*** Exemples
+#+begin_exemple
+Soit $h(x)=\sqrt{x+1}$. Calcule les images suivantes:
+
+- $h(0)=$ \dotfill
+- $h(101)=$ \dotfill
+- $h(-1)=$ \dotfill
+
+Quelles sont les différentes étapes que tu as appliquées pour calculer ces
+images?
+
+\vspace{2cm}
+
+La fonction $h$ est construites à partir de deux autres fonctions. Peux-tu les
+identifier?
+
+\vspace{2cm}
+#+end_exemple
+\newpage
+#+begin_exemple
+Soit $j(x)=x^2+1$. Calcule les images suivantes:
+
+- $j(0)=$ \dotfill
+- $j(101)=$ \dotfill
+- $j(-1)=$ \dotfill
+
+Quelles sont les différentes étapes que tu as appliquées pour calculer ces
+images?
+
+\vspace{2cm}
+
+La fonction $j$ est construites à partir de deux autres fonctions. Peux-tu les
+identifier?
+\vspace{2cm}
+#+end_exemple
+*** Composée de deux fonctions
+
+#+begin_definition
+Soit $f$ et $g$ deux fonctions. La fonction composée de $f$ après $g$, notée
+$f\circ g$, est définie par l'équation
+\[
+(f\circ g)(x)=f(g(x))
+\]
+#+end_definition
+
+On peut schématiser cette définition de la manière suivante:
+
+\vspace{3cm}
+
+#+begin_exemple
+Soit $f(x)=\dfrac{1}{x}$ et $f(x)=x-2$.
+#+begin_parallel
+
+Analysons la fonction $f\circ g$:
+
+1. Expression analytique:
+\vspace{1cm}
+
+2. Domaine
+
+
+Analysons la fonction $g\circ f$:
+
+1. Expression analytique:
+\vspace{1cm}
+
+2. Domaine
+#+end_parallel
+\vspace{2cm}
+#+end_exemple
+
+De cet exemple, on peut retenir une remarque importante:
+#+begin_remarque
+La composition de deux fonctions n'est pas commutative!!! Cela veut dire qu'en
+général les fonctions $f\circ g$ et $g\circ f$ sont différentes!
+#+end_remarque
+
+Comment déterminer le domaine d'une fonction composée? Soit $f$ et $g$ deux
+fonctions. Commençons par un schéma:
+\vspace{10cm}
+
+Peux-tu décrire en français comment le domaine de $f\circ g$ s'obtient à partir
+du domaine de $f$ et du domaine de $g$?
+\vspace{3cm}
+
+#+begin_propriete
+Soit $f$ et $g$ deux fonctions. Alors le domaine de $f\circ g$ est donné par
+l'égalité suivante:
+\vspace{1cm}
+#+end_propriete
+
+#+begin_exercice
+Dans les cas suivants, donne une expression analytique de $f\circ g$ puis de
+$g\circ f$.
+
+#+begin_parallel
+1) $f(x)=x^2-1$ et $g(x)=3x+5$
+
+1) $f(x)=\sqrt{x}$ et $g(x)=x^2-1$
+
+1) $f(x)=\dfrac{2}{x}$ et $g(x)=x^2-1$
+
+1) $f(x)=\dfrac{1}{x-1}$ et $g(x)=x+1$
+#+end_parallel
+#+end_exercice
+
+#+begin_exercice
+Soit $h(x)=\dfrac{1}{x-3}$ et $i(x)=x^2+3$. Donne l'exprresion analytique de $h\circ i$ et $i\circ
+h$. Donne ensuite le domaine de ces deux fonctions composées.
+#+end_exercice
+
+#+begin_exercice
+Voici le graphique de deux fonctions $f$ et $g$. Voici leur graphique:
+#+begin_center
+\includestandalone[width=0.6\linewidth]{figures/fig03}
+#+end_center
+#+begin_parallel 2
+- $g(f(2))=$ \dotfill
+
+- $(f\circ g)(-2)=$ \dotfill
+
+- $f(g(0))=$ \dotfill
+
+- $g(f(0))=$ \dotfill
+
+- $(g\circ f)(-3)=$ \dotfill
+
+- $(f+g)(3)=$ \dotfill
+
+- $(f-g)(0)=$ \dotfill
+
+- $(fg)(-4)=$ \dotfill
+
+- $(fg)(-5)=$ \dotfill
+
+- $(f/g)(3)=$ \dotfill
+#+end_parallel
+#+end_exercice
+
+
+** Décomposition d'une fonction: exercices
+Décomposer une fonction, c'est décrire comment la construire à partir des
+opérations et de fonctions simples. Dans ce cours, les opérations seront
+\[
++,-,\cdot,/,\circ
+\]
+et les fonctions simples seront les fonctions de référence:
+\[
+x,x^2,x^3,x^n,\dfrac{1}{x}, \sqrt{x},\sqrt[3]{x},|x|,k.
+\]
+
+Voici deux exemples:
+\newpage
+#+begin_exemple
+Soit $f(x)=\sqrt{x^3+\dfrac{1}{x}}$. Décomposons $f$.
+\vspace{10cm}
+#+end_exemple
+
+#+begin_exemple
+Soit $g(x)=|x+1|-\sqrt{x^2+1}$. Décomposons $g$.
+\vspace{10cm}
+#+end_exemple
+
+#+begin_exercice
+Décompose les fonctions suivantes:
+#+begin_parallel
+1) $h(x)=\dfrac{1}{x-3}$
+
+2) $p(x)=\dfrac{1}{x^2}$
+
+3) $r(x)=\sqrt{1+x^2}+x$
+
+4) $u(x)=\left(\dfrac{1}{x}+4\right)^2$
+#+end_parallel
+#+end_exercice
+* Limites d'une fonction
+
+** Introduction
+Voici le graphe d'une fonction $f$ un peu alambiquée:
+#+begin_center
+\includestandalone[width=\linewidth]{figures/fig1}
+#+end_center
+
+En 3e et en 4e, vous avez vu divers concepts pour décrire la fonction
+à partir de son graphique.
+#+begin_parallel 2
+ 1. $\dom(f)=\dotfill$
+ 2. $\im(f)=\dotfill$
+ 3. o.à.o = \dotfill
+ 4. Racines:\dotfill
+#+end_parallel
+Vous avez aussi construit deux tableaux qui décrivent les changements
+de signe et les variations:
+
+
+#+begin_center
+\includestandalone[width=\linewidth]{figures/tab1}
+#+end_center
+#+begin_center
+\includestandalone[width=\linewidth]{figures/tab2}
+#+end_center
+
+Nous allons utiliser le concept de limite afin de préciser les
+informations données dans ces deux tableaux. Nous allons répondre à
+divers questions qui vont mettre en évidence le comportement étrange
+de $f$ à certains points de son domaine, aux endroits où $f$ n'est pas
+définie et quand la variable indéquendante prend des valeurs très
+grandes ou très petites.
+
+1. Que peux-tu dire de $f(x)$ quand $x$ est proche de $-9$? (On dira
+   aussi: quand $x$ est au voisinage de $-9$).
+
+   \dotfill
+
+   \dotfill
+
+   Notation: \dotfill
+
+   Observation graphique: \dotfill
+2. Que peux-tu dire de $f(x)$ quand $x$ est proche de $-6$?
+
+   \dotfill
+
+   \dotfill
+
+   Notation: \dotfill
+
+   Observation graphique: \dotfill
+3. Que peux-tu dire de $f(x)$ quand $x$ est proche de $-2$?
+
+   \dotfill
+
+   \dotfill
+
+   Notation: \dotfill
+
+   Observation graphique: \dotfill
+4. Que peux-tu dire de $f(x)$ quand $x$ est proche de $1$?
+
+   \dotfill
+
+   \dotfill
+
+   Notation: \dotfill
+
+   Observation graphique: \dotfill
+5. Que peux-tu dire de $f(x)$ quand $x$ est proche de $6$?
+
+   \dotfill
+
+   \dotfill
+
+   Notation: \dotfill
+
+   Observation graphique: \dotfill
+6. Que peux-tu dire de $f(x)$ quand $x$ est très petit? (On dira
+   aussi proche de $-\infty$)
+
+   \dotfill
+
+   \dotfill
+
+   Notation:  \dotfill
+
+   Observation graphique: \dotfill
+7. Que peux-tu dire de $f(x)$ quand $x$ est très grand? (On dira
+   aussi proche de $+\infty$)
+
+   \dotfill
+
+   \dotfill
+
+   Notation: \dotfill
+
+   Observation graphique: \dotfill
+
+La notion de limite est un outil essentiel pour comprendre le
+comportement des fonctions. Cette notion permet de mettre en évidence
+le comportement d'une fonction aux bornes de son domaine, en des
+valeurs interdites ou bien en des points du domaine où la fonction a
+une brisure.
+
+Voici un exercice sur les fonctions de référence rencontrées en
+4e.
+
+#+begin_exercice
+Voici les graphiques des fonctions de référence. Complète ensuite le
+tableau.
+
+#+begin_center
+\includestandalone[width=\linewidth]{figures/fig2}
+#+end_center
+
+#+begin_center
+\begin{tabular}{l|l|l|l|l|l|l|}
+\cline{2-7}
+                                          & $\lim\limits_{x\to -2}f(x)$ & $\lim\limits_{x\to 0}f(x)$ & $\lim\limits_{x\to 1}f(x)$ & $\lim\limits_{x\to a}f(x),\,\,  a\in\dom(f)$ & $\lim\limits_{x\to \minf}f(x)$ & $\lim\limits_{x\to \pinf}f(x)$ \\ \hline
+\multicolumn{1}{|l|}{$f(x)=k$}            &                             &                            &                            &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x$}            &                             &                            &                            &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{\rule[-12pt]{0pt}{33pt}$f(x)=\dfrac{1}{x}$} &                             &                            &                            &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=|x|$}          &                             &                            &                            &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x^2$}          &                             &                            &                            &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=\sqrt{x}$}     &                             &                            &                            &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x^3$}          &                             &                            &                            &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=\sqrt[3]{x}$}  &                             &                            &                            &                                            &                                &                                \\ \hline
+\end{tabular}
+#+end_center
+#+end_exercice
+** Définition et interprétations graphiques
+#+begin_definition
+Soit $f$ une fonction et $a,b\in\IR\cup\{-\infty,+\infty\}$. On dit
+que la limite de $f(x)$ quand $x$ tend vers $a$ vaut $b$ si: lorsque
+$x$ est proche \textbf{et} différent de $a$, $f(x)$ est proche de $b$. Ceci se note:
+\[
+\lim\limits_{x\to a}f(x)=b.
+\]
+#+end_definition
+
+#+begin_remarque
+ Dans la définition précédente:
+ - $a$ et $b$ peuvent être infinis.
+ - $x$ (ou $f(x)$) est proche de $+\infty$ signifie:
+   $x$ (ou $f(x)$) est très grand.
+ - $x$ (ou $f(x)$) est proche de $-\infty$ signifie:
+   $x$ (ou $f(x)$) est très petit.
+#+end_remarque
+
+#+begin_exemple
+Soit $f$ une fonction. L'expression $\lim\limits_{x\to -10}f(x)=-\infty$
+signifie que  $f(x)$ est proche de $-\infty$ lorsque $x$ est proche et
+différent de $-10$.
+
+Graphiquement, cela se produit lorsque le graphe de $f$ a une
+asymptote verticale d'équation $x=-10$. En particulier, $-10$ n'est
+pas dans le domaine de $f$.
+
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig10}
+#+end_center
+
+#+end_exemple
+
+
+#+begin_exercice
+Soit $f$ une fonction. Que veut dire $\lim\limits_{x\to -\infty}
+f(x)=-2$? Quelle interprétation graphique peux-tu donner de cette
+égalité? Illustre avec un exemple.
+#+end_exercice
+
+#+begin_exercice
+Voici des interpretations graphiques. A quel(s) cas de figure
+correspondent-elles?
+
+- Le graphique de $f$ a une A.H. à gauche.
+- Le graphique de $f$ a une A.H. à droite.
+- Le graphique de $f$ a une A.V. d'équation $x=a$.
+#+end_exercice
+
+#+begin_exercice
+Voici des égalités. Quelles interprétations graphiques peux-tu donner?
+
+- $\lim\limits_{x\to\minf}g(x)=\pinf$
+- $\lim\limits_{x\to -11}h(x)=8$ et $-11\notin \dom(h)$
+- $\lim\limits_{x\to 3}j(x)=0$, $3\in\dom(j)$ et $j(3)=4$.
+#+end_exercice
+*** Limites à gauche et à droite
+Nous avons vu dans l'exemple introductif qu'une limite peut ne pas
+exister. Voici à nouveau ce graphique:
+
+#+begin_center
+\includestandalone[width=\linewidth]{figures/fig1}
+#+end_center
+
+Analysons les endroits problématiques:
+
+1. au voisinage de $-6$:\dotfill
+
+   \dotfill
+
+   \dotfill
+2. au voisinage de $-2$:\dotfill
+
+   \dotfill
+
+   \dotfill
+3. au voisinage de $6$:\dotfill
+
+   \dotfill
+
+   \dotfill
+
+
+#+begin_definition
+Soit $f$ une fonction, $a\in\IR$ et $b\in\IR\cup\{-\infty,+\infty\}$.
+- On dit que la limite \textbf{à gauche} de $f(x)$ quand $x$ tend vers
+  $a$ vaut $b$ si: lorsque $x$ est proche \textbf{et} strictement
+  inférieur à $a$, $f(x)$ est proche de $b$.
+
+  Ceci se note: $\lim\limits_{x\tog a}f(x)=b$.
+
+- On dit que la limite \textbf{à droite} de $f(x)$ quand $x$ tend vers
+  $a$ vaut $b$ si: lorsque $x$ est proche \textbf{et} strictement
+  supérieur à $a$, $f(x)$ est proche de $b$.
+
+   Ceci se note: $\lim\limits_{x\tod a}f(x)=b$.
+#+end_definition
+
+L'intérêt de ces deux notions est la propriété suivante:
+
+#+begin_propriete
+Soit $f$ une fonction, $a\in\IR$ et
+$b\in\IR\cup\{-\infty,+\infty\}$. Alors
+
+\[
+\lim\limits_{x\to a}f(x)=b \Leftrightarrow \lim\limits_{x\tog a}f(x)=b \text{ et } \lim\limits_{x\tod a}f(x)=b.
+\]
+#+end_propriete
+
+#+begin_remarque
+ En pratique, cette propriété fournit une stratégie pour démontrer
+qu'une limite n'existe pas: si les limites à gauche et à droite sont
+différentes, alors la limite n'existe pas.
+
+Notation: si la limite d'une fonction $f$ en $a$ n'existe pas, on
+écrit soit "$\lim\limits_{x\to a}f(x)$ n'existe pas" ou
+"$\lim\limits_{x\to a}f(x)\not\exists$".
+#+end_remarque
+
+
+#+begin_exemple
+Pour la fonction $f$ de l'introduction:
+1. $\lim\limits_{x\to -6}f(x)$ n'existe pas car $\lim\limits_{x\tog -6}f(x)=\ldots\ldots\neq \lim\limits_{x\tod -6}f(x)=\ldots\ldots$
+1. $\lim\limits_{x\to -2}f(x)$ n'existe pas car $\lim\limits_{x\tog -2}f(x)=\ldots\ldots\neq \lim\limits_{x\tod -2}f(x)=\ldots\ldots$
+1. $\lim\limits_{x\to 6}f(x)$ n'existe pas car $\lim\limits_{x\tog 6}f(x)=\ldots\ldots\neq \lim\limits_{x\tod 6}f(x)=\ldots\ldots$
+#+end_exemple
+** Exercices
+#+begin_exercice
+Analyse le graphique de la fonction suivante.
+#+begin_center
+\includestandalone[width=0.8\linewidth]{figures/fig12}
+#+end_center
+1. Quel est le domaine de $f$? \dotfill
+2. Détermine graphiquement les limites demandées. Si une limite
+   n'existe pas, justifie. Si la limite demandée n'apporte pas
+   d'information pertinente pour la fonction, indique-le.
+   #+begin_center
+ #+begin_parallel 3
+
+   1. $\lim\limits_{x\to \minf}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -10,5}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -6}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 0}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -3,5}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -2}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -4}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 1}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 1,5}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 3}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to +\infty}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 5}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 6}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 4}f(x)=$ \dotfill
+   #+end_parallel
+   #+end_center
+
+3. Donnes les équations des asymptotes.
+#+end_exercice
+
+#+begin_exercice
+Analyse le graphique de la fonction suivante.
+#+begin_center
+\includestandalone[width=\linewidth]{figures/fig13}
+#+end_center
+1. Quel est le domaine de $f$? \dotfill
+2. Détermine graphiquement les limites demandées. Si une limite
+   n'existe pas, justifie. Si la limite demandée n'apporte pas
+   d'information pertinente pour la fonction, indique-le.
+      #+begin_center
+ #+begin_parallel 3
+
+   1. $\lim\limits_{x\to \minf}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -5}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -4}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -3}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to -3}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 0}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 1}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 2}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 3}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 0,5}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to \pinf}f(x)=$ \dotfill
+   1. $\lim\limits_{x\to 7}f(x)=$ \dotfill
+   #+end_parallel
+   #+end_center
+3. Donnes les équations des asymptotes.
+#+end_exercice
+
+#+begin_exercice
+Détermine les limites suivantes par lecture graphique. Si une limite
+   n'existe pas, justifie. Si la limite demandée n'apporte pas
+   d'information pertinente pour la fonction, indique-le.
+
+#+begin_parallel
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig14}
+#+end_center
+
+a) $\lim\limits_{x\to \minf}f(x)=$ \dotfill
+
+b) $\lim\limits_{x\to 1}f(x)=$ \dotfill
+
+c) $\lim\limits_{x\to \pinf}f(x)=$ \dotfill
+#+columnbreak:
+
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig15}
+#+end_center
+
+a) $\lim\limits_{x\to \minf}f(x)=$ \dotfill
+
+b) $\lim\limits_{x\to -1}f(x)=$ \dotfill
+
+c) $\lim\limits_{x\to \pinf}f(x)=$ \dotfill
+#+end_parallel
+
+#+begin_parallel
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig16}
+#+end_center
+
+a) $\lim\limits_{x\to \minf}f(x)=$ \dotfill
+
+b) $\lim\limits_{x\to 0}f(x)=$ \dotfill
+
+c) $\lim\limits_{x\to \pinf}f(x)=$ \dotfill
+#+columnbreak:
+
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/fig17}
+#+end_center
+
+a) $\lim\limits_{x\to \minf}f(x)=$ \dotfill
+
+b) $\lim\limits_{x\to 1}f(x)=$ \dotfill
+
+c) $\lim\limits_{x\to \pinf}f(x)=$ \dotfill
+#+end_parallel
+#+end_exercice
+
+#+begin_exercice
+Traduis en termes de limites les situations suivantes. Écris ensuite
+les équations des asymptotes.
+#+begin_parallel
+\includestandalone[width=\linewidth]{figures/fig19}
+\includestandalone[width=\linewidth]{figures/fig20}
+#+end_parallel
+
+#+begin_parallel
+\includestandalone[width=\linewidth]{figures/fig21}
+\includestandalone[width=\linewidth]{figures/fig22}
+
+#+end_parallel
+#+end_exercice
+
+#+begin_exercice
+Invente le graphique d'une fonction répondant aux conditions données.
+
+#+begin_parallel
+\includestandalone[width=\linewidth]{figures/fig18}
+\vspace{1cm}
+#+begin_center
+$\dom(f)=\IR\backslash\{1\}$
+
+$\lim\limits_{x\to \minf}f(x)=0$
+
+$\lim\limits_{x\to 1}f(x)=\pinf$
+
+$\lim\limits_{x\to\pinf}f(x)=\minf$
+#+end_center
+
+#+end_parallel
+
+#+begin_parallel
+\includestandalone[width=\linewidth]{figures/fig18}
+\vspace{1cm}
+#+begin_center
+$\dom(f)=]\minf;5[$
+
+$\lim\limits_{x\to \minf}f(x)=\pinf$
+
+$\lim\limits_{x\to 2}f(x)=-1$
+
+$\lim\limits_{x\to 5}f(x)=-2$
+#+end_center
+
+#+end_parallel
+
+#+begin_parallel
+\includestandalone[width=\linewidth]{figures/fig18}
+\vspace{0.1cm}
+#+begin_center
+$\dom(f)=]\minf;1[\cup]1;6[$
+
+$\lim\limits_{x\to \minf}f(x)=\minf$
+
+$\lim\limits_{x\tog 1}f(x)=\minf$
+
+$\lim\limits_{x\tod 1}f(x)=2$
+
+$\lim\limits_{x\to 6}f(x)=+\infty$
+#+end_center
+
+#+end_parallel
+#+end_exercice
+\newpage
+** Calculs algébriques des limites
+L'approche graphique des limites n'est pas sans défaut: quand on
+analyse le graphique d'une fonction, on n'a pas accès à toute
+l'information sur cette fonction. En effet, il n'est pas possible de
+représenter sur une feuille de papier le graphique d'une fonction dont
+le domaine est, par exemple, $\IR$. Par exemple, la portion du
+graphique de la fonction suivante est trompeur:
+
+#+begin_center
+\includestandalone[width=0.5\linewidth]{figures/fig25}
+#+end_center
+
+Il s'agit d'une partie du graphique de la fonction
+$f(x)=10\dfrac{\sin(x)}{x}$, où $\sin(x)$ est la fonction qui à $x$
+(exprimé en radians) associe son sinus.
+
+Par inspection graphique, on pourrait conjecturer que
+1. $\lim\limits_{x\to 0}f(x)=$ \dotfill
+2. $\lim\limits_{x\to \minf}f(x)=$ \dotfill
+2. $\lim\limits_{x\to \pinf}f(x)=$ \dotfill
+
+En réalité, le comportement de la fonction est bien différent de ce
+l'on pourrait croire. Il suffit pour s'en rendre compte de demander à
+des outils numériques de tracer plus largement le graphique de $f$: si on zoom
+en arrière, on observe que nos conjectures sont incorrectes.
+
+Nous avons donc besoin d'une approche plus robuste en ce qui concerne
+les limites. Ce sont les calculs algébriques, à partir de l'expression
+analytique d'une fonction, qui permettent d'obtenir des réponses
+irréfutables, qui permettront de confirmer les conjectures graphiques.
+*** Limites des fonctions de référence
+
+Voici un résumé des limites des fonctions de référence.
+
+#+begin_center
+\begin{tabular}{l|c|c|c|}
+\cline{2-4}
+                                                 & $\lim\limits_{x\to a}f(x),\,\, a\in\dom(f)$ & $\lim\limits_{x\to \minf}f(x)$ & $\lim\limits_{x\to \pinf}f(x)$ \\ \hline
+\multicolumn{1}{|l|}{$f(x)=k$}                   &         $k$                                   &      $k$                          &         $k$                       \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x$}                   &         $a$                                   &      $\minf$                          &        $\pinf$                        \\ \hline
+\multicolumn{1}{|l|}{\rule[-12pt]{0pt}{33pt}$f(x)=\dfrac{1}{x}$}        &         $\dfrac{1}{a}$                                   &  0                              &         $0$                       \\ \hline
+\multicolumn{1}{|l|}{$f(x)=|x|$}                 &         $|a|$                                   &           $\pinf$                     &            $\pinf$                    \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x^2$}                 &         $a^2$                                   &           $\pinf$                     &             $\pinf$                   \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x^n$ avec $n$ pair, $n>0$}   &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=\sqrt{x}$}            &         $\sqrt{a}$                                   &            non pertinent                    &        $\pinf$                        \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x^3$}                 &         $a^3$                                   &                   $\minf$             &                   $\pinf$             \\ \hline
+\multicolumn{1}{|l|}{$f(x)=x^n$ avec $n$ impair} &                                            &                                &                                \\ \hline
+\multicolumn{1}{|l|}{$f(x)=\sqrt[3]{x}$}         &         $\sqrt[3]{a}$                                   &            $\minf$                    &                 $\pinf$               \\ \hline
+\end{tabular}
+#+end_center
+
+De plus: $\lim\limits_{x\to 0}\dfrac{1}{x}\text{ n'existe pas car
+}\lim\limits_{x\tog 0}\dfrac{1}{x}=\minf \text{ et }\lim\limits_{x\tod
+0}\dfrac{1}{x}=\pinf$ .
+
+
+#+begin_exercice
+Calcule les limites suivantes:
+
+#+begin_parallel 3
+$\lim\limits_{x\to -5}x^2=$ \dotfill
+
+$\lim\limits_{x\to 3 }6=$ \dotfill
+
+$\lim\limits_{x\to -2}|x|=$ \dotfill
+
+$\lim\limits_{x\to 4}\sqrt{x}=$ \dotfill
+
+$\lim\limits_{x\to -2}\sqrt{x}=$ \dotfill
+
+$\lim\limits_{x\to \pinf}\dfrac{1}{x}=$ \dotfill
+
+$\lim\limits_{x\to \minf}x^3=$ \dotfill
+
+$\lim\limits_{x\to \pinf}x=$ \dotfill
+
+$\lim\limits_{x\to \minf}\sqrt[3]{x}=$ \dotfill
+
+#+end_parallel
+#+end_exercice
+*** Calculs avec les symboles $+\infty$ et $-\infty$
+
+Faire des calculs avec les symboles $+\infty$ et $-\infty$ peut
+s'avérer difficile. Que vaut, par exemple $\dfrac{+\infty}{+\infty}$? Il
+s'avère qu'il n'y a pas de réponse à cette question: la valeur de
+cette fraction est indéterminée. Cela veut dire qu'en fonction du
+calcul de limite, $\dfrac{+\infty}{+\infty}$ peut prendre la valeur $1$,
+$\pi$, $10$, $0$ voir même $+\infty$.
+
+Voici une liste des calculs avec l'infini qu'on rencontrera  dans ce cours
+(attention, cette liste n'est pas complète!).
+#+begin_boite
+Soit $c\in\IR$ et $n\in\IZ$. Alors,
+#+begin_parallel 2
+$\pminf + (\pminf) = \dotfill$
+
+
+$\minf - (\pinf) = \dotfill$
+
+$\pminf + c=\dotfill$
+
+
+$\pinf\cdot\pinf=\minf\cdot\minf =\dotfill$
+
+$\pinf\cdot\minf=\dotfill$
+
+si $c\neq 0$, $\pm\infty\cdot c=\dotfill$
+
+$(\pinf)^n=\dotfill$
+
+$(\minf)^n=\dotfill$
+
+
+si $c\neq 0$, $\dfrac{\pminf}{c}=\dotfill$
+
+
+$\dfrac{c}{\pminf}=\dotfill$
+
+
+#+end_parallel
+
+#+end_boite
+
+
+Nous rencontrerons dans ce cours les formes indéterminées (\FI{})
+suivantes:
+#+begin_boite
+\[
+\frac{c}{0}\hspace{1cm}\frac{0}{0}\hspace{1cm}\frac{\pminf}{\pminf}\hspace{1cm}\pminf\cdot
+0\hspace{1cm} \pminf - (\pminf) \hspace{1cm} \pminf + \mp\infty
+\]
+#+end_boite
+
+*** Règles de calculs
+Pour calculer des limites de fonctions construites avec les opérations
+$+$, $-$, $\cdot$ et $/$, on dispose des règles de calculs suivantes:
+#+begin_propriete
+Soit $f$ et $g$ deux fonctions et $a\in\IR\cup\{\minf,\pinf\}$ telles
+que les limites $\lim\limits_{x\to a}f(x)$ et $\lim\limits_{x\to
+a}g(x)$ existent. Alors,
+\[
+\lim\limits_{x\to a}(f(x)
+\stackrel[\displaystyle\cdot]{\displaystyle-}{+} g(x))
+=\lim\limits_{x\to a}f(x)
+\stackrel[\displaystyle\cdot]{\displaystyle-}{+}
+\lim\limits_{x\to a}g(x)\textbf{ sauf si }
+\text{le second membre est une \FI{}}
+\]
+\[
+\lim\limits_{x\to a}\dfrac{f(x)}{g(x)}=\dfrac{\lim\limits_{x\to
+  a}f(x)}{\lim\limits_{x\to a}g(x)}\textbf{ sauf si }\text{le second
+membre est une \FI{}}
+\]
+#+end_propriete
+
+Nous verrons plus tard des techniques qui permettent de faire des
+calculs lorsqu'une \FI{} apparaît.
+
+
+#+begin_exemple
+Calculons les limites suivantes, en un nombre réel.
+
+1. $\lim\limits_{x\to 2}x^2-x=$ \dotfill
+
+   Explication:\vspace{3cm}
+1. $\lim\limits_{x\to -2}x^3+x-1=$ \dotfill
+
+   Explication:\vspace{3cm}
+1. $\lim\limits_{x\to 2}2x^4+3x=$ \dotfill
+
+   Explication:\vspace{3cm}
+#+end_exemple
+
+#+begin_propriete
+Si $f$ est une fonction polynomiale et $a\in\IR$, alors
+$\lim\limits_{x\to a}f(x)=\dotfill$
+#+end_propriete
+
+Il nous reste à calculer les limites en $\pinf$ et $\minf$.
+
+#+begin_exemple
+Essayons d'appliquer la démarche précédente pour calculer la limite
+ $\lim\limits_{x\to \pinf}x^2-x$.
+ \vspace{3cm}
+
+ On constate qu'il y a une difficulté: on se retrouve avec la
+ \FI{}  $\infty-\infty$. *C'est pour ce genre de situation que
+ l'énoncé des règles de calculs a des hypothèses.*
+
+ Nous pouvons cependant contourner la présence de la \FI{} en
+ manipulant l'expression $x^2-x$.
+ \vspace{5cm}
+
+ En conclusion: $\lim\limits_{x\to \pinf}x^2-x=$ \dotfill
+#+end_exemple
+
+#+begin_methode
+Pour calculer une limite en $\pinf$ ou $\minf$ d'une fonction
+polynomiale, on met en évidence le terme du plus haut degré. Ceci
+permet de lever l'indétermination $\infty-\infty$.
+#+end_methode
+
+#+begin_propriete
+Si $f$ est une fonction polynomiale alors sa limite en $\pinf$ (ou
+$\minf$) est égale à la limite en $\pinf$ (ou $\minf$) de son terme du
+plus haut degré. Autrement dit: si $ax^n$ est le terme du plus haut
+degré de $f$ alors,
+\[
+\lim\limits_{x\to\pminf}f(x)=\lim\limits_{x\to\pminf}ax^n.
+\]
+#+end_propriete
+
+Voyons comment appliquer cette propriété avec d'autres exemples.
+
+#+begin_exemple
+Calculons les limites suivantes:
+
+1. $\lim\limits_{x\to\minf}x^3+x-1=\dotfill$
+
+ $\lim\limits_{x\to\pinf}x^3+x-1=\dotfill$
+
+   Explication:\vspace{3cm}
+1. $\lim\limits_{x\to\minf}2x^4+3x=\dotfill$
+
+ $\lim\limits_{x\to\pinf}2x^4+3x=\dotfill$
+
+   Explication:\vspace{3cm}
+#+end_exemple
+
+#+begin_exercice
+Calcule la limite $\lim\limits_{x\to\pinf}x^2-2x+1$. Explique ta démarche.
+#+end_exercice
+
+#+begin_exercice
+Calcule la limite $\lim\limits_{x\to\minf}(1-x^2)(x+3)$. Explique ta démarche.
+#+end_exercice
+
+#+begin_exercice
+Calcule rapidement les limites suivantes.
+#+begin_parallel 2
+a) $\lim\limits_{x\to\minf}1-2x-3x^3=$ \dotfill
+
+b) $\lim\limits_{x\to\pinf}1-2x-3x^3=$ \dotfill
+
+c) $\lim\limits_{x\to\minf}1+5x^5=$ \dotfill
+
+d) $\lim\limits_{x\to\pinf}1+5x^5=$ \dotfill
+
+e) $\lim\limits_{x\to\minf}1-2x-7x^4=$ \dotfill
+
+f) $\lim\limits_{x\to\pinf}1-2x-7x^4=$ \dotfill
+
+g) $\lim\limits_{x\to 2}1-2x-7x^4=$ \dotfill
+
+h) $\lim\limits_{x\to\minf}x(1-x^2)(x+x^3)=$ \dotfill
+
+i) $\lim\limits_{x\to\pinf}x(1-x^2)(x+x^3)=$ \dotfill
+
+j) $\lim\limits_{x\to\minf}x(1+2x^2)(1+x-x^4)=$ \dotfill
+
+k) $\lim\limits_{x\to\pinf}x(1+2x^2)(1+x-x^4)=$ \dotfill
+
+l) $\lim\limits_{x\to 1}x(1+2x^2)(1+x-x^4)=$ \dotfill
+#+end_parallel
+#+end_exercice
+** Limites des fonctions rationnelles
+Une fonction rationnelle est un quotient de deux fonctions
+polynômiales.
+
+#+begin_exercice
+Entoure les expressions qui représentent des fonctions rationnelles.
+#+begin_center
+$x$ \hspace{0.5cm}             $3x^3+6x+\sqrt{x}$ \hspace{0.5cm}  $\dfrac{x^2+\abs{2x}}{x^2+1}$
+ \hspace{0.5cm}$\dfrac{1}{x}$ \hspace{0.5cm} $\dfrac{1}{x^2+1}$ \hspace{0.5cm} $\dfrac{x^2+3x+1}{x^5+2\sqrt[3]{x}}$
+
+#+end_center
+
+#+end_exercice
+
+Voici le graphe d'une fonction rationnelle.
+#+begin_center
+\includestandalone[width=0.8\linewidth]{figures/fig29}
+#+end_center
+
+Vous pouvez remarquer que pour cette fonction, le calcul de limites est
+pertinent pour tous les réels et pour $\pinf$ et $\minf$. Ce sera le
+cas pour toutes les fonctions rationnelles. Notre
+objectif est de donner des techniques de calcul pour déterminer ces
+limites à partir des expressions analytiques. On va distinguer trois
+cas pour le calcul de $\lim\limits_{x\to a}f(x)$:
+1. $a$ est dans le domaine de $f$. Dans ce cas, on va constater que
+   les fonctions rationnelles on la même propriété que les polynômes.
+2. $a$ est une valeur interdite (c'est-à-dire une racine du
+   dénominateur). Ici on va voir que 5 cas de figure sont à
+   envisager:
+
+   #+begin_center
+   \includestandalone[width=0.8\linewidth]{figures/fig28}
+   #+end_center
+   Le premier cas (graphique de gauche) est le seul où la fonction n'admet pas d'A.V.
+
+3. $a$ est soit $\pinf$ soit $\minf$. Ici on va constater que la mise
+   en évidence des termes du plus haut degré va nous permettre de
+   faire des calculs. On pourra ainsi détecter la présence ou non
+   d'une asymptote horizontale.
+
+   #+begin_center
+   \includestandalone[width=\linewidth]{figures/fig30}
+   #+end_center
+
+
+*** Limite en un point du domaine
+#+begin_propriete
+Si $f$ est une fonction rationnelle et $a\in\dom(f)$, alors
+$\lim\limits_{x\to a}f(x)=f(a)$.
+#+end_propriete
+#+begin_remarque
+Cette propriété n'est pas vraie pour toutes les fonctions. Les
+fonctions qui satisfont cette propriété sont appellées /fonctions
+continues/. Les fonctions de référence,
+les fonctions polynômiales et les fonctions rationnelles sont des
+exemples de fonctions continues. La fonction de l'exemple introductif
+n'est pas une fonction continue car sa limite en $1$ vaut $2{,}5$ alors
+que $f(1)=4$.
+#+end_remarque
+
+#+begin_exemple
+Pour la fonction $f(x)=\dfrac{x+1}{x^3+x^2+x+1}$,
+$\dom(f)=\IR\backslash\{-1\}$.
+1. $\lim\limits_{x\to 0}f(x)=f(0)=1$
+2. $\lim\limits_{x\to 1}f(x)=f(1)=\dfrac{2}{4}=\dfrac{1}{2}$.
+#+end_exemple
+
+*** Limite en une valeur interdite
+Nous allons voir comment calculer les limites d'une fonction
+rationnelle $f(x)=\dfrac{P(x)}{Q(x)}$ en une valeur interdite. Pour
+rappel, les valeurs interdites sont exactement les racines du
+dénominateur: les racine du polynôme $Q$. Soit $a$ une racine de
+$Q(x)$. On va disinguer deux cas: $a$ est aussi une racine du
+numérateur et $a$ n'est pas une racine du numérateur.
+
+**** *$a$ n'est pas une racine du numérateur*
+
+Dans cette situation, si on tente de remplacer $x$ par $a$ dans
+l'expression analytique de $f$, on se retrouve avec une fraction de la
+forme $\dfrac{c}{0}$, où $c\neq 0$. Vous avez appris depuis bien
+longtemps que cette opération n'est pas permise. Que peut-on dire de
+cette situation grâce à la notion de limite?
+
+On aura 3 situations possibles: soit $\lim\limits_{x\to a}f(x)$ vaut
+$\pinf$ ou $\minf$, soit la limite n'existe pas.
+
+Voici la démarche générale à adopter dans ce cas de figure:
+#+name: methode-c-zero
+#+begin_methode
+Si $a$ est une racine du dénominateur mais pas une racine du
+numérateur:
+1) on dresse le tableau de signes de $f$
+2) on calcule les limites à gauche et à droite de $a$ en utilisant le
+   tableau de signes
+3) si les limites à gauche et à droite sont égales, alors la limite
+   existe. Sinon, elle n'existe pas.
+
+Dans tous les cas, on se retrouve avec une A.V. d'équation $x=a$.
+#+end_methode
+
+#+name: exemple-c-zero
+#+begin_exemple
+
+Soit la fonction $f(x)=\dfrac{1}{x+2}$. C'est une fonction rationnelle dont le
+domaine est $\IR\backslash\{-2\}$. En particulier, $-2$ est une racine du
+numérateur.
+#+begin_parallel
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/tab4}
+
+#+end_center
+
+On déduit du tableau de signes que:
+\[
+\lim\limits_{x\tog -2}f(x)=\minf\text{ et }\lim\limits_{x\tod -2}f(x)=\pinf.
+\]
+#+end_parallel
+
+En particulier $\lim\limits_{x\to -2}f(x)$ n'existe pas. De plus, le graphique
+de $f$ a une A.V. d'équation $x=-2$. On peut vérifier ces résultats avec le
+graphique de $f$.
+
+#+end_exemple
+
+#+begin_exemple
+Soit la fonction $f(x)=\dfrac{-1}{(x-1)^2}$. C'est une fonction rationnelle dont le
+domaine est $\IR\backslash\{1\}$. En particulier, $1$ est une racine du
+numérateur.
+#+begin_parallel
+#+begin_center
+\includestandalone[width=0.7\linewidth]{figures/tab5}
+
+#+end_center
+
+On déduit du tableau de signes que:
+\[
+\lim\limits_{x\tog 1}f(x)=\minf\text{ et }\lim\limits_{x\tod 1}f(x)=\minf.
+\]
+#+end_parallel
+En particulier $\lim\limits_{x\to -2}f(x)=\minf$. De plus, le graphique
+de $f$ a une A.V. d'équation $x=1$. On peut vérifier ces résultats avec le
+graphique de $f$.
+#+end_exemple
+
+#+begin_exercice
+Soit $f(x)=\dfrac{1}{(x+1)(x^2-4)}$.
+
+Calcule les limites en $-2$, $-1$, $2$ et $0$. Interprète graphiquement tes résultats.
+#+end_exercice
+
+#+begin_exercice
+Soit $f(x)=\dfrac{x-2}{-x^2+4x}$.
+
+Calcule les limites en $0$ et $4$. Interprète graphiquement tes résultats.
+#+end_exercice
+
+
+**** *$a$ est une racine du dénominateur*
+Dans cette situation, si on tente de remplacer $x$ par $a$ dans
+l'expression analytique de $f$, on se retrouve avec la \FI{} $\dfrac{0}{0}$.
+Que peut-on dire de cette situation grâce à la notion de limite?
+
+La première chose à faire dans cette situation est de simplifier la fraction en
+factorisant *le plus possible*  le numérateur et le dénominateur. Ensuite, on
+essaye à nouveau de remplacer $x$ par $a$. Deux choses sont
+possibles: soit on obtient un nombre $r$ qui sera la limite, soit on
+est face à la \FI{} $\dfrac{c}{0}$.
+
+#+begin_exemple
+Soit $f(x)=\dfrac{x+1}{x^3+x^2+x+1}$. Son domaine est
+$\IR\backslash\{-1\}$. Si on remplace $x$ par $-1$ dans $f(x)$, on
+obtient la \FI{} $\dfrac{0}{0}$:
+\[
+\dfrac{-1+1}{(-1)^3+(-1)^2-1+1}=\dfrac{0}{0}.
+\]
+$-1$ est donc à la fois une racine du numérateur et du
+dénominateur. On peut donc simplifier la fraction par $(x+1)$:
+\[
+\dfrac{x+1}{x^3+x^2+x+1}=\dfrac{x+1}{(x+1)(x^2+1)}=\dfrac{1}{x^2+1}.
+\]
+
+Maintenant, si on remplace $x$ par $-1$ dans la fraction simplifiée,
+on obtient:
+\[
+\dfrac{1}{(-1)^2+1}=\dfrac{1}{2}.
+\]
+Ainsi:
+\[
+\lim\limits_{x\to -1}f(x)=\dfrac{1}{2}.
+\]
+Le graphique de $f$ présente un point creux de coordonnée $(-1,1/2)$.
+#+end_exemple
+
+#+begin_exemple
+Soit $f(x)=\dfrac{x+2}{x^2+4x+4}$. Son domaine est
+$\IR\backslash\{-2\}$. Comme $-2$ est racine du numérateur et du
+dénominateur, on peut simplifier la fraction par $(x+2)$:
+\[
+\dfrac{x+2}{x^2+4x+4}=\dfrac{x+2}{(x+2)^2}=\dfrac{1}{x+2}.
+\]
+Ici, si on remplace $x$ par $-2$ dans la fraction simplifiée, on se
+retrouve avec la \FI{} $\dfrac{c}{0}$. On peut donc appliquer la
+méthode du cas précédent: on étudie le signe de la fraction
+simplifiée. La suite est exactement comme dans l'exemple
+[[exemple-c-zero]] .
+#+end_exemple
+
+#+begin_methode
+Si $a$ est une racine du numérateur *et* du dénominateur:
+
+1. on simplifie au maximum la fraction par $(x-a)$
+2. après simplification, on remplace $x$ par $a$:
+    1. si le résultat est un nombre $r$, alors ce nombre est la limite
+     cherchée. Dans ce cas, on observe graphiquement un point creux de
+       coordonnées $(a;r)$
+    2. sinon, on a la \FI{} $\dfrac{c}{0}$. Dans ce cas, on applique la
+     méthode [[methode-c-zero]] . On observera graphiquement
+       une A.V. d'équation $x=a$
+
+    *_Attention_*: si tu obtiens la \FI{} $\dfrac{0}{0}$ après
+   simplification, c'est que tu dois encore simplifier par $(x-a)$.
+#+end_methode
+
+*** Exercices
+#+name:exo-rat-1
+#+begin_exercice
+Soit $f(x)=\dfrac{x^2+2x-3}{x^2-1}$.
+1. Écris la démarche à appliquer pour calculer la limite de $f$ aux
+   valeurs interdites.
+2. Applique ta démarche et interprète graphiquement ton résultat.
+#+end_exercice
+
+#+name:exo-rat-2
+#+begin_exercice
+Soit $f(x)=\dfrac{(x-1)^2}{(x-1)(x+2)}$.
+1. Écris la démarche à appliquer pour calculer la limite de $f$ aux
+   valeurs interdites.
+2. Applique ta démarche et interprète graphiquement ton résultat.
+#+end_exercice
+#+name:exo-rat-3
+#+begin_exercice
+Soit $f(x)=\dfrac{2x^2-x-3}{x^3+2x^2+x}$.
+1. Écris la démarche à appliquer pour calculer la limite de $f$ aux
+   valeurs interdites.
+2. Applique ta démarche et interprète graphiquement ton résultat.
+#+end_exercice
+#+begin_exercice
+Invente l'expression analytique d'une fonction rationnelle qui a une
+A.V. d'équation $x=-1$.
+#+end_exercice
+#+begin_exercice
+Invente l'expression analytique d'une fonction rationnelle qui a un point creux
+de coordonnée $(2;1)$.
+#+end_exercice
+
+#+begin_exercice
+Invente l'expression analytique d'une fonction rationnelle qui a une
+A.V. d'équation $x=-1$ *et* un point creux de coordonnée $(2;1)$.
+#+end_exercice
+
+*** Limite en $\pinf$ ou $\minf$
+#+begin_propriete
+Soit $f$ une fonction rationnelle. Si $ax^n$ est le terme du plus haut degré du
+numérateur et $bx^m$ celui du dénominateur, alors
+\[
+\lim\limits_{x\to\pminf}f(x)=\lim\limits_{x\to\pminf}\dfrac{ax^n}{bx^m}.
+\]
+#+end_propriete
+#+begin_exemple
+Soit $f(x)=\dfrac{5x^2+1}{7x+1}$.
+
+#+attr_latex: :options {0.35\textwidth}
+#+begin_minipage
+\includestandalone[width=\linewidth]{figures/fig31}
+#+end_minipage
+\hspace{0.05\linewidth}
+#+attr_latex: :options [][][t]{0.5\textwidth}
+#+begin_minipage
+$\lim\limits_{x\to\pinf}f(x)=$
+\vspace{1cm}
+
+$\lim\limits_{x\to\minf}f(x)=$
+\vspace{1cm}
+
+Graphiquement, on observe:
+\vspace{1cm}
+
+
+#+end_minipage
+
+
+#+end_exemple
+
+#+begin_exemple
+Soit $f(x)=\dfrac{x^2+1}{4x^2+1}$.
+
+#+attr_latex: :options {0.35\textwidth}
+#+begin_minipage
+\includestandalone[width=\linewidth]{figures/fig32}
+#+end_minipage
+\hspace{0.05\linewidth}
+#+attr_latex: :options [][][t]{0.5\textwidth}
+#+begin_minipage
+$\lim\limits_{x\to\pinf}f(x)=$
+\vspace{1cm}
+
+$\lim\limits_{x\to\minf}f(x)=$
+\vspace{1cm}
+
+Graphiquement, on observe:
+\vspace{1cm}
+
+
+#+end_minipage
+
+
+#+end_exemple
+
+
+#+begin_exemple
+Soit $f(x)=\dfrac{2x^2+1}{x^3+x^2+4}$.
+
+#+attr_latex: :options {0.35\textwidth}
+#+begin_minipage
+\includestandalone[width=\linewidth]{figures/fig33}
+#+end_minipage
+\hspace{0.05\linewidth}
+#+attr_latex: :options [][][t]{0.5\textwidth}
+#+begin_minipage
+$\lim\limits_{x\to\pinf}f(x)=$
+\vspace{1cm}
+
+$\lim\limits_{x\to\minf}f(x)=$
+\vspace{1cm}
+
+Graphiquement, on observe:
+\vspace{1cm}
+
+
+#+end_minipage
+
+#+end_exemple
+
+#+begin_tcolorbox
+Pour une fonction rationnelle $f(x)=\dfrac{ax^n+\cdots}{bx^m+\cdots}$:
+
+1. si le degré du numérateur > degré du dénominateur: les limites à l'infini
+   sont infinies. Il n'y a pas d'A.H. et potentiellement, il y aura une A.O.
+1. si le degré du numérateur = degré du dénominateur: il y a une A.H. dont
+   l'équation est $y=\dfrac{a}{b}$
+1. si le degré du numérateur < degré du dénominateur: il y a une A.H. qui est
+   *toujours* d'équation $y=0$.
+
+#+end_tcolorbox
+#+begin_exercice
+Calcule les limites à l'infini des fonctions des exercices [[exo-rat-1]],
+[[exo-rat-2]] et [[exo-rat-2]].
+#+end_exercice
+# *** Exemple complet
+
+# Nous allons faire l'analyse de la fonction rationnelle
+# $f(x)=\dfrac{x+1}{x^2-1}$. Puisque les racines du dénominateur sont
+# $1$ et $-1$, le domaine de $f$ est $\IR\backslash\{-1,1\}$.
+# #+begin_parallel
+# \includestandalone[width=\linewidth]{figures/fig26}
+
+# #+columnbreak:
+
+# _Calcul des limites en un point du domaine_
+
+# Soit $a\in\dom(f)$. Dans cette situation les limites du numérateur et
+# du dénominateur sont des nombres: $\lim\limits_{x\to a}x+1=a+1$ et
+# $\lim\limits_{x\to a}x^2-1=a^2-1$. On peut donc appliquer la règle du
+# quotient:
+# \[
+# \lim\limits_{x\to a}f(x)=\dfrac{a+1}{a^2-1}=f(a).
+# \]
+
+# #+end_parallel
+
+# _Calcul des limites aux valeurs interdites_
+
+# Il y a deux valeurs interdites: $-1$ et $1$.
+
+# 1. On constate graphiquement que $\lim\limits_{x\to
+#    -1}f(x)=\dfrac{-1}{2}$. Comment peut-on justifier cette égalité?
+
+
+#    On se retrouve avec la \FI{} $\dfrac{0}{0}$. On peut lever cette
+#    égalité en  que $-1$ est simultanément racine du
+#    numérateur et du dénominateur. Cela veut dire que l'on peu
+#    *simplifier* l'expression analytique de $f$:
+#    \[
+#    \dfrac{x+1}{x^2-1}=\dfrac{x+1}{(x-1)(x+1)}=\dfrac{1}{x-1}.
+#    \]
+#    Cette simplification nous permet d'écrire:
+#    \[
+#    \lim\limits_{x\to -1}f(x)=\lim\limits_{x\to
+#    -1}\dfrac{1}{x-1}=\dfrac{1}{-1-1}=\dfrac{-1}{2}.
+#    \]
+#    *Graphiquement:* le graphique de $f$ a un trou au point $(-1;1/2)$.
+# 2. On constate graphiquement que $\lim\limits_{x\to
+#    1}f(x)$ n'existe pas car $\lim\limits_{x\tod 1}f(x)=\pinf$ et
+#    $\lim\limits_{x\tog 1}f(x)=\minf$. Comment justifier ce calcul?
+
+#    Ici, c'est l'étude du signe de $f$ qui va nous y aider.
+
+#    #+begin_center
+#    \includestandalone[width=0.5\linewidth]{figures/tab3}
+#    #+end_center
+
+#    Donc $\lim\limits_{x\tog 1}f(x)=\minf$ car \dotfill
+
+#    \dotfill
+
+#    De même $\lim\limits_{x\tod 1}f(x)=\pinf$ car \dotfill
+
+#    \dotfill
+
+# _Calcul des limites en $\pinf$ et en $\minf$_
+
+# Pour ce dernier cas, on ne peut pas utiliser directement la formule du
+# quotient. En effet,
+# \[
+# \dfrac{\lim\limits_{x\to\pminf}x+1}{\lim\limits_{x\to \pminf}x^2-1}=\dfrac{\pminf}{\pminf}.
+# \]
+# On a donc à nouveau affaire à une \FI{}. On peut malgré tout utiliser
+# l'astuce utilisée pour gérer la \FI{} $\infty-\infty$: mettre en
+# évidence les termes de plus haut degré au numérateur et au
+# dénominateur:
+
+# \[
+# \dfrac{x+1}{x^2-1}=\dfrac{x\left(1+\dfrac{1}{x}\right)}{x^2\left(1-\dfrac{1}{x^2}\right)}.
+# \]
+
+# Donc
+# $\lim\limits_{x\to\pminf}f(x)=\lim\limits_{x\to\pminf}\dfrac{x}{x^2}=\lim\limits_{x\to\pminf}\dfrac{1}{x}=0$.
+
+# *Graphiquement:* le graphique de $f$ a une asymptote horizontale
+# d'équation $y=0$.
+# #+end_exemple
+
+
+* Asymptotes d'une fonction
+** Asymptotes verticales
+#+begin_definition
+Soit $f$ une fonction. La droite d'équation $x=a$ est une /asymptote verticale/
+de $f$ si
+\[\lim\limits_{x\tog a}f(x)=\pminf\text{ ou }\lim\limits_{x\tod a}f(x)=\pminf.\]
+#+end_definition
+
+Nous avons déjà recontré à de nombreuses reprises des A.V. et les calculs
+associés pour les déterminer. Nous ne ferons donc pas d'exercices calculatoires supplémentaires.
+
+#+begin_exercice
+Quelle démarche doit-on appliquer pour déterminer les A.V. d'une fonction rationnelle?
+#+end_exercice
+#+begin_exercice
+Peut-t-on dire qu'une asymptote verticale ne coupe jamais le graphique d'une fonction?
+#+end_exercice
+** Asymptotes non-verticales
+#+begin_definition
+Soit $f$ une fonction. La droite d'équation $y=mx+p$ est une /asymptote
+non-verticale/ de $f$ si
+\[
+\lim\limits_{x\to\minf}f(x)-(mx+p)=0\text{ ou }\lim\limits_{x\to \pinf}f(x)-(mx+p)=0.
+\]
+#+end_definition
+
+Les limites de la définition précédente rendent compte du fait que l'écart entre
+la fonction et l'asymptote devient de plus en plus proche de $0$.
+
+Il y a deux types d'asymptotes non-verticales: les asymptotes horizontales ($m=0$) et
+les asymptotes obliques ($m\neq 0$).
+*** Asymptotes horizontales
+#+begin_propriete
+Soit $f$ une fonction. La droite d'équation $y=a$ est une /asymptote horizontale/
+de $f$ si
+\[\lim\limits_{x\to\minf}f(x)=a\text{ ou }\lim\limits_{x\to \pinf}f(x)=a.\]
+#+end_propriete
+
+Déterminer la présence d'une asymptote horizontale est donc plus simple que de
+déterminer la présence d'une asymptote oblique.
+
+Nous avons déjà recontré à de nombreuses reprises des A.V. et les calculs
+associés pour les déterminer. Nous ne ferons donc pas d'exercices calculatoires supplémentaires.
+#+begin_exercice
+Quelle démarche doit-on appliquer pour déterminer les A.H. d'une fonction rationnelle?
+#+end_exercice
+#+begin_exercice
+Peut-t-on dire qu'une asymptote horizontale ne coupe jamais le graphique d'une fonction?
+#+end_exercice
+*** Asymptotes obliques
+Nous allons voir comment en pratique déterminer si une fonction rationnelle a
+une asymptote oblique.
+Voici quelques fonctions rationnelles.
+
+#+begin_center
+\includestandalone[width=\linewidth]{figures/fig35}
+#+end_center
+
+Observe les expressions
+analytiques de ces fonctions, particulièrement le plus haut degré du
+dénominateur et du numérateur. Peux-tu
+trouver un critère qui te permet de détecter si une fonction rationnelle a une A.O.?
+\vspace{6cm}
+
+Voici un exemple qui illustre comment déterminer l'équation de
+l'A.O. d'une fonction rationnelle
+#+begin_exemple
+Soit $f(x)=\dfrac{2x^2-1}{x-1}$. Effectuons la division euclidienne de
+$2x^2-1$ par $x-1$.
+
+\vspace{6cm}
+
+Ce calcul permet de réécrire $f(x)$ sous la forme \jdot{4cm}. Cette écriture met en
+évidence que $f$ est proche de la droite $y=\jdot{3cm}$ quand $x$ est proche de $\pminf$.
+
+En effet,
+
+\vspace{4cm}
+
+
+En conclusion, la droite d'équation $y=\jdot{2cm}$ est l'A.O. de $f$.
+#+end_exemple
+
+
+
+#+begin_exercice
+Peut-t-on dire qu'une asymptote oblique ne coupe jamais le graphique d'une fonction?
+#+end_exercice
+
+#+begin_exercice
+Quelle démarche doit-on appliquer pour déterminer l'A.O. d'une fonction rationnelle?
+#+end_exercice
+** Synthèse
+La synthèse suivante vous permettra de détecter en un coup d'oeil (ou après de
+très brefs calculs) la présence d'asymptotes pour les fonctions rationnelles.
+#+begin_tcolorbox
+Soit $f$ une fonction rationnelle.
+1. $f$ a une A.V. d'équation $x=a$ si et seulement si\dotfill
+
+   \dotfill
+
+2. $f$ a une A.H. si et seulement si \dotfill
+
+   \dotfill
+
+   De plus: \dotfill
+
+   \dotfill
+
+3. $f$ a une A.O. si et seulement si \dotfill
+
+   \dotfill
+
+4. $f$ n'a pas d'A.O. ni d'A.H. si et seulement si\dotfill
+
+   \dotfill
+#+end_tcolorbox
+** Exercices
+#+begin_exercice
+Soit $f(x)=\dfrac{3x^2-1}{x-3}$. Détermine l'A.O. de $f$.
+#+end_exercice
+
+#+begin_exercice
+Soit $f(x)=\dfrac{2x^2-5x+3}{x-2}$. Détermine l'A.O. de $f$.
+#+end_exercice
+
+#+begin_exercice
+Voici le graphique de deux fonctions.
+
+\includestandalone[width=\linewidth]{figures/fig34}
+
+Ces deux fonctions ont une asymptote oblique à droite d'équation
+  $y=\dfrac{x}{2}-1$.
+
+  Pour quel(s) graphique(s) peut-on raisonnablement utiliser
+  l'A.O. pour déterminer l'image de 1000? Explique ton choix et donne
+  une estimation de(s) image(s) de 1000.
+#+end_exercice
+
+#+begin_exercice
+Associe les expressions analytiques suivantes aux informations
+données, sans faire de calculs.
+#+begin_parallel 2
+
+_Expressions analytiques_
+
+1) $f_1(x)=\dfrac{4x^2}{2x^2+1}$
+
+2) $f_2(x)=\dfrac{2x}{x-7}$
+
+3) $f_3(x)=-2x+5+\dfrac{1}{x-5}$
+
+4) $f_4(x)=\dfrac{2x}{x+1}$
+
+5) $f_5(x)=x+\dfrac{7}{x^2-4}$
+
+6) $f_6(x)=\dfrac{2x^5}{(x+1)(x+10)}$
+
+#+columnbreak:
+
+_Informations_
+
+1) A.V.$\equiv x=5$ et A.O.$\equiv y=-2x+5$
+1) deux A.V. en -1 et en -20 et pas d'A.O. ni d'A.H.
+1) pas d'A.V. et une A.H.$\equiv y=2$
+1) deux A.V. en -2 et en 2 et A.O.$\equiv y=x$
+1) A.V.$\equiv x=7$ et A.H.$\equiv y=2$
+1) A.V.$\equivx=-1$ et A.H.$\equiv y=2$
+
+#+end_parallel
+
+
+#+end_exercice
+
+
+
+#+begin_exercice
+Associe chaque expression analytique au graphique correspondant.
+
+#+begin_parallel 4
+$f_1(x)=\dfrac{3-x^2}{x-1}$
+
+$f_2(x)=\dfrac{x}{(x-1)^2}$
+
+$f_3(x)=\dfrac{x^2-x-2}{x-1}$
+
+$f_4(x)=\dfrac{x^3-x+2}{3x-3}$
+#+end_parallel
+#+begin_center
+\includestandalone[width=0.9\linewidth]{figures/fig36}
+
+#+end_center
+
+#+end_exercice
+#+begin_exercice
+Trouve l'expression analytique d'une fonction dont le graphique a une
+A.V. d'équation $x=1$ et une A.O. d'équation $y=x-3$.
+#+end_exercice

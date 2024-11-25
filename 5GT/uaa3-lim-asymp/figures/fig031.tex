@@ -1,0 +1,39 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=12.0,ymax=6.0,xmin=-12.0 ,ymin=-6.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFctPar[line width=2pt,samples=400,domain=0:1]{((900719925474098*t**3 - 1351079888211147*t**2 + 2702159776422297*t - 9007199254740992)/2251799813685248)}{((5404319552844597*t**3 - 13510798882111491*t**2 + 21617278211378382*t - 9007199254740992)/4503599627370496)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((900719925474098*t**3 - 1351079888211147*t**2 + 2702159776422297*t - 6755399441055744)/2251799813685248)}{((1801439850948199*t**3 - 8106479329266894*t**2 + 10808639105689191*t + 4503599627370496)/4503599627370496)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((t - 1)*(3602879701896398*t**2 - 1801439850948199*t + 9007199254740992)/4503599627370496)}{(-(1801439850948199*t**3 + 2702159776422297*t**2 - 9007199254740992)/4503599627370496)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{(t)}{(1 - t)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((1801439850948199*t**3 - 5404319552844597*t**2 + 8106479329266894*t + 2251799813685248)/2251799813685248)}{(-3*t*(225179981368525*t**2 - 1013309916158362*t + 1351079888211149)/562949953421312)}
+\tkzFctPar[line width=2pt,samples=400,domain=0:1]{((450359962737049*t**3 - 2026619832316722*t**2 + 2702159776422297*t + 3377699720527872)/1125899906842624)}{((450359962737049*t**3 + 675539944105575*t**2 - 3377699720527872)/1125899906842624)}
+
+   
+   \tkzDrawPoint[size=10,color=black,fill=black](-4.0,-2.0)
+\tkzDrawPoint[size=10,color=black,fill=black](4.0,-2.0)
+\tkzDrawPoint[size=10,color=black,fill=white](0.0,1.0)
+\tkzDrawPoint[size=10,color=black,fill=white](0.0,1.0)
+
+
+   \tkzText(3,-4){\Huge$g$}
+
+\end{tikzpicture}
+\end{document}
+
+    

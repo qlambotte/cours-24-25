@@ -1,0 +1,33 @@
+
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tikz}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{numprint}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+
+\begin{document}
+\begin{tikzpicture}[node distance={21mm}, main/.style = {draw, rectangle}]
+  \node[main] (1) {$t_0=\ldots$};
+  \node[main] (2) [right of=1] {$t_1=\ldots$};
+  \node[main] (3) [right of=2] {$t_2=\ldots$};
+  \node[main] (4) [right of=3] {$t_3=\ldots$};
+  \node[main] (5) [right of=4] {$t_4=\ldots$};
+  \node[main] (6) [right of=5] {$t_5=\ldots$};
+
+  \node (7) [ right of=6] {$\ldots$};
+  \node[main] (8) [right of=7] {$t_n=\ldots$};
+  \draw[->] (1) to [out=-40,in=-90,looseness=1.5] node[midway, above]{$\ldots$} (2);
+  \draw[->] (1) to [out=-40,in=-90,looseness=1.5] node[midway, above right]{$\ldots$} (3);
+
+  \draw[->] (1) to [out=-40,in=-90,looseness=1.5] node[midway, above right]{$\ldots$} (4);
+   \draw[->] (1) to [out=-40,in=-90,looseness=1.5] node[midway, above right]{$\ldots$} (5);
+   \draw[->] (1) to [out=-40,in=-90,looseness=1.5] node[midway, above right]{$\ldots$} (6);
+    \draw[->] (1) to [out=-40,in=-90,looseness=1.5] node[midway, above right]{$\ldots$} (8);
+  \end{tikzpicture}
+\end{document}

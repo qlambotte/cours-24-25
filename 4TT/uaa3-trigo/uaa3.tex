@@ -1,0 +1,232 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  a4paper,
+  oneside]{book}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage{my-conf}
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table des matières}
+\else
+  \newcommand\contentsname{Table des matières}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{Liste des Figures}
+\else
+  \newcommand\listfigurename{Liste des Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{Liste des Tables}
+\else
+  \newcommand\listtablename{Liste des Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+
+
+\ifLuaTeX
+\usepackage[bidi=basic]{babel}
+\else
+\usepackage[bidi=default]{babel}
+\fi
+\babelprovide[main,import]{french}
+% get rid of language-specific shorthands (see #6817):
+\let\LanguageShortHands\languageshorthands
+\def\languageshorthands#1{}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdflang={fr},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+
+\author{}
+\date{}
+
+\begin{document}
+\frontmatter
+
+
+\mainmatter
+\begin{titlepage}
+
+\begin{center}
+
+\vspace{2cm}
+\Huge
+
+\textbf{4UAA3: Trigonométrie} \vspace{4cm}
+
+\includestandalone[width=\linewidth]{figures/fig1}
+
+\end{center}
+
+\end{titlepage}
+\tableofcontents
+\chapter{Aire d'un triangle
+quelconque}\label{aire-dun-triangle-quelconque}
+
+Dans cette UAA, nous prendrons l'habitude d'annoter les triangles de la
+manière suivante:
+
+\begin{exercice}
+
+Soit \(ABC\) le triangle dont le côté \(b\) mesure 10cm et tel que
+\(\alpha=60^\circ\) et \(\gamma=45^\circ\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tracez le triangle \(ABC\) avec précision.
+\item
+  À l'aide du dessin, estimez l'aire du triangle \(ABC\).
+\item
+  Calculez l'aire du triangle \(ABC\).
+\end{enumerate}
+
+\end{exercice}
+
+\begin{exercice}
+
+Soit \(ABC\) le triangle dont le côté \(c\) mesure 6cm et tel que
+\(\alpha=30^\circ\) et \(\beta=70^\circ\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Tracez le triangle \(ABC\) avec précision.
+\item
+  À l'aide du dessin, estimez l'aire du triangle \(ABC\).
+\item
+  Calculez l'aire du triangle \(ABC\).
+\end{enumerate}
+
+\end{exercice}
+
+\begin{generalisation}
+Étant donné un triangle \(ABC\), on peut calculer l'aire de ce triangle
+grâce à la formule: \[
+  \text{Aire}(ABC)=
+\] Autrement dit: pour calculer l'aire d'un triangle, \vspace{2cm}
+
+\end{generalisation}
+
+\begin{observation}
+Quelle est l'idée qui a permis de construire la formule du calcul
+d'aire? \vspace{4cm}
+
+\end{observation}
+
+\chapter{Lois des sinus et cosinus}\label{lois-des-sinus-et-cosinus}
+
+\section{Résolution de triangles}\label{ruxe9solution-de-triangles}
+
+\section{Généralisations}\label{guxe9nuxe9ralisations}
+
+\subsection{Loi des sinus}\label{loi-des-sinus}
+
+\subsection{Loi des cosinus}\label{loi-des-cosinus}
+
+\subsection{Formule de l'aire d'un triangle
+quelconque}\label{formule-de-laire-dun-triangle-quelconque}
+
+\section{Un petit problème\ldots{}}\label{un-petit-probluxe8me}
+
+\chapter{Trigonométrie dans une triangle
+quelconque}\label{trigonomuxe9trie-dans-une-triangle-quelconque}
+
+\section{Angles orientés}\label{angles-orientuxe9s}
+
+\section{Cercle trigonométrique}\label{cercle-trigonomuxe9trique}
+
+\section{Relations fondamentales}\label{relations-fondamentales}
+
+
+\backmatter
+
+
+\end{document}

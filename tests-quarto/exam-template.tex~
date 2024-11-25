@@ -1,0 +1,164 @@
+% Created 2024-06-05 Wed 13:21
+% Intended LaTeX compiler: pdflatex
+\documentclass[a4paper,12pt, rulers]{tests}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage{exam-conf}
+\renewcommand{\arraystretch}{1.2}
+\testtype{Contrôle}
+\period{{1 -- 2} -- \Circled{3 -- 4} -- 5 -- 6 -- {7 -- 8}}
+\materiel{Calculatrice}
+\testsection{5TTy}
+\testdate{17 juin 2024}
+\testlastname{}
+\testfirstname{}
+\setcounter{question}{11}
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\IZ}{\mathbb{Z}}
+\newcommand{\IQ}{\mathbb{Q}}
+
+\newcommand{\IN}{\mathbb{N}}
+\renewcommand{\emptyset}{\varnothing}
+\newcommand{\dom}{\mathrm{dom}}
+\newcommand{\im}{\mathrm{im}}
+\newcommand{\jdot}[1]{ \makebox[#1]{\dotfill}}
+\newcommand{\tog}{\stackrel[<]{}{\to}}
+\newcommand{\tod}{\stackrel[>]{}{\to}}
+\newcommand{\pinf}{+\infty}
+\newcommand{\minf}{-\infty}
+\newcommand{\pminf}{\pm\infty}
+\newcommand{\mpinf}{\mp\infty}
+\newcommand{\FI}{\textbf{F.I.}}
+\newcommand{\abs}[1]{|#1|}
+\newcommand{\rad}{\text{rad}}
+\author{Quentin Lambotte}
+\date{2024-06-05}
+\title{\\\medskip
+\large 5UAA4}
+\hypersetup{
+ pdfauthor={Quentin Lambotte},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={notes de cours de l'uaa4, 5GTT, math 4p},
+ pdfcreator={Emacs 29.3 (Org mode 9.6.15)}, 
+ pdflang={French}}
+\begin{document}
+
+\begin{center}
+
+
+\Large \textbf{Examen de juin: dérivées et trigonométrie (Partie 2)}
+\end{center}
+
+\begin{abstract}
+\begin{itemize}
+\item Indique le nom et le prénom de ton ou ta voisin.e:\dotfill
+\item Commencez par indiquer votre \textbf{NOM} et votre \textbf{Prénom} sur \textbf{chaque} feuille.
+\item Vous avez \textbf{100 minutes} pour répondre à ce test.
+\item \textbf{Lisez attentivement} l'énoncé de chaque question.
+\item L'utilisation d'une calculatrice \textbf{est autorisée} mais l'échange de
+calculatrices est interdit.
+\item Vous pouvez utiliser le verso de chaque page comme
+feuille de brouillon.
+\end{itemize}
+\end{abstract}
+\newpage
+
+\begin{center}
+\Large \textbf{\uline{Trigonométrie}}
+\end{center}
+\begin{question}<3>
+Calcule le rayon d’un cercle tel qu’un angle au centre de \(\dfrac{3\pi}{5}\rad\)
+détermine un secteur d’aire 80 cm². Arrondis à 0,01 près.
+\end{question}
+\begin{question}<4>
+ Un agriculteur désire vendre un champ au prix de 50 000 € par hectare.
+Calcule le prix de vente du champ dont la forme est donnée ci-dessous sachant
+que la surface grisée est un secteur circulaire. Arrondis à l’euro près.
+
+\emph{Rappel : 1 ha = 10 000 m²}.
+\end{question}
+\begin{question}<2>
+Quelle est l’amplitude en radians d’un angle mesurant 128° ? Note les détails de
+ton calcul, à partir d'une règle de trois. Arrondis à 0,01 près.
+\end{question}
+
+\begin{center}
+\Large \textbf{\uline{Dérivée - Partie 2}}
+
+\Large \uline{(OBLIGATOIRE pour tout le monde)}
+\end{center}
+\begin{question}<7>
+Détermine l’équation de la tangente au graphe de \(f(x)=\dfrac{1}{x+1}+2\)
+au point d’abscisse -2. Note ta démarche.
+\end{question}
+\begin{question}<11>
+Soit la fonction \(f(x)=-2x^3+6x^2+18x-3\).
+
+\begin{enumerate}
+\item Construis le tableau de variations de \(f\).
+
+\item Donne les coordonnées des éventuels minimums et maximums.
+
+\item Construis le tableau de concavité de \(f\).
+
+\item Donne les coordonnées des éventuels points d'inflexion.
+\end{enumerate}
+\end{question}
+\begin{question}<8>
+Un laboratoire produit des cachets conditionnés dans des tubes. Le coût
+de fabrication (en dizaines d’euros) de \(x\) tubes est donné par la fonction
+suivante :
+\[
+c(x)=0,7x-0,00035x^2, \text{où }x> 0
+\]
+
+a. Sur quel(s) intervalle(s) le coût augmente-t-il?
+
+b. Quand est-ce que le coût de fabrication sera maximal? Combien vaudra ce coût
+maximal?
+
+\uline{Remarque}: arrondis ta réponse à l'euro près.
+\end{question}
+\begin{center}
+\Large \textbf{\uline{Dérivée - Partie 1}}
+
+\large \uline{(DEUXIEME CHANCE)}
+\end{center}
+\begin{question}<7>
+Soit \(f\) la fonction dont le graphique t'es donné ci-dessous.
+
+a. Dresse le tableau de signes de \(f'\).
+
+b. Dresse le tableau de signes de \(f''\).
+
+c. Complète les égalités suivantes:
+
+c. Complète les pointillés par l'un des trois symboles: \(<\), \(=\) ou \(>\):
+\end{question}
+\begin{question}<3>
+Trace le graphique de \(f'\) à partir de celui de \(f\).
+\end{question}
+\begin{question}<5>
+Voici le graphique d'une fonction \(f\). Par lecture graphique, entoure la bonne
+réponse pour chaque ligne.
+\end{question}
+\begin{question}<4>
+Distingue, parmi les deux graphiques donnés, celui d'une fonction \(f\) et
+celui de sa dérivée première \(f'\). Justifie ton choix (tu peux colorier les
+graphiques).
+\end{question}
+\begin{question}<1>
+Coche le tableau de signes de \(f''\) correspondant à la fonction \(f\)
+représentée ci-dessous.
+\end{question}
+\end{document}

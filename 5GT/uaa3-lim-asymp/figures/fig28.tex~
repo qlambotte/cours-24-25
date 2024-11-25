@@ -1,0 +1,23 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\usepackage{amsmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  \tkzInit[xmin=-3, xmax=3,ymin=-3,ymax=3]
+  \begin{scope}[dashed]
+    \tkzGrid
+  \end{scope}
+  \tkzDrawX[label={$x$}]
+  \tkzDrawY[label={$y$}]
+  \tkzLabelX
+  \tkzLabelY
+  \tkzFct[line width=2pt, domain=-3:3]{(x+1)/(x^{3}+x^{2}+x+1)}
+  \tkzDrawPoint[size=10,color=black,fill=white](-1.0,0.5)
+\end{tikzpicture}
+\end{document}

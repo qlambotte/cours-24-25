@@ -1,0 +1,42 @@
+\documentclass{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes.callouts}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\usepackage{amsmath}
+
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+\begin{tikzpicture}[scale=1.1]
+  \node[ellipse callout,draw,callout absolute pointer={(-0.1,5)}] at
+  (1.5,4.5) {1}; %
+  \node[ellipse callout,draw,callout absolute pointer={(-5,2.25)}] at
+   (-4.5,0.5) {2}; %
+  \node[ellipse callout,draw,callout absolute pointer={(-0.6,-5)}] at
+    (-2.5,-3.5) {3}; %
+  \node[ellipse callout,draw,callout absolute pointer={(5,2.69)}] at
+     (3.5,0.5) {4}; %
+
+  \tkzInit[xmin=-5, xmax=5,ymin=-5,ymax=5]
+  \begin{scope}[dashed]
+    \tkzGrid
+  \end{scope}
+  \tkzDrawX[label={$x$}]
+  \tkzDrawY[label={$y$}]
+  \tkzLabelX
+  \tkzLabelY
+  \tkzFct[line width = 2pt,domain=-7:-0.55]{2.5+1/(x+0.5)}
+  \tkzFct[line width = 2pt,domain=-0.45:7]{2.5+1/(x+0.5)}
+  \tkzDefPoint(-5.0,2.5){A}
+  \tkzDefPoint(5.0,2.5){B}
+  \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B)
+  \tkzDefPoint(-0.50,5){A}
+  \tkzDefPoint(-0.50,-5){B}
+  \tkzDrawSegment[style=dashed,line width = 1.5pt](A,B);
+
+\end{tikzpicture}
+\end{document}

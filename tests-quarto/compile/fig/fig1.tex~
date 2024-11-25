@@ -1,0 +1,18 @@
+ \begin{tikzpicture}[scale=2]
+
+   \tkzInit[xmin=-7,xmax=7,ymin=-1,ymax=1, ystep=0.5]
+\tkzAxeY
+\tkzAxeX[trig=6]
+  \foreach\v in {-1,-0.5,0.5,sqrt(2)/2,sqrt(3)/2,-sqrt(2)/2,-sqrt(3)/2,1}
+  {\tkzHLine[dashed, color=gray]{\v}}
+  \foreach\v in {-12,...,12}
+  {\tkzVLine[dashed, color=gray]{\v*pi/6}}
+ \tkzDefPoints{0/0.5/S1,0/0.70710678118/S2,0/0.86602540378/S3}
+   \tkzDrawPoints[shape=cross,size=12](S1,S2,S3)
+
+      \tkzDefPoints{0/-0.5/S1,0/-0.70710678118/S2,0/-0.86602540378/S3}
+   \tkzDrawPoints[shape=cross,size=12](S1,S2,S3)
+
+\tkzText(0,1.5){\Large Graphique de $\cos(x)$}
+
+ \end{tikzpicture}

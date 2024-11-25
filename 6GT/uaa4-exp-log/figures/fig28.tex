@@ -1,0 +1,68 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+  \tkzInit[xmin=-1,xmax=8,ymin=-5,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=0.001:10,line width=1.5pt]{(log(\x)/log(2.7))}
+
+
+\begin{scope}[xshift=12cm]
+  \tkzInit[xmin=-1,xmax=8,ymin=-5,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=0.00001:10,line width=1.5pt]{(log(\x)/log(0.2))}
+
+\end{scope}
+\begin{scope}[yshift=-13cm]
+  \tkzInit[xmin=-1,xmax=8,ymin=-5,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=0.001:10,line width=1.5pt]{(log(\x)/log(4))}
+
+
+\begin{scope}[xshift=12cm]
+  \tkzInit[xmin=-1,xmax=8,ymin=-5,ymax=5, ystep=1, xstep=1]
+
+     \begin{scope}
+     \tkzGrid[color=gray,sub,subxstep=0.2, subystep=0.2]
+   \end{scope}
+\tkzAxeY
+\tkzDrawX
+\tkzLabelX
+\tkzFct[domain=0.001:10,line width=1.5pt]{(log(\x)/log(2/3.))}
+
+
+\end{scope}
+\end{scope}  
+\end{tikzpicture}
+\end{document}

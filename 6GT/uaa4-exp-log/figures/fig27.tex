@@ -1,0 +1,51 @@
+\documentclass[french]{standalone}
+\usepackage{babel}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{numprint}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\usepackage{setspace}
+	\setstretch{1.25}
+\begin{document}
+\begin{tikzpicture}
+\tkzInit[xmin=-1,xmax=10,ymin=-5,ymax=5]
+\tkzDrawX[noticks]
+\tkzDrawY[noticks]
+\tkzSetUpPoint[size=5]
+\tkzSetUpStyle[postaction=decorate,
+decoration={markings,
+mark=at position 1 with {\arrow[thick]{#1}}
+}]{myarrow}
+
+\tkzDefPoint(5.4,5){A}
+\tkzDefPoint(7.389,2){B}
+\tkzDrawSegments[myarrow=stealth](A,B)
+\tkzFct[domain=0.0001:10,line width=1.5pt]{(log(x))}
+\tkzText[draw,fill=white](5,5){\Huge$a>1$}
+
+
+\begin{scope}[xshift=13cm]
+	\tkzInit[xmin=-1,xmax=10,ymin=-5,ymax=5]
+	\tkzDrawX[noticks]
+	\tkzDrawY[noticks]
+	\tkzSetUpPoint[size=5]
+	\tkzSetUpStyle[postaction=decorate,
+	decoration={markings,
+	mark=at position 1 with {\arrow[thick]{#1}}
+	}]{myarrow}
+	\tkzDefPoint(5.4,-5){A}
+	\tkzDefPoint(7.389,-2){B}
+	\tkzDrawSegments[myarrow=stealth](A,B)
+	\tkzText[draw,fill=white](5,-5){\Huge$0<a<1$}
+	\tkzFct[domain=0.0001:10,line width=1.5pt]{(-log(x))}
+\end{scope}
+
+\end{tikzpicture}
+\end{document}

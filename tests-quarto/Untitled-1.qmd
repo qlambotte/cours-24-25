@@ -1,0 +1,131 @@
+---
+lang: fr
+format: 
+  html: 
+    code-fold: true
+    html-math-method: katex
+    default-image-extension: svg
+  pdf: 
+    template: exam-template.tex
+    pdf-engine: latexmk
+    default-image-extension: pdf
+    pdf-engine-opts:
+      - '-shell-escape'
+    include-in-header:
+        - text: |
+           \usepackage{exam-conf}
+           \renewcommand{\arraystretch}{1.2}
+           \period{\Circled{1 -- 2} -- {3 -- 4} -- 5 -- 6 -- {7 -- 8}}
+           \materiel{Pas de calculatrice}
+           \testsection{5TTi}
+           \testdate{17 juin 2024}
+           \testlastname{}
+           \testfirstname{}
+    keep-tex: true
+  docx: 
+    default-image-extension: svg
+jupyter: python3
+filters:
+  - imagify
+  - latex-environment
+environments: question
+imagify:
+  lazy: true
+  keep-sources: true
+  debug: true
+---
+
+::: {.content-hidden}
+$$
+{{< include latex-macros.tex >}}
+$$
+:::
+
+:::{.question mark=5}
+Voici le graphique d'une fonction. Entoure la ou les bonnes réponses.
+
+![](fig/fig3)
+
+\begin{tabular}{|l|llll|}
+\hline
+                            & \multicolumn{4}{l|}{Possibilités : entoure la bonne réponse}                                        \\ \hline
+$f'(-9)$                    & \multicolumn{1}{l|}{$<0$} & \multicolumn{1}{l|}{$=0$} & \multicolumn{1}{l|}{$>0$} & N’existe pas            \\ \hline
+$f'(-5)$                    & \multicolumn{1}{l|}{$<0$} & \multicolumn{1}{l|}{$=0$} & \multicolumn{1}{l|}{$>0$} & N’existe pas            \\ \hline
+$f'(0)$                     & \multicolumn{1}{l|}{$<0$} & \multicolumn{1}{l|}{$=0$} & \multicolumn{1}{l|}{$>0$} & N’existe pas            \\ \hline
+sur $]-2;5[$, $f'(x)$ est    & \multicolumn{1}{l|}{$<0$} & \multicolumn{1}{l|}{$=0$} & \multicolumn{1}{l|}{$>0$} & Le signe de $f'$ varie  \\ \hline
+sur $]-6;-2[$, $f''(x)$ est & \multicolumn{1}{l|}{$<0$} & \multicolumn{1}{l|}{$=0$} & \multicolumn{1}{l|}{$>0$} & Le signe de $f''$ varie \\ \hline
+\end{tabular}
+:::
+
+:::{.question mark=5}
+Voici le graphique d'une fonction $f$. 
+
+![](fig/fig4)
+
+1. Dresse le tableau de signes de $f'$.
+
+![](fig/tab3)
+
+2. Dresse le tableau de signes de $f''$.
+
+![](fig/tab4)
+
+:::
+
+::: {.question mark=14}
+[*Question*: ]{.content-visible unless-format="pdf"}Calcule les dérivées suivantes.
+
+1. $\left(\dfrac{x+1}{x-2}\right)'$
+   \vspace{3cm}
+2. $\left(\tan(x^2)+x^3\right)'$
+\vspace{3cm}
+2. $\left(\cos(x^2+1)\right)'$
+\vspace{3cm}
+2. $\left((x+2)(x+1)^4\right)'$
+\vspace{3cm}
+2. $\left(\sin(2x)+x^3+1\right)'$
+\vspace{3cm}
+2. $\left(\dfrac{1}{(x+1)^2}\right)'$
+\vspace{3cm}
+2. $\left(\sqrt{x^2+x}\right)'$
+\vspace{3cm}
+:::
+
+{{< pagebreak >}}
+
+::: {.question mark=13}
+[*Question*: ]{.content-visible unless-format="pdf"}
+Soit $f(x)=x^3-3x^2-9x$.
+
+1. Calcule $f'$ et $f''$. Calcule ensuite les racines de ces deux fonctions.
+
+2. Construis le tableau de variations de $f$
+
+![](fig/tab1)
+
+
+3. Donne les coordonnées des éventuels minimums et maximums.
+
+4. Construis le tableau de concavité de $f$ .
+
+![](fig/tab2)
+
+5. Donne les coordonnées des éventuels points d’inflexion.
+:::
+\newpage
+::: {.question mark=5}
+[*Question*: ]{.content-visible unless-format="pdf"}
+Détermine l'équation de la tangente au graphe de $f(x)=x^4+2x$ au point d'abscisse $x=-1$. Donne tous les détails de ton raisonnement.
+:::
+
+::: {.question mark=8}
+[*Question*: ]{.content-visible unless-format="pdf"}
+Une balle est lancée verticalement avec une vitesse initiale de 64m/s. Le nombre
+de mètres au-dessus du sol après $t$ secondes est donné par la fonction suivante :
+$$
+f(t)=-16t^2+64t+2
+$$
+
+1. Sur quels intervalles $f(t)$ est-elle croissante?
+2. Quand est-ce que la hauteur est maximale? À quel moment la hauteur est-elle maximale? 
+:::

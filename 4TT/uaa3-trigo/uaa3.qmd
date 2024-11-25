@@ -1,0 +1,91 @@
+---
+lang: fr
+format: 
+  html: 
+    code-fold: true
+    html-math-method: katex
+    default-image-extension: svg
+  pdf: 
+    pdf-engine: latexmk
+    default-image-extension: pdf
+    documentclass: book
+    classoption: [oneside]
+    papersize: a4
+    include-in-header:
+      - text: |
+          \usepackage{my-conf}
+
+    pdf-engine-opts:
+      - '-shell-escape'
+    keep-tex: true
+  docx: 
+    default-image-extension: svg
+jupyter: python3
+filters:
+   - latex-environment
+environments: [exercice,generalisation,observation, titlepage, center]
+---
+
+::: {.content-hidden}
+$$
+{{< include latex-macros.tex >}}
+$$
+:::
+
+::::{.titlepage}
+:::{.center}
+\vspace{2cm}
+\Huge
+\textbf{4UAA3: Trigonométrie}
+\vspace{4cm}
+
+\includestandalone[width=\linewidth]{figures/fig1}
+:::
+::::
+
+# Aire d'un triangle quelconque
+
+Dans cette UAA, nous prendrons l'habitude d'annoter les triangles de la manière suivante:
+
+:::{.exercice}
+Soit $ABC$ le triangle dont le côté $b$ mesure 10cm et tel que $\alpha=60^\circ$ et $\gamma=45^\circ$.
+
+1. Tracez le triangle $ABC$ avec précision. 
+2. À l'aide du dessin, estimez l'aire du triangle $ABC$.
+3. Calculez l'aire du triangle $ABC$.
+:::
+
+:::{.exercice}
+Soit $ABC$ le triangle dont le côté $c$ mesure 6cm et tel que $\alpha=30^\circ$ et $\beta=70^\circ$.
+
+1. Tracez le triangle $ABC$ avec précision. 
+2. À l'aide du dessin, estimez l'aire du triangle $ABC$.
+3. Calculez l'aire du triangle $ABC$.
+:::
+
+:::{.generalisation}
+Étant donné un triangle $ABC$, on peut calculer l'aire de ce triangle grâce à la formule:
+$$
+  \text{Aire}(ABC)=
+$$
+Autrement dit: pour calculer l'aire d'un triangle, 
+\vspace{2cm}
+
+:::
+
+:::{.observation}
+Quelle est l'idée qui a permis de construire la formule du calcul d'aire?
+\vspace{4cm}
+:::
+# Lois des sinus et cosinus
+## Résolution de triangles
+## Généralisations
+### Loi des sinus
+### Loi des cosinus
+### Formule de l'aire d'un triangle quelconque
+## Un petit problème...
+
+# Trigonométrie dans une triangle quelconque
+## Angles orientés
+## Cercle trigonométrique
+## Relations fondamentales

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Chemin vers le répertoire contenant les fichiers PDF
+pdf_directory="."
+
+for file in fig*.pdf; do
+    filename=${file%.*}
+    inkscape --export-type="svg" "$filename.pdf"
+    inkscape --export-type="png" "$filename.pdf"
+done

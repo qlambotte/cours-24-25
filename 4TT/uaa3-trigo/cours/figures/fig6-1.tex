@@ -1,0 +1,33 @@
+\documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\usepackage{amsmath}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1]
+    \tkzDefPoint(0,0){A}
+    \tkzDefPoint(4,0){C}
+    \tkzDefTriangle[two angles = 60 and 70.893](A,C)
+    \tkzGetPoint{B}
+    \tkzDrawSegment(A,B)
+    \tkzDrawPoints(A,B)
+    \tkzLabelPoints[below left](A)
+    \tkzLabelPoints[above](B)
+    \tkzDrawSegments(A,C B,C)
+    \tkzDrawPoints(C)
+    \tkzLabelPoints[below right](C)
+    \tkzLabelAngle[pos=0.8, right](C,A,B){$\alpha=50^\circ$}
+    \tkzLabelAngle[pos=0.8](A,B,C){$\beta$}
+    \tkzLabelAngle[pos=0.8](B,C,A){$\gamma$}
+    \tkzMarkAngle[size=0.5](C,A,B)
+    \tkzMarkAngle[size=0.5](A,B,C)
+    \tkzMarkAngle[size=0.5](B,C,A)
+    \tkzLabelSegment[right](C,B){$a$}
+    \tkzLabelSegment[left](B,A){$c=5$}
+    \tkzLabelSegment[below](A,C){$b=4$}
+\end{tikzpicture}
+\end{document}

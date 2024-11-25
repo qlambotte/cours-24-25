@@ -1,0 +1,147 @@
+
+    \documentclass{standalone}
+\usepackage{tkz-fct}
+\usepackage{tkz-euclide}
+\usepackage{color}
+\renewcommand*\familydefault{\sfdefault}
+\usepackage{sansmath}
+\sansmath
+\definecolor{gray75}{gray}{0.75}
+\begin{document}
+ \begin{tikzpicture}[scale=1.1]
+   \tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzFct[domain=-3:3,line width=3pt]{x**2+2*x+2}
+   \tkzText[draw, rounded corners](0,7.5){\Huge 1}
+   \tkzText(4,9){\Huge $f$}
+   \tkzText(20,9){\Huge $f'$}
+   \tkzDefPoints{-4/8/A,12/-18/C}
+   \tkzDefRectangle(A,C)\tkzGetPoints{B}{D}
+   \tkzDrawPolygon[line width=2pt](A,...,D)
+    \tkzDefPoints{12/10/A,28/8/C}
+   \tkzDefRectangle(A,C)\tkzGetPoints{B}{D}
+   \tkzDrawPolygon[line width=2pt](A,...,D)
+   \tkzDefPoints{-4/10/A,12/8/C}
+   \tkzDefRectangle(A,C)\tkzGetPoints{B}{D}
+   \tkzDrawPolygon[line width=2pt](A,...,D)
+   \tkzDefPoints{1/-21/A,7/-26/C}
+   \tkzDefRectangle(A,C)\tkzGetPoints{B}{D}
+   \tkzDrawPolygon[line width=2pt](A,...,D)
+   \tkzText(4,-22){\Huge Réponses:}
+   \tkzText(4,-24){\Huge
+\begin{tabular}{|c|c|}
+\hline
+1 -- $\ldots$ & 2 -- $\ldots$ \\ \hline
+3 -- $\ldots$ & 4 -- $\ldots$ \\ \hline
+\end{tabular}
+   }
+\begin{scope}[xshift = 8cm]
+\tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzText[draw, rounded corners](0,7.5){\Huge 2}
+   \tkzFct[domain=-3:3,line width=3pt]{x**4/4-x**3/3-x**2}
+\end{scope}
+\begin{scope}[yshift=-13cm]
+   \tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzText[draw, rounded corners](0,7.5){\Huge 3}
+   \tkzFct[domain=-3:3,line width=3pt]{-2*x**3/3+2*x}
+\begin{scope}[xshift = 8cm]
+\tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+
+   \tkzText[draw, rounded corners](0,7.5){\Huge 4}
+   \tkzFct[domain=-3:3,line width=3pt]{-x**2-2*x-2}
+\end{scope}
+\end{scope}
+\begin{scope}[xshift=16cm]
+   \tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzText[draw, rounded corners](0,7.5){\Huge A}
+   \tkzFct[domain=-3:3,line width=3pt]{-2*x-2}
+      \tkzDefPoints{-4/8/A,12/-31/C}
+   \tkzDefRectangle(A,C)\tkzGetPoints{B}{D}
+   \tkzDrawPolygon[line width=2pt](A,...,D)
+\begin{scope}[xshift = 8cm]
+\tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzText[draw, rounded corners](0,7.5){\Huge B}
+   \tkzFct[domain=-3:3,line width=3pt]{2*x**2-2}
+\end{scope}
+\begin{scope}[yshift=-13cm]
+   \tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzText[draw, rounded corners](0,7.5){\Huge C}
+   \tkzFct[domain=-3:3,line width=3pt]{2*x+2}
+\begin{scope}[xshift = 8cm]
+\tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzText[draw, rounded corners](0,7.5){\Huge D}
+   \tkzFct[domain=-3:3,line width=3pt]{-2*x**2+2}
+\end{scope}
+\end{scope}
+\begin{scope}[xshift=4cm, yshift=-26cm]
+\tkzInit[xmax=3.0,ymax=6.0,xmin=-3.0 ,ymin=-4.0]
+   \begin{scope}[dashed]
+     \tkzGrid
+   \end{scope}
+   \tkzDrawX[label={$x$}]
+   \tkzDrawY[label={$y$}]
+   \tkzLabelX
+   \tkzLabelY
+   \tkzText[draw, rounded corners](0,7.5){\Huge E}
+   \tkzFct[domain=-3:3,line width=3pt]{x**3-x**2-2*x}
+\end{scope}
+
+\end{scope}
+
+\end{tikzpicture}
+\end{document}
